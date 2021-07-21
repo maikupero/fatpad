@@ -24,6 +24,7 @@
 //     }
 //     return [];
 //   };
+<<<<<<< HEAD
 // // another attempt
 // var attempt = function(address, n) {
 //     let i = [];
@@ -44,6 +45,32 @@
 //     }
 // }
 // console.log(attempt(8, 5))
+=======
+
+var attempt = function(address, n) {
+    let i = [];
+    let j = [];
+    let p = 0;
+    if (address % 2 == 0) {
+        for (let j = n * 2; j > 0; j - 2) {         // 10, 8, 6, 4, 2
+            for (let i = 1; i < n * 2; i + 2) {     // 1, 3, 5, 7, 9
+                // 10 -> 6 = 2
+                // 10 -> 2 = 4
+                // (10-2) / 2
+                // steps = (2*n - address) / 2
+                var check = (j[p] == address);
+                if (check == true) {
+                    return i[p];
+                }
+                else {
+                    p = p + 1;
+                }
+            }
+        }
+    }
+}
+console.log(attempt(8, 5))
+>>>>>>> 5ed9c54d24f662b86634d5358b12a13d70bb4af2
 // var overTheRoad = function(address, n) { 
 //     let p = 0; //position
 //     if(address % 2 == 0) { //for evens
