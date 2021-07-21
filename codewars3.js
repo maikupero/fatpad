@@ -19,7 +19,7 @@ function alphabetPosition(text) {
         console.log(code); 
         if (26 >= code && code >= 1) {
             result += code.toString() + ' ';
-        }
+        }  how would you clean it up? im sure you can do chains of like .toString.trimRight. etc?
     }  // so at this point i was figuring out how to add a space between each number.
         // i also need to remember to subtract 97 from each number. 
     return result.trimRight() // <-- i am proud i knew to put it here 
