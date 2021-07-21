@@ -26,28 +26,40 @@
 //   };
 
 var attempt = function(address, n) {
-    let i = [];
-    let j = [];
-    let p = 0;
-    if (address % 2 == 0) {
-        for (let j = n * 2; j > 0; j - 2) {         // 10, 8, 6, 4, 2
-            for (let i = 1; i < n * 2; i + 2) {     // 1, 3, 5, 7, 9
-                // 10 -> 6 = 2
-                // 10 -> 2 = 4
-                // (10-2) / 2
-                // steps = (2*n - address) / 2
-                var check = (j[p] == address);
-                if (check == true) {
-                    return i[p];
-                }
-                else {
-                    p = p + 1;
-                }
-            }
-        }
+    let evens = [];
+    let odds = [];
+    let steps = 0;
+    let answer = 0;
+
+    for (let house = n * 2; house > 0; house -= 2) {
+        evens.push(house);
     }
+
+    for (let house = 1; house < 2*n; house += 2) {
+        odds.push(house);
+    }
+
+    if (address % 2 == 0) {
+        steps = evens.indexOf(address);
+        answer = odds[steps];
+    } else {
+        steps = odds.indexOf(address);
+        answer = evens[steps];
+    }
+
+    return answer
 }
-console.log(attempt(8, 5))
+            /*
+            var check = (evens[p] == address);
+            if (check == true) {
+                return i[p];
+            }
+            else {
+                p = p + 1;
+            } */
+console.log('first test:', attempt(8, 5) == 3)
+console.log('first test:', attempt(51, 100))
+
 // var overTheRoad = function(address, n) { 
 //     let p = 0; //position
 //     if(address % 2 == 0) { //for evens
