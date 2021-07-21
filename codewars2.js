@@ -24,26 +24,26 @@
 //     }
 //     return [];
 //   };
-
-var attempt = function(address, n) {
-    let i = [];
-    let j = [];
-    let p = 0;
-    if(address % 2 == 0) {
-        for (let j = n * 2; j > 0; j - 2) {
-            for (let i = 1; i < n * 2; i + 2) {
-                var check = (j[p] == address);
-                if (check == true) {
-                    return i[p];
-                }
-                else {
-                    p = p + 1;
-                }
-            }
-        }
-    }
-}
-console.log(attempt(8, 5))
+// // another attempt
+// var attempt = function(address, n) {
+//     let i = [];
+//     let j = [];
+//     let p = 0;
+//     if (address % 2 == 0) {
+//         for (let j = n * 2; j > 0; j - 2) {
+//             for (let i = 1; i < n * 2; i + 2) {
+//                 var check = (j[p] == address);
+//                 if (check == true) {
+//                     return i[p];
+//                 }
+//                 else {
+//                     p = p + 1;
+//                 }
+//             }
+//         }
+//     }
+// }
+// console.log(attempt(8, 5))
 // var overTheRoad = function(address, n) { 
 //     let p = 0; //position
 //     if(address % 2 == 0) { //for evens
@@ -99,3 +99,56 @@ console.log(attempt(8, 5))
 //         }
 //     }
 // }; 
+//------------------------------------------------------
+//------------------------------------------------------
+//best solution
+function genius(address, n) {
+    return (2 * n + 1) - address
+}
+console.log(genius(8,5))
+console.log(genius(37, 50))
+
+//eric's math solution
+10, 8, 6, 4, 2
+1, 3, 5, 7, 9
+function overTheRoad(address, n) {
+
+    let p = 0;
+
+    if (address % 2 == 0) {
+       p = (2 * n - address) / 2;
+       return 1 + (2 * p);
+    } else {
+       p = (address - 1) / 2;
+       return (2 * n) - (2 * p);
+    }
+}
+console.log(overTheRoad(8, 5))
+//------------------------------------------------------
+//------------------------------------------------------
+
+//Michael's working slow solution
+function overMyRoad(address, n) {
+     let evens = [];
+     let odds = [];
+     let p = 0;
+     
+     for (let i = n * 2; i > 0; i -= 2) {  //10, 8, 6, 4, 2
+        evens.push(i);
+     }
+     for (let i = 1; i < n * 2; i += 2) {   //1, 3, 5, 7, 9
+        odds.push(i);
+     }
+
+     if (address % 2 == 0) {
+         p = evens.indexOf(address);
+         return odds[p];
+     } else {
+        p = odds.indexOf(address);
+        return evens[p];
+     }
+ }
+
+ console.log(overMyRoad(8, 5))
+
+ console.log(overMyRoad(41, 50))
