@@ -3,7 +3,7 @@ function reverseWords(str){
     x = str.split(' ');
     y = [];
     while (x.length > 0) {
-        word = x.shift();
+        word = x.pop(); //shift if pulling from beginning, pop removes from end
         console.log(word);
         y.push(word);
     }
