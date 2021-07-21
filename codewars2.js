@@ -24,7 +24,6 @@
 //     }
 //     return [];
 //   };
-<<<<<<< HEAD
 // // another attempt
 // var attempt = function(address, n) {
 //     let i = [];
@@ -45,7 +44,6 @@
 //     }
 // }
 // console.log(attempt(8, 5))
-=======
 
 var attempt = function(address, n) {
     let i = [];
@@ -70,7 +68,6 @@ var attempt = function(address, n) {
     }
 }
 console.log(attempt(8, 5))
->>>>>>> 5ed9c54d24f662b86634d5358b12a13d70bb4af2
 // var overTheRoad = function(address, n) { 
 //     let p = 0; //position
 //     if(address % 2 == 0) { //for evens
