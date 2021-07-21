@@ -11,3 +11,10 @@ function mouthSize(animal) {
       return "wide";
     }
   }
+
+  //remember ternary operator
+  function mouthSize(animal) {
+    return animal.toLowerCase() == 'alligator' ? 'small' : 'wide';
+  }
+
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
