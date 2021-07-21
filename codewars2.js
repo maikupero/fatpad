@@ -12,33 +12,67 @@
 //i's counting up by 2 from 1
 //j's counting down by 2 from n*2
 //while address = i[] return j[]
+// var twoSum = function(nums, target) {
+//     const hash = {};
+//     for(let i = 0; i < nums.length; i++){
+//       const difference = target - nums[i];
+//       if(difference in hash){
+//         return [i, hash[difference]];
+//       }else{
+//         hash[nums[i]] = i;
+//       }
+//     }
+//     return [];
+//   };
 
-var overTheRoad = function(address, n) {
-    let x = 0;
+var attempt = function(address, n) {
+    let i = [];
+    let j = [];
+    let p = 0;
     if(address % 2 == 0) {
-        for (let j = n * 2; j > 0; j-2) {
-            if (address == j) {      
-                return i + (x ?  
-                } 
-            else {
-                x = x + 1;
-            } 
-        }
-    }
-    else {
-        for (let i = 1; i < n * 2; i+2) {       
-            if (address == i[x]) {
-                return j[x];
+        for (let j = n * 2; j > 0; j - 2) {
+            for (let i = 1; i < n * 2; i + 2) {
+                var check = (j[p] == address);
+                if (check == true) {
+                    return i[p];
                 }
-            else {
-                x = x + 1;
+                else {
+                    p = p + 1;
+                }
             }
-            
         }
     }
 }
-    
-console.assert(overTheRoad(7, 5) == 4, `expected 4, instead returned ${overTheRoad(7,5)}`)
+console.log(attempt(8, 5))
+// var overTheRoad = function(address, n) { 
+//     let p = 0; //position
+//     if(address % 2 == 0) { //for evens
+//         for (let j = n * 2; j > 0; j - 2) { 
+//             for (let i = 1; i < n * 2; i + 2) {
+//                 var check = (j[p] == address);
+//                 if (check == true) {   
+//                     return i[p];
+//                 }
+//                 else {
+//                     p = p + 1;
+//                 }
+//             }
+//         } 
+//     }
+//     else { //for odds
+//         for (let i = 1; i < n * 2; i+2) {       
+//             if (address == i[x]) {
+//                 return j[x];
+//                 }
+//             else {
+//                 x = x + 1;
+//             }
+            
+//         }
+//     }
+// }
+// console.assert(overTheRoad(10, 5) == 1, `expected 1, instead returned ${overTheRoad(10,5)}`)
+// console.log(overTheRoad(10,5))
     // const odds = function(n) {
     //     for (let i = 1; i < n * 2 - 1; i+2) {
             
