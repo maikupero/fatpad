@@ -1,16 +1,36 @@
-//net
-function updateLight(current) {
+// //net  dumb ternary
+// function updateLight(current) {
   
-    return current === 'yellow' ? 'red' : current === 'green' ? 'yellow' : 'green';
-    return (current === 'yellow') ? 'red' : ((current === 'green') ? 'yellow' : 'green');
-  }
+//     return current === 'yellow' ? 'red' : current === 'green' ? 'yellow' : 'green';
+//     return (current === 'yellow') ? 'red' : ((current === 'green') ? 'yellow' : 'green');
+//   }
 
-  const updateLight = current => ({
-    green: 'yellow',
-    yellow: 'red',
-    red: 'green',
-  })[current]
+//   // clever but idk how practical this is
+//   const updateLight = current => ({
+//     green: 'yellow',
+//     yellow: 'red',
+//     red: 'green',
+//   })[current]
 
+  // SWITCH STUFF
+//   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+//   function updateLight(current) {
+//     switch (current) {
+//       case 'green':
+//         return 'yellow';
+//         break;
+//       case 'yellow':
+//         return 'red';
+//         break;
+//       case 'red':
+//         return 'green';
+//         break;
+//       default:
+//         throw 'Error: wrong input';
+//         break;
+//     }
+    
+//   }
   //me 
 
 function updateLight(current) {
