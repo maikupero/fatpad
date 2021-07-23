@@ -20,29 +20,14 @@
 
 // 2. something with %10
 var isPalindrome = function(x) {        
-    let y; 
-    let int;    
-    let counter;    
-        while (x > 0) {
-            y = (x % 10);  
-            x = (x - y) / 10; 
-
-            if (counter == 0) {
-                int += y;
-            }
-                else {
-                int += (y * (10 ** counter));     //2 + 9 * 10^1
-                }
-            
-            counter += 1;
-
-            console.log(int);
-            console.log(y);
-        }
-    return int === x
-}
-console.log(isPalindrome(239932))
-console.log(isPalindrome(492))
+    let y = 0;  
+    let r = x;          
+    while (r > 0) {
+        y = (y * 10) + (r % 10); 
+        r = (r - (r % 10)) / 10; 
+    }
+    return y === x
+}   
 // so what happens.  492 goes in, remainder of %10 is 2. finish = 2. x becomes 49. int becomes.
 
 // ----------------------------submitted code----------------------------
