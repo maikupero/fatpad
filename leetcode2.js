@@ -19,15 +19,7 @@
 //why is it only going 3 values into the array before ending the function?
 
 // 2. something with %10
-var isPalindrome = function(x) {        
-    let y = 0;  
-    let r = x;          
-    while (r > 0) {
-        y = (y * 10) + (r % 10); 
-        r = (r - (r % 10)) / 10; 
-    }
-    return y === x
-}   
+
 // so what happens.  492 goes in, remainder of %10 is 2. finish = 2. x becomes 49. int becomes.
 
 // ----------------------------submitted code----------------------------
