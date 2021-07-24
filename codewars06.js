@@ -1,14 +1,14 @@
 //bro's
-function reverseWords(str){
-    x = str.split(' ');
-    y = [];
-    while (x.length > 0) {
-        word = x.pop(); //shift if pulling from beginning, pop removes from end
-        console.log(word);
-        y.push(word);
-    }
-    return y.join(' ')
-}
+// function reverseWords(str){
+//     x = str.split(' ');
+//     y = [];
+//     while (x.length > 0) {
+//         word = x.pop(); //shift if pulling from beginning, pop removes from end
+//         console.log(word);
+//         y.push(word);
+//     }
+//     return y.join(' ')
+// }
 // pop takes victory out and sets word == victory, then push unto y
 // shift push: queue  (make a line)    pop push: stack (pancakes)
 // useful i.e. mtg with orders of priority. something happening in response to something else that needs to happen first.
