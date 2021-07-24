@@ -31,7 +31,7 @@ function printerError(s) {
     }
     return `${e.length}/${s.length}` //return length of (number of values in) e over length of the original data
 }
-// function needs to be able to recognize "ignore a-m" and "put xyz's into e"
+// function needs to be able to recognize "ignore a-m" and "put n-z's into e"
 console.log(`expected "3/56" returned ${printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")}`)
 
 // In a factory a printer prints labels for boxes. 
