@@ -18,18 +18,18 @@
 // }
 
 function printerError(s) {
-    let e = [];
-    let a = ['n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    for (let i = 0; i < s.length; i++) {
-        for (let j = 0; j < a.length; j++) {
-            if (s[i] == a[j]) {
-                e.push(a[j]);
+    let e = []; //error array
+    let a = ['n','o','p','q','r','s','t','u','v','w','x','y','z']; //error data
+    for (let i = 0; i < s.length; i++) {    //for every index in s
+        for (let j = 0; j < a.length; j++) {    //match them against every index in a
+            if (s[i] == a[j]) { 
+                e.push(a[j]);   // if error, put it in error array
             } else {
-                continue;
+                continue; //if not, forget about it
             }
         }
     }
-    return `${e.length}/${s.length}` 
+    return `${e.length}/${s.length}` //return length of (number of values in) e over length of the original data
 }
 // function needs to be able to recognize "ignore a-m" and "put xyz's into e"
 console.log(`expected "3/56" returned ${printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")}`)
