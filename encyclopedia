@@ -1,0 +1,15 @@
+
+(var) (name) = (argument) =>    /// (var) (attempt) = function(argument) {
+.split() - splits elements of a string into an array
+.reverse() - reverses the elements in an array
+.join() - joins the elements into a new string
+Array.from()
+
+.map applies ___ to an array and spits out a new array
+
+Math.floor()/round()
+Math.abs()
+
+
+for ... of - for loop but maintains indeces
+for ... in - for loop without indices
