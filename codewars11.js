@@ -1,5 +1,9 @@
 litres = (time) => Math.floor(time/2)
 
+str = 'Fat'
+stra = 'f'.toUpperCase();
+console.log(stra);
+return str
 //accidentally deleted and lost test cases but oh well 
 
 
