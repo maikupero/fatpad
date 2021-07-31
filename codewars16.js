@@ -26,25 +26,31 @@ var tvRemote = function(word) {
             ['aA#','SP','','','','','','']              //5
         ]
     ];
-    next = 0;
-    shift = [0,5];
-    coords = [ [0,0,0] ];  
+    let next = 0;
+    let coords = [ [0,0,0] ];
+    let current = Array.from(coords[coords.length - 1]);
+    let space = [1,5,current[current.length - 1]];
+    console.log(coords);
+    console.log(current);
+    console.log(space);
 
     for (letter of word) {          //My Dude
-        for (z in keysets) {
-            for (row in z) {
-                if (row.indexOf(letter) >= 0) {             
-                    next = [row.indexOf(letter), z.indexOf(row), z];
+        if (letter === ' ') {
+            coords.push(space);
+        } 
+        for (z of keysets) {        //each keyset
+            for (row of z) {        //each row
+                if (row.indexOf(letter) >= 0) {                 //if letter is present   
+                    next = [row.indexOf(letter), z.indexOf(row), keysets.indexOf(z)];
                     coords.push(next);
-                    break
                 }
             }
+            next = [0,5,keysets.indexOf(z)];
+            coords.push(next);
         }
     }
-    console.log(next);
-    console.log(z);
-    console.log(keysets[1][2].indexOf('M'));
     console.log(coords);
+
 
     sum = 0;
     for (i = 1; i < coords.length; i++) {
@@ -53,6 +59,7 @@ var tvRemote = function(word) {
         } else {
             sum += Math.abs(coords[i - 1][0]-coords[i][0]);
         } 
+
         if (Math.abs(coords[i - 1][1]-coords[i][1]) > 2) {        // //if wrapping is efficient for y
             sum += (6 - Math.abs(coords[i - 1][1]-coords[i][1]));
         } else {
