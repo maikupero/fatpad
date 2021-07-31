@@ -40,3 +40,13 @@ push pop - add remove to end
 unshift shift - add remove to start
 for ... of - for loop but maintains indeces
 for ... in - for loop without indices
+
+
+
+TRICKS
+var myArry = ["cool", "gnarly", "rad", "farout", "awesome"];
+var offset = 3;
+for( var i=0; i < myArry.length; i++) {
+    var pointer = (i + offset) % myArry.length;
+    console.log(myArry[pointer]);
+}
