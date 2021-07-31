@@ -1,70 +1,69 @@
 var tvRemote = function(word) {
-    kb = [ 
-    [
-        ['a','b','c','d','e','1','2','3'],       //0
-        ['f','g','h','i','j','4','5','6'],       //1
-        ['k','l','m','n','o','7','8','9'],       //2
-        ['p','q','r','s','t','.','@','0'],       //3
-        ['u','v','w','x','y','z','_','/'],       //4
-        ['aA#','SP','','','','','',''],          //5
-    ],
-    [   
-        'abcde123'.toUpperCase().split(''),       //0
-        'fghij456'.toUpperCase().split(''),       //1
-        'klmno789'.toUpperCase().split(''),       //2
-        'pqrst.@0'.toUpperCase().split(''),       //3
-        'uvwxyz_/'.toUpperCase().split(''),       //4
-        ['aA#','SP','','','','','',''],           //5
-    ],
-    [
-        ['^','~','?','!','\'','"','(',')'],          //0
-        ['-',':',';','+','&','%','*','='],           //1
-        ['<','>','€','£','$','¥','¤','\\'],          //2
-        // Array.from(String.raw`<>Hi€£$¥¤\\`), <-- returned two instances of \\ for some reason
-        ['[',']','{','}',',','.','@','§'],           //3
-        ['#','¿','¡','','','','_','/'],             //4
-        ['aA#','SP','','','','','','']              //5
-    ]
-];
+    keysets = [ 
+        [
+            ['a','b','c','d','e','1','2','3'],       //0
+            ['f','g','h','i','j','4','5','6'],       //1
+            ['k','l','m','n','o','7','8','9'],       //2
+            ['p','q','r','s','t','.','@','0'],       //3
+            ['u','v','w','x','y','z','_','/'],       //4
+            ['aA#','SP','','','','','',''],          //5
+        ],
+        [ 
+            'abcde123'.toUpperCase().split(''),       //0
+            'fghij456'.toUpperCase().split(''),       //1
+            'klmno789'.toUpperCase().split(''),       //2
+            'pqrst.@0'.toUpperCase().split(''),       //3
+            'uvwxyz_/'.toUpperCase().split(''),       //4
+            ['aA#','SP','','','','','',''],           //5
+        ],
+        [   
+            ['^','~','?','!','\'','"','(',')'],          //0
+            ['-',':',';','+','&','%','*','='],           //1
+            ['<','>','€','£','$','¥','¤','\\'],          //2
+            // Array.from(String.raw`<>Hi€£$¥¤\\`), <-- returned two instances of \\ for some reason
+            ['[',']','{','}',',','.','@','§'],           //3
+            ['#','¿','¡','','','','_','/'],             //4
+            ['aA#','SP','','','','','','']              //5
+        ]
+    ];
+    next = 0;
+    shift = [0,5];
+    coords = [ [0,0,0] ];  
 
-//if not in kb[current], go to kb[next]  ..  check for 2 to go to 0. SUPER
-// check value in arrays. 
-
-cycle = [kb[0],kb[1],kb[2]]
-
-coords = [ [0,0] ];  
-caps = 0;
-
-    for (letter of word) {                                          //arrays of arrays of arrays
-        //if SP
-        if (letter === ' ') {                                       //for spaces, insert a 1,5
-            next = [1,5];
-            coords.push(next);  
-            console.log(next);  
-            continue
-        } 
-        if (kb[0].indexOf(letter) != -1) {               //if on abc keyboard
-            next = [row.indexOf(letter), x.indexOf(row)];
-            coords.push(next);
-            break;
-        } else if (kb[1].indexOf(letter) != -1) {           //if on ABC keyboard
-            next = [row.indexOf(letter), x.indexOf(row)];
-            coords.push(next);
-            break
-        } else {                                       //if on !@# keyboard
-            next = [row.indexOf(letter), x.indexOf(row)];
-            coords.push(next);
-            break;
-        }
+    for (letter of word) {          //My Dude
+        for (z in keysets) {
+            for (row in z) {
+                if (row.indexOf(letter) >= 0) {             
+                    next = [row.indexOf(letter), z.indexOf(row), z];
+                    coords.push(next);
+                    break
+                }
             }
-            console.log(coords);
-        } 
-        
+        }
     }
+    console.log(next);
+    console.log(z);
+    console.log(keysets[1][2].indexOf('M'));
+    console.log(coords);
 
+    sum = 0;
+    for (i = 1; i < coords.length; i++) {
+        if (Math.abs(coords[i - 1][0]-coords[i][0]) > 4) {       //if wrapping is efficient for coords
+            sum += (8 - Math.abs(coords[i - 1][0]-coords[i][0]));
+        } else {
+            sum += Math.abs(coords[i - 1][0]-coords[i][0]);
+        } 
+        if (Math.abs(coords[i - 1][1]-coords[i][1]) > 2) {        // //if wrapping is efficient for y
+            sum += (6 - Math.abs(coords[i - 1][1]-coords[i][1]));
+        } else {
+            sum += Math.abs(coords[i - 1][1]-coords[i][1]);
+        }
+        sum += 1
+    }
+    return sum
 }
         
-console.log(`expected 61, returned ${tvRemote("My Dude")}`);
+console.log(`expected ?, returned ${tvRemote("My Dude")}`);
     //     //if letter in kb[0]
     //     if 
     //     //if letter in kb[1]
