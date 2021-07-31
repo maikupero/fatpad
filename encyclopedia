@@ -1,3 +1,28 @@
+TERMINAL 
+pwd -P present working directory  -path
+
+ls -(  )    list files/directories
+a all files
+l  long form
+h human readable sizes      (lh is good)
+S sort by size
+t last modified time
+r reverse
+
+ln links
+hard links create a copy of the linked file
+$ ln a.txt b.txt 
+-s for symbolic link (for directories/files, even on other file systems)
+
+cd change directories
+
+mkdir    make directory
+
+cp for copying files    cp -Rv for copying directories
+rm delete
+mv move
+__________________________________________________________________________________________
+JS jams
 
 (var) (name) = (argument) =>    /// (var) (attempt) = function(argument) {
 .split() - splits elements of a string into an array
@@ -9,7 +34,9 @@ Array.from()
 
 Math.floor()/round()
 Math.abs()
+Math.min()/max()
 
-
+push pop - add remove to end 
+unshift shift - add remove to start
 for ... of - for loop but maintains indeces
 for ... in - for loop without indices
