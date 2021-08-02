@@ -44,9 +44,13 @@ for ... in - for loop without indices
 
 
 TRICKS
+_______for loop that starts partway through but loops back around
 var myArry = ["cool", "gnarly", "rad", "farout", "awesome"];
 var offset = 3;
 for( var i=0; i < myArry.length; i++) {
     var pointer = (i + offset) % myArry.length;
     console.log(myArry[pointer]);
 }
+
+_______Remove spaces from string
+.replace(/\s/g, '')
