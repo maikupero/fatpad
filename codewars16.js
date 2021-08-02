@@ -1,12 +1,12 @@
 var tvRemote = function(word) {
-    keysets = [ 
+    let keysets = [ 
         [
             ['a','b','c','d','e','1','2','3'],       //0
             ['f','g','h','i','j','4','5','6'],       //1
             ['k','l','m','n','o','7','8','9'],       //2
             ['p','q','r','s','t','.','@','0'],       //3
             ['u','v','w','x','y','z','_','/'],       //4
-            ['aA#','SP','','','','','',''],          //5
+            ['aA#',' ','','','','','',''],           //5
         ],
         [ 
             'abcde123'.toUpperCase().split(''),       //0
@@ -14,123 +14,85 @@ var tvRemote = function(word) {
             'klmno789'.toUpperCase().split(''),       //2
             'pqrst.@0'.toUpperCase().split(''),       //3
             'uvwxyz_/'.toUpperCase().split(''),       //4
-            ['aA#','SP','','','','','',''],           //5
+            ['aA#',' ','','','','','',''],            //5
         ],
         [   
-            ['^','~','?','!','\'','"','(',')'],          //0
-            ['-',':',';','+','&','%','*','='],           //1
-            ['<','>','€','£','$','¥','¤','\\'],          //2
-            // Array.from(String.raw`<>Hi€£$¥¤\\`), <-- returned two instances of \\ for some reason
-            ['[',']','{','}',',','.','@','§'],           //3
+            ['^','~','?','!','\'','"','(',')'],         //0
+            ['-',':',';','+','&','%','*','='],          //1
+            ['<','>','€','£','$','¥','¤','\\'],         //2
+            ['[',']','{','}',',','.','@','§'],          //3
             ['#','¿','¡','','','','_','/'],             //4
-            ['aA#','SP','','','','','','']              //5
+            ['aA#',' ','','','','','','']               //5
         ]
     ];
-    let next = 0;
-    let coords = [ [0,0,0] ];
-    let current = Array.from(coords[coords.length - 1]);
-    let space = [1,5,current[current.length - 1]];
-    console.log(coords);
-    console.log(current);
-    console.log(space);
 
-    for (letter of word) {          //My Dude
-        if (letter === ' ') {
-            coords.push(space);
-        } 
-        for (z of keysets) {        //each keyset
-            for (row of z) {        //each row
-                if (row.indexOf(letter) >= 0) {                 //if letter is present   
-                    next = [row.indexOf(letter), z.indexOf(row), keysets.indexOf(z)];
-                    coords.push(next);
+    let last = [0,0,0];
+    let current = [0,0,0];
+    let shift = [0,5];
+    let sum = 0;
+    // console.log(word.split(''));
+    for (let letter of word) {
+        let found = false;
+        // console.log(letter,'this is letter');
+        for (let i = 0; i < keysets.length; i++) {                              //setting keysets to start with the last[2]array and loop back
+            let offset = current[2];
+            let z = (i + offset) % keysets.length;
+            
+            for (let row of keysets[z]) {
+                if (row.indexOf(letter) >= 0) {                                  //check if letter is present   
+                    current = [row.indexOf(letter), keysets[z].indexOf(row), z]; //current letter's coords
+                    if (last[2] != current[2]) {                             //while switching keysets is necessary
+                        if (Math.abs(last[0] - shift[0]) > 4) {                 //last x to 0
+                            sum += (8 - Math.abs(last[0] - shift[0]));
+                        } else {
+                            sum += Math.abs(last[0] - shift[0]);
+                        }
+                        if (Math.abs(last[1] - shift[1]) > 2) {                 //last y to 5
+                            sum += (6 - Math.abs(last[1] - shift[1]));
+                        } else {
+                            sum += Math.abs(last[1] - shift[1]);
+                        }
+                        last[0] = 0;
+                        last[1] = 5;
+                        while (last[2] != current[2]) {
+                            last[2] === 2 ? last[2] = 0 : last[2] += 1;
+                            sum += 1;
+                        }
+                    }                                                           //when on the same keyset
+                    if (Math.abs(last[0] - current[0]) > 4) {       
+                        sum += (8 - Math.abs(last[0] - current[0]));        //x value from last
+                    } else {
+                        sum += Math.abs(last[0] - current[0]);
+                    } 
+                    if (Math.abs(last[1] - current[1]) > 2) {        
+                        sum += (6 - Math.abs(last[1] - current[1]));        //y value from last
+                    } else {
+                        sum += Math.abs(last[1] - current[1]);
+                    }
+                    last = current;
+                    sum += 1;
+                    console.log(letter,current,sum); 
+                    found = true;
                 }
             }
-            next = [0,5,keysets.indexOf(z)];
-            coords.push(next);
+            if (found === true) {
+                break
+            }
         }
-    }
-    console.log(coords);
-
-
-    sum = 0;
-    for (i = 1; i < coords.length; i++) {
-        if (Math.abs(coords[i - 1][0]-coords[i][0]) > 4) {       //if wrapping is efficient for coords
-            sum += (8 - Math.abs(coords[i - 1][0]-coords[i][0]));
-        } else {
-            sum += Math.abs(coords[i - 1][0]-coords[i][0]);
-        } 
-
-        if (Math.abs(coords[i - 1][1]-coords[i][1]) > 2) {        // //if wrapping is efficient for y
-            sum += (6 - Math.abs(coords[i - 1][1]-coords[i][1]));
-        } else {
-            sum += Math.abs(coords[i - 1][1]-coords[i][1]);
-        }
-        sum += 1
     }
     return sum
 }
-        
-console.log(`expected ?, returned ${tvRemote("My Dude")}`);
-    //     //if letter in kb[0]
-    //     if 
-    //     //if letter in kb[1]
-    //     //if letter in kb[2]
-    //     if (letter === letter.toLowerCase() && caps === 0) {
-    //         for (row of arrays) {                       
-    //             if (row.indexOf(letter) >= 0) {
-    //                 coords = [row.indexOf(letter), arrays.indexOf(row)];
-    //                 x.push(coords);
-    //                 break
-    //             }
-    //         }
-    //     }                                    
-    //     if (letter.search(/[a-zA-Z]/) === -1) {                     //for symbols + space, skip caps lock
-    //         for (row of arrays) {                       
-    //             if (row.indexOf(letter) >= 0) {
-    //                 coords = [row.indexOf(letter), arrays.indexOf(row)];
-    //                 x.push(coords);
-    //                 break
-    //             }
-    //         }
-    //     } else {                                                          //for letters
-    //         if (letter === letter.toUpperCase() && caps === false) {
-    //             coords = [0,5];                                             //CAPS LOCK ON  
-    //             x.push(coords); 
-    //             caps = true;
-    //         } else if (letter === letter.toLowerCase() && caps === true) {
-    //             coords = [0,5];                                             //CAPS LOCK OFF
-    //             x.push(coords);
-    //             caps = false;
-    //         }
-    //         letter = letter.toLowerCase();                                  //treat as if lower case to find on keyboard
-    //         for (row of arrays) {                       
-    //             if (row.indexOf(letter) >= 0) {
-    //                 coords = [row.indexOf(letter), arrays.indexOf(row)];
-    //                 x.push(coords);
-    //                 break
-    //             }
-    //         }
-    //     }
-    // }
-//     console.log(x);
-//     sum = 0;
-
-//     for (i = 1; i < x.length; i++) {
-//         if (Math.abs(x[i - 1][0]-x[i][0]) > 4) {       //if wrapping is efficient for x
-//             sum += (8 - Math.abs(x[i - 1][0]-x[i][0]));
-//         } else {
-//             sum += Math.abs(x[i - 1][0]-x[i][0]);
-//         } 
-//         if (Math.abs(x[i - 1][1]-x[i][1]) > 2) {        // //if wrapping is efficient for y
-//             sum += (6 - Math.abs(x[i - 1][1]-x[i][1]));
-//         } else {
-//             sum += Math.abs(x[i - 1][1]-x[i][1]);
-//         }
-//         sum += 1
-//     }
-//     return sum
-// }
-
+       
+console.log(`expected 58, returned ${tvRemote("/13 5/")}`);
+console.log(`expected 58, returned ${tvRemote("     ")}`);
+console.log(`expected 58, returned ${tvRemote("My Dude")}`);
+// console.log(`expected 19, returned ${tvRemote("DOES")}`);
+// console.log(`expected 22, returned ${tvRemote("YOUR")}`);
+// console.log(`expected 34, returned ${tvRemote("SOLUTION")}`);
+// console.log(`expected 19, returned ${tvRemote("WORK")}`);
+// console.log(`expected 38, returned ${tvRemote("{for}")}`);f
+// console.log(`expected 71, returned ${tvRemote("Too Easy?")}`);
+// console.log(`expected 34, returned ${tvRemote("\u00bfwork\u00bf")}`);
 
 // Keypad Mode 1 = alpha-numeric (lowercase)	Keypad Mode 3 = symbols
 // a	b	c	d	e	1	2	3
