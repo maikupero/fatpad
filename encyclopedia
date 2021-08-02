@@ -41,7 +41,9 @@ unshift shift - add remove to start
 for ... of - for loop but maintains indeces
 for ... in - for loop without indices
 
-
+REGEX
+.match by set conditions and returns as elements in an array.
+https://www.rexegg.com/regex-quickstart.html
 
 TRICKS
 _______for loop that starts partway through but loops back around
