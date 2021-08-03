@@ -1,39 +1,41 @@
 function incrementString (string) {
-    console.log(string,'||| Original String');
+    // console.log(string,'||| Original String');
 
     let array = string.split(/(\d+)/);
-    console.log(array,'||| Array from string');
+    // console.log(array,'||| Array from string');
+        
     let head = array.slice(0, array.length - 2);
-    console.log(head,'head');
+    // console.log(head,'head');
 
     last = array.slice(-2);
-    console.log(last,'||| Last number as string');
+    // console.log(last,'||| Last number as string');
 
     let digits = last[0].length;
-    console.log(digits);
+    // console.log(digits);
 
-    let tail = parseInt(last[0],10);
-    console.log(tail,'<tail','type>',typeof tail);
-    let number = parseInt(tail, 10) + 1;
-    console.log(number,'number');
-
-    if (typeof tail != number) {
+    let tail = (parseInt(last[0],10) + 1).toString();
+    // console.log(tail,'<tail','type>',typeof tail);
+        
+    if (isNaN(tail)) {
         let one = '1';
         result = string.concat(one);
     } else {
-        result = console.log(number);
-    }
+        while (tail.length < digits) {
+            tail = '0' + tail;
+        }
 
+        result = head.join('').concat(tail);
+    }
 
     return result;
 }
 
-  console.log(incrementString("foo01bar000"), "foobar001");
-//   console.log(incrementString("foo"), "foo1");
-//   console.log(incrementString("foobar001"), "foobar002");
-//   console.log(incrementString("foobar99"), "foobar100");
-//   console.log(incrementString("foobar099"), "foobar100");
-//   console.log(incrementString(""), "1");
+  console.log(incrementString("foobar000"), "foobar001");
+  console.log(incrementString("foo"), "foo1");
+  console.log(incrementString("foobar001"), "foobar002");
+  console.log(incrementString("foobar99"), "foobar100");
+  console.log(incrementString("foobar099"), "foobar100");
+  console.log(incrementString(""), "1");
   
 // increment a string to create a new string.
 
