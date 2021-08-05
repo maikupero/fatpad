@@ -1,4 +1,4 @@
-import input from '../../puzzles/aoc3data.js';
+import input from '../data/aoc3data.js';
 
 let passWords = function(input) {
     let data = input.split("\n");
