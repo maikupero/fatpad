@@ -1,11 +1,11 @@
 import input from '../data/aoc3data.js';  
 
 let path = function(input) {   
-    let forest_Grid = input.split("\n");        //interpret our input data, lay out the forest
-
-    let row = 0;                            //starting point y
-    let x = 0;                              //starting point x
-    let trees = 0;                          //our counter for trees hit
+    let forest_Grid = input.split("\n");                //interpret our input data, lay out the forest
+    console.log(forest_Grid,forest_Grid.length);
+    let row = 0;                                        //starting point y
+    let x = 0;                                          //starting point x
+    let trees = 0;                                      //our counter for trees hit
 
     // console.log(forest_Grid[0][3]);
     for (row = 1; row <= forest_Grid.length-1; row++) {              //going down 3x per 1y
