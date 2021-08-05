@@ -1,5 +1,4 @@
-JS jams
-
+------ JAVASCRIPT ------
 (var) (name) = (argument) =>    /// (var) (attempt) = function(argument) {
 .split() - splits elements of a string into an array
 .reverse() - reverses the elements in an array
@@ -17,11 +16,12 @@ unshift shift - add remove to start
 for ... of - for loop but maintains indeces
 for ... in - for loop without indices
 
-REGEX
+------ REGEX ------
 .match by set conditions and returns as elements in an array.
 https://www.rexegg.com/regex-quickstart.html
 
-TRICKS
+
+------ NIFTY TRICKS ------
 _______for loop that starts partway through but loops back around
 var myArry = ["cool", "gnarly", "rad", "farout", "awesome"];
 var offset = 3;
@@ -39,7 +39,7 @@ _______Remove spaces from string
 
 
 __________________________________________________________________________________________
-TERMINAL 
+------ TERMINAL ------
 pwd -P present working directory  -path
 
 ls -(  )    list files/directories
