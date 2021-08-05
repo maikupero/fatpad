@@ -62,3 +62,5 @@ mkdir    make directory
 cp for copying files    cp -Rv for copying directories
 rm delete
 mv move
+
+process.exit() for exiting node 

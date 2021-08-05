@@ -1,4 +1,40 @@
-2-8 t: pncmjxlvckfbtrjh
+import input from '../../puzzles/aoc3data.js';
+
+let passWords = function(input) {
+    let data = input.split("\n");
+    let sum = 0;
+    let occurences = 0;
+
+    for (let x of data) {
+        let rule = x.substring(0,x.indexOf(':')).replace(/\s/g, '');
+        let key = rule.slice(rule.length - 1);
+        let pass = x.substring(x.indexOf(':')).replace(/[^a-z]/g, '');
+        console.log(pass,'<- pass');
+        
+        let top_Range = parseInt(rule.substring(rule.indexOf('-')).replace(/[^0-9]/g, ''));
+        let bottom_Range = parseInt(rule.substring(0, rule.indexOf('-')));
+        console.log(bottom_Range,'-',top_Range,' <- our range');
+
+        occurences = 0;
+        for (let y of pass) {
+            if (y === key) {
+                occurences += 1;
+            }
+        }
+
+        console.log(occurences,'occurences of',key);
+        if ((bottom_Range <= occurences) && (occurences <= top_Range)) {
+            sum += 1;
+        }
+        console.log('_______');
+    }
+    return sum
+}
+
+console.log(passWords(input));
+
+/*
+let data = `2-8 t: pncmjxlvckfbtrjh
 8-9 l: lzllllldsl
 3-11 c: ccchcccccclxnkcmc
 3-10 h: xcvxkdqshh
@@ -997,4 +1033,4 @@
 10-18 h: xkswshrhghxlnmhqzr
 5-18 k: kkkkkkkhkkkklkkkknk
 9-10 t: ttttttttnt
-10-11 x: xxxxxxxxxcv
+10-11 x: xxxxxxxxxcv`*/

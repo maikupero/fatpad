@@ -1,39 +1,4 @@
-let rule = '';
-let pass = '';
-let key = '';
-let sum = 0;
-let occurences = 0;
-
-passWords = function(input) {
-    data = input.split("\n");
-
-    for (x of data) {
-        rule = x.substring(0,x.indexOf(':')).replace(/\s/g, '');
-        key = rule.slice(rule.length - 1);
-        pass = x.substring(x.indexOf(':')).replace(/[^a-z]/g, '');
-        console.log(pass,'<- pass');
-        
-        top_Range = parseInt(rule.substring(rule.indexOf('-')).replace(/[^0-9]/g, ''));
-        bottom_Range = parseInt(rule.substring(0, rule.indexOf('-')));
-        console.log(bottom_Range,'-',top_Range,' <- our range');
-
-        occurences = 0;
-        for (y of pass) {
-            if (y === key) {
-                occurences += 1;
-            }
-        }
-
-        console.log(occurences,'occurences of',key);
-        if ((bottom_Range <= occurences) && (occurences <= top_Range)) {
-            sum += 1;
-        }
-        console.log('_______');
-    }
-    return sum
-}
-
-console.log(passWords(`2-8 t: pncmjxlvckfbtrjh
+var input = `2-8 t: pncmjxlvckfbtrjh
 8-9 l: lzllllldsl
 3-11 c: ccchcccccclxnkcmc
 3-10 h: xcvxkdqshh
@@ -1032,4 +997,5 @@ console.log(passWords(`2-8 t: pncmjxlvckfbtrjh
 10-18 h: xkswshrhghxlnmhqzr
 5-18 k: kkkkkkkhkkkklkkkknk
 9-10 t: ttttttttnt
-10-11 x: xxxxxxxxxcv`));
+10-11 x: xxxxxxxxxcv`;
+export default input;
