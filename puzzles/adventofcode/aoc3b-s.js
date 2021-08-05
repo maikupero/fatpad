@@ -3,7 +3,7 @@ import input from '../data/aoc3data.js';
 let path = function(input) {   
     let forest_Grid = input.split("\n");        //interpret our input data, lay out the forest
 
-    let slide_Down = [1,1,1,1,2];                      //rate of descension  
+    let slide_Down = [1,1,1,1,2];               //rate of descension  
     let slide_Across = [1,3,5,7,1];             //rate of traversion        
     
     let row = 0;                                //starting point y
