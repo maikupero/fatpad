@@ -1,5 +1,51 @@
 import input from '../data/aoc4data.js';  
 
+var passPorts = input => {
+    let valid_Sum = 0;
+    let passport_Data = input
+        .replace(/\n/g,' ')         //replace all line breaks with spaces
+        .replace(/(cid:(\d)*(\s))/g,'')     //replace all 'cid' bits since we're ignoring that
+        .split(/\s{2}/);                //make arrays split by two spaces (line break spots)
+    for (let x in passport_Data) {
+        if (passport_Data[x].split(' ').length === 7) {
+            valid_Sum += 1;
+        }
+    }
+    return valid_Sum
+}
+console.log(passPorts(input));
+
+// var passPorts = example => {
+//     let valid_Sum = 0;
+//     let passport_Data = example
+//         .replace(/\n/g,' ')         //replace all line breaks with spaces
+//         .replace(/(cid:(\d)*(\s))/g,'')     //replace all 'cid' bits since we're ignoring that
+//         .split(/\s{2}/);                //make arrays split by two spaces (line break spots)
+//     console.log('0',passport_Data[0],'\n1',passport_Data[1],'\n2',passport_Data[2],'\n3',passport_Data[3]);
+//     console.log(passport_Data[0].split(' ').length)
+//     for (let x in passport_Data) {
+//         if (passport_Data[x].split(' ').length === 7) {
+//             valid_Sum += 1;
+//         }
+//     }
+//     return valid_Sum
+// }
+
+// console.log(passPorts(
+// `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+// byr:1937 iyr:2017 cid:147 hgt:183cm
+
+// iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
+// hcl:#cfa07d byr:1929
+
+// hcl:#ae17e1 iyr:2013
+// eyr:2024
+// ecl:brn pid:760753108 byr:1931
+// hgt:179cm
+
+// hcl:#cfa07d eyr:2025 pid:166559648
+// iyr:2011 ecl:brn hgt:59in`));
+
 // --- Day 4: Passport Processing ---
 // You arrive at the airport only to realize that you grabbed your North Pole Credentials 
 // instead of your passport. While these documents are extremely similar, 
@@ -22,7 +68,7 @@ import input from '../data/aoc4data.js';
 // hcl (Hair Color)
 // ecl (Eye Color)
 // pid (Passport ID)
-// cid (Country ID)
+// cid (Country ID)         // optional 
 
 // Passport data is validated in batch files (your puzzle input). 
 // Each passport is represented as a sequence of key:value pairs separated by 

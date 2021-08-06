@@ -1,4 +1,5 @@
-let input = `iyr:2015
+let input = 
+`iyr:2015
 hgt:59cm byr:2029 cid:219 pid:9381688753 eyr:1992 hcl:#b6652a
 ecl:#7a0fa6
 
@@ -1027,4 +1028,4 @@ pid:147768826 ecl:blu byr:1922 hcl:#ceb3a1 cid:169
 
 ecl:blu byr:2002 eyr:2028 pid:998185490 cid:165 iyr:2020
 hgt:188cm hcl:#c0946f`;
-export default data
+export default input
