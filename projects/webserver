@@ -1,0 +1,24 @@
+https://doc.rust-lang.org/book/ch20-01-single-threaded.html
+
+build webserver backend via rust
+
+have webserver
+1. serves simple js 
+2. answers questions from that js app
+
+• how much space is stored on computer
+• cpu load
+• what time is it
+• drawing app
+can work with 
+
+goal is to understand difference between front and backend
+
+
+
+PVP??? <-- advanced version
+
+save states
+
+js manages the state and stores it in cookies or something
+another version with save button which sends it to rust server which holds it

@@ -1,3 +1,3 @@
-let input = ;
+let input = ``;
 
 export default input
