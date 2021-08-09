@@ -1,77 +1,128 @@
+// NOTES
+// there is definitely a cleaner way to do:
+// • check += 1 everytime. i could probably flip it to if it doesnt work, 
+//      break, otherwise continue till eventually just adding 1 to valid_Sum. 
+// • little confusing with by_Category[1] and [0] all the time, could name it better for readability
+// • that weird thing where i couldnt get it to split by two line breaks at first
+
 import input from '../data/aoc4data.js';  
 
-// var passPorts = input => {
-//     let valid_Sum = 0;
-//     let passport_Data = input
-//         .replace(/\n/g,' ')         //replace all line breaks with spaces
-//         .replace(/(cid:(\d)*(\s))/g,'')     //replace all 'cid' bits since we're ignoring that
-//         .split(/\s{2}/);                //make arrays split by two spaces (line break spots)
-//     for (let x in passport_Data) {
-//         if (passport_Data[x].split(' ').length === 7) {
-//             valid_Sum += 1;
-//         }
-//     }
-//     return valid_Sum
-// }
-// console.log(passPorts(input));
 
-var passPorts = example => {
+var passPorts = input => {
     let valid_Sum = 0;
-    let passport_Data = example
+    let check = 0;
+    let passport_Data = input
         .replace(/\n/g,' ')         //replace all line breaks with spaces
         .replace(/(cid:(\d)*(\s))/g,'')     //replace all 'cid' bits since we're ignoring that
-        .split(/\s{2}/);                //make arrays split by two spaces (line break spots)
-    console.log('0',passport_Data[0],'\n1',passport_Data[1],'\n2',passport_Data[2],'\n3',passport_Data[3],'\n4',passport_Data[4],'\n5',passport_Data[5],'\n6',passport_Data[6],'\n7',passport_Data[7]);
-    for (let x in passport_Data) {                                  //each passport
-        if (passport_Data[x].split(' ').length === 7) {
+        .split(/\s{2}/)               //make arrays split by two spaces (line break spots)
+        .map(x => x.split(/\s/));
+    
+    let by_Category;
+    let eyecolors = ['amb','blu','brn','gry','grn','hzl','oth'];
+
+    for (let passport of passport_Data) {
+        check = 0;
+        for (let info of passport) {
+            by_Category = info.split(":");
+            switch (by_Category[0]) {
+                case 'byr':
+                    if ((1920 <= by_Category[1]) && (by_Category[1] <= 2002)) {
+                        check += 1;
+                    };
+                    break;
+                case 'eyr':
+                    if ((2020 <= by_Category[1]) && (by_Category[1] <= 2030)) {
+                        check += 1;
+                    };
+                    break;
+                case 'iyr':
+                    if ((2010 <= by_Category[1]) && (by_Category[1] <= 2020)) {
+                        check += 1;
+                    };
+                    break;
+                case 'hgt':
+                    switch (by_Category[1].slice(-2)) {
+                        case 'cm': 
+                            if ((150 <= by_Category[1].slice(0,3)) && (by_Category[1].slice(0,3) <= 193)) {
+                                check += 1;
+                            };
+                            break;
+                        case 'in':
+                            if ((59 <= by_Category[1].slice(0,2)) && (by_Category[1].slice(0,2) <= 76)) {
+                                check += 1;
+                            };
+                            break;
+                    }
+                    break;
+                case 'hcl': 
+                    if ((by_Category[1][0] === '#') && (by_Category[1].match(/[^0-9a-f#]/g) === null)) {
+                        check += 1;
+                    };
+                    break;
+                case 'ecl':
+                    if (eyecolors.includes(by_Category[1])) {
+                        check += 1;
+                    };
+                    break;
+                case 'pid':
+                    if (by_Category[1].length === 9) {
+                        check += 1;
+                    };
+                    break;
+                default:
+                    console.log('you messed up somewhere bro');
+            }
+            console.log(check);
+        }
+        if (check === 7) {
             valid_Sum += 1;
         }
     }
+
     return valid_Sum
 }
 
-console.log(passPorts(
-`eyr:1972 cid:100
-hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926
+console.log(passPorts(input));
 
-iyr:2019
-hcl:#602927 eyr:1967 hgt:170cm
-ecl:grn pid:012533040 byr:1946
+// EXAMPLE 
+// `eyr:1972 cid:100
+// hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926
 
-hcl:dab227 iyr:2012
-ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277
+// iyr:2019
+// hcl:#602927 eyr:1967 hgt:170cm
+// ecl:grn pid:012533040 byr:1946
 
-hgt:59cm ecl:zzz
-eyr:2038 hcl:74454a iyr:2023
-pid:3556412378 byr:2007
+// hcl:dab227 iyr:2012
+// ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277
 
-pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
-hcl:#623a2f
+// hgt:59cm ecl:zzz
+// eyr:2038 hcl:74454a iyr:2023
+// pid:3556412378 byr:2007
 
-eyr:2029 ecl:blu cid:129 byr:1989
-iyr:2014 pid:896056539 hcl:#a97842 hgt:165cm
+// pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
+// hcl:#623a2f
 
-hcl:#888785
-hgt:164cm byr:2001 iyr:2015 cid:88
-pid:545766238 ecl:hzl
-eyr:2022
+// eyr:2029 ecl:blu cid:129 byr:1989
+// iyr:2014 pid:896056539 hcl:#a97842 hgt:165cm
 
-iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`));
+// hcl:#888785
+// hgt:164cm byr:2001 iyr:2015 cid:88
+// pid:545766238 ecl:hzl
+// eyr:2022
 
+// iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`
 // --- Part Two ---
 // The line is moving more quickly now, but you overhear airport security talking about how passports with invalid data are getting through. Better add some data validation, quick!
 
 // You can continue to ignore the cid field, but each other field has strict rules about what values are valid for automatic validation:
 
-// byr (Birth Year) - four digits; at least 1920 and at most 2002.
-// iyr (Issue Year) - four digits; at least 2010 and at most 2020.
-// eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
-// hgt (Height) - a number followed by either cm or in:
-// If cm, the number must be at least 150 and at most 193.
-// If in, the number must be at least 59 and at most 76.
-// hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
-// ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
-// pid (Passport ID) - a nine-digit number, including leading zeroes.
+
+
+
+
+
+
+
 // cid (Country ID) - ignored, missing or not.
 // Your job is to count the passports where all required fields are both present and valid according to the above rules. Here are some example values:
 
