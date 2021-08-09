@@ -1,25 +1,21 @@
 ------ JAVASCRIPT ------
 (var) (name) = (argument) =>    /// (var) (attempt) = function(argument) {
+
+Reverse string 
 .split() - splits elements of a string into an array
 .reverse() - reverses the elements in an array
 .join() - joins the elements into a new string
-Array.from()
-
-.map applies ___ to an array and spits out a new array
-
-Math.floor()/round()
-Math.abs()
-Math.min()/max()
 
 push pop - add remove to end 
 unshift shift - add remove to start
+
 for ... of - for loop but maintains indeces
 for ... in - for loop without indices
 
------- REGEX ------
-.match by set conditions and returns as elements in an array.
-https://www.rexegg.com/regex-quickstart.html
+.map and .match are king
 
+------ REGEX ------
+https://www.rexegg.com/regex-quickstart.html
 
 ------ NIFTY TRICKS ------
 _______for loop that starts partway through but loops back around
