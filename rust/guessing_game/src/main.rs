@@ -1,15 +1,40 @@
+use rand::Rng;
 use std::io;
+use std::cmp::Ordering;
 
 fn main() {
     println!("Welcome to GUESS JAM");
 
-    println!("GIMME YO GUESS");
+    let secret_number = rand::thread_rng().gen_range(1..101);
 
-    let mut guess = String::new();
+    // println!("Secret Number: {}", secret_number);
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+    loop {
+        println!("GIMME YO GUESS");
 
-    println!("You guessed: {}", guess);
+        let mut guess = String::new();
+
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
+
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("you suck gimme a real guess");
+                continue;
+            }
+        };
+
+        println!("You guessed: {}", guess);
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("whimpy guess"),
+            Ordering::Greater => println!("WAY over"),
+            Ordering::Equal => {
+                println!("ez");
+                break;
+            }
+        }
+    }
 }

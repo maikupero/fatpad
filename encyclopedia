@@ -9,6 +9,8 @@ for new projects, in rust directory:
 
 for switching projects, in terminal cd ../(program)
 
+To learn about dependencies: cargo doc --open
+
 ./target/debug/hello_cargo, cargo run, or check(compile without executable)
 when done, cargo build --release
 
@@ -20,11 +22,19 @@ when done, cargo build --release
 
 4. Semicolon line enders are common (;).
 
+5. Rust’s naming convention for constants is to use all uppercase with underscores between words, 
+and underscores can be inserted in numeric literals to improve readability
+
 Variables
     let foo = 5; // immutable
     let mut bar = 5; // mutable
-    
+
+Enumerables - Variants
+    Result - Ok, Err
+    Ordering - Less, Greater, Equal
 use std::io;    io: input output library, from standard lib
+
+.gen_range(1..101);   inclusive on lower, exclusive on upper. alternatively: 1..=100
 
 ------ JAVASCRIPT ------
 (var) (name) = (argument) =>    /// (var) (attempt) = function(argument) {
