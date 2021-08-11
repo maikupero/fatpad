@@ -100,7 +100,7 @@ Enumerables - Variants
     Result - Ok, Err
     Ordering - Less, Greater, Equal
 
-
+for ___ :  ____ 
 ------ JAVASCRIPT ------
 (var) (name) = (argument) =>    /// (var) (attempt) = function(argument) {
 
