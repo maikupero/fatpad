@@ -52,7 +52,6 @@ https://web.stanford.edu/class/cs140/projects/pintos/pintos_1.html#SEC1
 https://www.quora.com/What-is-it-like-to-take-CS-140-Operating-Systems-at-Stanford
 
 
-
 ------ Job Related Things ------
 > How to get a job as a web developer
 http://web.archive.org/web/20160925155912/http://www.happybearsoftware.com/how-to-get-a-programmer-job.html
@@ -66,6 +65,11 @@ https://www.reddit.com/r/learnprogramming/comments/oyac9u/i_have_two_and_a_half_
 https://www.reddit.com/r/learnprogramming/comments/osa8rf/self_taught_programmers_how_long_did_it_take_you/
 Reddit: "Learned to code, got interview at Google but I wish I was told..."
 https://www.reddit.com/r/learnprogramming/comments/7hb7ka/learned_to_code_got_interview_at_google_but_i/
+
+
+------ Rust ------
+> Understanding Variables - Const, Mutables and Immutables
+https://www.tutorialspoint.com/rust/rust_variables.htm
 
 
 ------ Javascript ------

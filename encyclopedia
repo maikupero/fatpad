@@ -15,26 +15,91 @@ To learn about dependencies: cargo doc --open
 when done, cargo build --release
 
 1. Rust style is to indent with four spaces, not a tab.
-
 2. println! calls a Rust macro. If it called a function instead, println (no !)
-
 3. "Hello, world!" string passes as argument to println!, and the string is printed to the screen.
-
 4. Semicolon line enders are common (;).
-
 5. Rust’s naming convention for constants is to use all uppercase with underscores between words, 
 and underscores can be inserted in numeric literals to improve readability
 
+use std::io;    io: input output library, from standard lib
+
+.gen_range(1..101);   inclusive on lower, exclusive on upper. alternatively: 1..=100
+
 Variables
     let foo = 5; // immutable
-    let mut bar = 5; // mutable
+    let mut bar = 5; // mutable (declare within a statement to show intent on changing the value)
+    let complex_var = {
+        let mut complex_var = ...
+        // A bunch of complex code to initialize the variable
+        complex_var // return value from scope
+        }   
+    shadowing is reassigning the binding from a variable to a new one. 
+    original one keeps living in its scope.
+        
+Data Types 
+    Default is 32. but for things like pixels, which are only 3 bits and there are
+    billions of them, can use u8 for example. 
+    Integers - numbers without fractions
+    Floating-Point types - numbers with decimal points. default is f64.
+    Numeric Operations - don't need to declare type
+    Booleans    
+        fn main() {
+            let t = true;
+            let f: bool = false; // with explicit type annotation
+            }
+    Characters - four bytes, unicode scalar values, char literals '' string literals double ""
+    Compound Types
+        Tuples group together a number of values with a variety of types into one compound type. 
+            fixed length: once declared, they cannot grow or shrink in size.
+            fn main() {
+                let tup: (i32, f64, u8) = (500, 6.4, 1);
+                let (x, y, z) = tup; (or)
+                let six_point_four = x.1;
+                println!("The value of y is: {}", y);
+        Arrays. All elements same type. BUT fixed length in rust.
+        let a: [i32; 5] = [1, 2, 3, 4, 5];
+        let a = [3; 5];    same as    let a = [3, 3, 3, 3, 3];
+        Vectors can grow or shrink. 
+
+    Functions
+        Must declare the type of each parameter.
+             fn main() {
+                another_function(10, 19);
+            }
+
+            fn another_function(x: i32, y: i32) {
+                println!("The value of x is: {}", x);
+                println!("The value of y is: {}", y);
+            }
+        Function bodies are made up of a series of statements optionally ending in an expression.
+            fn main() {
+                let x = 5;
+
+                let y = {
+                    let x = 3;
+                    x + 1
+                };
+
+                println!("The value of y is: {}", y);
+            }
+        Note the x + 1 line without a semicolon at the end, 
+        which is unlike most of the lines you’ve seen so far. 
+        Expressions do not include ending semicolons. 
+        If you add a semicolon to the end of an expression, 
+        you turn it into a statement, which will then not return a value. 
+            fn five() -> i32 {
+                5
+            }
+            fn main() {
+                let x = five();
+                println!("The value of x is: {}", x);
+            }
+
 
 Enumerables - Variants
     Result - Ok, Err
     Ordering - Less, Greater, Equal
-use std::io;    io: input output library, from standard lib
 
-.gen_range(1..101);   inclusive on lower, exclusive on upper. alternatively: 1..=100
 
 ------ JAVASCRIPT ------
 (var) (name) = (argument) =>    /// (var) (attempt) = function(argument) {
