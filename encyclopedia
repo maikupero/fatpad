@@ -3,7 +3,7 @@ $ rustc (file to open)
 $ ./(executable file)
 
 for new projects, in rust directory: 
-    $ cargo new _____
+    $ cargo new _____ --vcs=git (for gitignores when already in a git repository)
     $ cd _____
     ($ cargo build)  -- or just when you run it the first time is ok
 
