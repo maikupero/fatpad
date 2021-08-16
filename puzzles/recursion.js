@@ -204,15 +204,29 @@
 // }
 // apparently repeating isn't allowed
 
-var starString = function(x) {
-    if (x < 0) {
-        return "Negative"
-    } else if (x === 0) {
-        return '*'
-    } else if (x === 1) {
-        return Array(3).join("*")
+// var starString = function(x) {
+//     if (x < 0) {
+//         return "Negative"
+//     } else if (x === 0) {
+//         return '*'
+//     } else if (x === 1) {
+//         return Array(3).join("*")
+//     } else {
+//         return Array(2 * starString(x - 1).length + 1).join("*")
+//     }
+// }
+// console.log(starString(3));
+
+
+// Finally, from https://youtu.be/mz6tAJMVmfM
+// Collatz Conjecture
+let collatz = (n) => {
+    if (n === 1) {
+        return 0
+    } else if (n % 2 === 0) {
+        return 1 + collatz(n / 2)
     } else {
-        return Array(2 * starString(x - 1).length + 1).join("*")
+        return 1 + collatz(n * 3 + 1)
     }
 }
-console.log(starString(3));
+console.log(collatz(31));
