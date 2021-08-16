@@ -19,19 +19,19 @@ var climbStairs = function(n) {
 }
 // 0 1 1 2 3 5 8 13 21 34 55 89 144 233
                             
-console.log(climbStairs(3)) 
-console.log(climbStairs(4)) 
-console.log(climbStairs(5)) 
+// console.log(climbStairs(3)) 
+// console.log(climbStairs(4)) 
+// console.log(climbStairs(5)) 
 console.log(climbStairs(6)) 
-console.log(climbStairs(19)) 
-console.log(climbStairs(35))
-console.log(climbStairs(40))
-console.log(climbStairs(41))
-console.log(climbStairs(42))
-console.log(climbStairs(43))
-console.log(climbStairs(44))
-console.log(climbStairs(45))
-console.log(climbStairs(100))
+// console.log(climbStairs(19)) 
+// console.log(climbStairs(35))
+// console.log(climbStairs(40))
+// console.log(climbStairs(41))
+// console.log(climbStairs(42))
+// console.log(climbStairs(43))
+// console.log(climbStairs(44))
+// console.log(climbStairs(45))
+// console.log(climbStairs(100))
 
 /// when using 2s, up to half of n rounded down. 
                        

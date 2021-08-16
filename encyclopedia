@@ -115,7 +115,7 @@ unshift shift - add remove to start
 for ... of - for loop but maintains indeces
 for ... in - for loop without indices
 
-.map and .match are king
+If .repeat(x) isn't working, try Array(x+1).join('string')
 
 ------ REGEX ------
 https://www.rexegg.com/regex-quickstart.html
@@ -132,8 +132,11 @@ for( var i=0; i < myArry.length; i++) {
 _______Remove spaces from string
 .replace(/\s/g, '')
 
-
-
+Recursion
+factorial(n) = n * factorial(n-1)
+Needs a terminating, base point.
+And a recursive case. 
+Replace loops in non-recursive functions
 
 
 
