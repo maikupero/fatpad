@@ -9,6 +9,19 @@ var adapters = input => {
     
     devices.splice(0, 0, 0);                        //add charging outlet (starting value)
     devices.push(devices[devices.length - 1] + 3); //add your device (ending value)
+
+return devices
+// so starting over. i need to find the number of ways to get from x to x+3. 
+// if x+1, x+2 don't exist. there is only one way. if x+1 or x+2 exist, there are two.
+// if both exist, there are four. 
+// however, i need to past x+3. the number of ways to go from x to y
+// 
+
+}
+console.log(adapters(
+`1
+2
+3`))
     // console.log(devices);
 
     // So I have two ways of tackling this. One create a function that will map out every single
@@ -25,9 +38,38 @@ var adapters = input => {
     // 0 3 6 8.   
     // 0 1  3 6 8.    0 3.  
     // 0 1 2 3 6 8.   0 1 3. 0 2 3. 0 3.
-    // 0 1 2 3 4 6 8. 0 1 2 3 4. 0 1 3 4. 0 2 3 4.  0 1 4. 0 2 4. 0 3 4. 0 4. 
+    // 0 1 2 3 4 6 8. 0 1 2 3 4. 0 1 3 4. 0 2 3 4.  0 1 4. 0 2 4. 0 3 4.  
                 //    0 1 2 3 6. 0 1 3 6. 0 2 3 6. 0 3 6. 
     // 0 1 2 4 6 8.   0 1 4 6 8. 0 2 4 6 8. 
+    // 0 1           1  
+    // 0 1 2         2  0 2.
+    // 0 1 2 3       4  0 1 3. 0 2 3. 0 3.
+    // 0 1 2 3 4     7  0 3 4. 0 1 3 4. 0 2 3 4. 
+    //                  0 2 4. 0 1 4. 0 1 2 4.
+    // 0 1 2 3 4 5   13 0 1 2 3 5. 0 1 2 4 5. 0 1 3 4 5. 0 2 3 4 5. 
+    //                  0 1 2 5. 0 1 3 5. 0 1 4 5. 0 2 3 5. 0 2 4 5. 0 3 4 5.
+    //                  0 2 5. 0 3 5.
+    // 0 1 2 3 4 5 6 22 0 1 2 3 4 6. 0 1 2 3 5 6. 0 1 2 4 5 6. 0 1 3 4 5 6. 
+    //                  0 1 2 5 6. 0 1 3 5 6. 0 1 4 5 6. 0 1 2 4 6. 0 1 3 4 6. 
+    //                  0 1 3 6. 0 1 4 6.
+    //                  0 2 3 4 5 6. 
+    //                  0 2 3 4 6. 0 2 3 5 6. 0 2 4 5 6.
+    //                  0 2 3 6. 0 2 4 6. 0 2 5 6. 
+    //                  0 3 4 5 6. 0 3 4 6. 0 3 5 6. 0 3 6. 
+    // 0 1 2 3 4  6  11 0 1 2 3 6. 0 1 2 4 6. 0 1 3 4 6. 0 2 3 4 6.
+    //                  0 1 4 6. 0 1 3 6. 0 2 4 6. 0 2 3 6. 0 3 4 6.
+    //                  0 3 6. 
+    // 0 1 2   4 5 6 9  0 1 2 4 6. 0 1 2 5 6. 0 1 4 5 6. 0 2 4 5 6.
+    //                  0 1 4 6. 0 2 4 6. 0 1 5 6. 0 2 5 6.
+    // 0   2 3 4 5 6 11 0 2 3 4 6. 0 2 3 5 6. 0 2 4 5 6. 0 3 4 5 6.
+    //                  0 2 3 6. 0 2 4 6. 0 2 5 6.
+    //                  0 3 4 6. 0 3 5 6. 
+    //                  0 3 6.             
+    // 0 3 4 5 6     4  0 3 4 6. 0 3 5 6. 0 3 6.
+    // 0 2 4 5 6     3  0 2 4 6. 0 2 5 6.
+    // 0 1 4 5 6     2  0 1 4 6.
+
+    // so... if gap = 3, break. basically building a combo counter. 
     
 
 
@@ -49,19 +91,32 @@ var adapters = input => {
 //         }
 //     }
 //     return permutations
+// }    // for (let index = 0; index < devices.length-2; index++) {
+    //     // console.log(devices[index],devices[index+2],permutations);
+    //     if (devices[index+3] - devices[index] === 3) {
+    //         permutations *= 3;
+    //         continue
+    //     } else if (devices[index+2] - devices[index] === 2) {
+    //         permutations *= 2;
+    //     }
+    // }
+//     let permutations = 1;
+//     let counter = 0;
+//     for (let index = 0; index < devices.length-2; index++) {
+//         counter = -1;
+//         while (devices[index + counter + 1] <= devices[index]+3) {
+//             counter += 1;
+//         }
+//         if (counter > 1) {
+//             permutations *= counter;
+//             console.log(devices[index], counter)
+//         }
+//     }
+
+// console.log(devices);
+// return permutations
 // }
-    let permutations = 1;
-    for (let index = 0; index < devices.length-2; index++) {
-        console.log(devices[index],devices[index+2],permutations);
-        if (devices[index+3] - devices[index] === 3) {
-            permutations *= 3;
-            continue
-        } else if (devices[index+2] - devices[index] === 2) {
-            permutations *= 2;
-        }
-    }
-return permutations
-}
+
 // console.log(adapters(input));
 // console.log(adapters(
 // `16
