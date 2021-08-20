@@ -1,0 +1,5 @@
+based on x set of emojis and y given picture
+
+assigns a color code to each emoji based on average color
+converts the given picture to very lo def pixel quality and does the same match to average color.
+returns a mix of emoji to represent the given picture
