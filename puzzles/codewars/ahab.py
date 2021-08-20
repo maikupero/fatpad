@@ -2,8 +2,6 @@ def dbl_linear(n, array = [1]):
     for num in range(n):
         if array.count(2*array[num]+1) == 0: array.append(2*array[num]+1)
         if array.count(3*array[num]+1) == 0: array.append(3*array[num]+1)
-    print (array)
-    print sorted(array)
     return sorted(array)[n]
 
 print(dbl_linear(20))
