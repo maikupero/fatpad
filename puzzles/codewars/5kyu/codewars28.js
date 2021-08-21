@@ -1,16 +1,16 @@
+const conversion = '0123456789abcdef'
+
 function hexStringToRGB(hexString) {
     let r = hexString.toLowerCase().slice(1,3);
     let g = hexString.toLowerCase().slice(3,5);
     let b = hexString.toLowerCase().slice(5,7);
     console.log(r,g,b);
 
-    return `r: ${toRGB(r)}, g: ${toRGB(g)}, b: ${toRGB(b)}`
+    return {r: toRGB(r), g: toRGB(g), b: toRGB(b)}
 }
 
-const conversion = '123456789abcdef'
-
 function toRGB(string) {
-    
+    return (conversion.indexOf(string[0]) + (conversion.indexOf(string[1]) / 16)) * 16
 }
 console.log(hexStringToRGB("#FF9933"), `expected {r: 255, g: 153, b: 51}`);
 
