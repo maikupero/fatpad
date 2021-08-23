@@ -12,24 +12,8 @@ var adapters = input => {
 
     console.log(devices);
 
-    let counter = 0;
-    let sum = 1;
-    for (let x in devices) {
-        counter += 1;
-        if (devices[x+2] > devices[x]+3) {
-            sum *= counter
-            counter = 1;
-            continue
-        } 
-        if (devices[x+2] < devices[x]+3) {
-            counter += 1;
-        }
-        if (devices[x+3] === devices[x]+3 {
-            counter += 1;
-        }
-    }    
 
-return devices
+    return devices
 //i need it to go through... every time there is a gap of 3 or more, that ends a tree. 
 // so in this example, we have a tree of 4 numbers, and a tree of 3 numbers. any tree of <3 numbers 
 // gives us no new combinations as it's a 3 jump to it, and a 3 jump out. 
