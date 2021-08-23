@@ -8,49 +8,37 @@ var adapters = input => {
     .map(x => parseInt(x));             //turn into integers
     
     devices.splice(0, 0, 0);                        //add charging outlet (starting value)
-    devices.push(devices[devices.length - 1] + 3); //add your device (ending value)
+    devices.push(devices[devices.length - 1] + 3);  //add your device (ending value)
 
     console.log(devices);
-
-
-    return devices
-//i need it to go through... every time there is a gap of 3 or more, that ends a tree. 
-// so in this example, we have a tree of 4 numbers, and a tree of 3 numbers. any tree of <3 numbers 
-// gives us no new combinations as it's a 3 jump to it, and a 3 jump out. 
-// any time there is a gap of less than 3. start a separate counter. for every 
+//     return recursive(devices);
+// }
+    let leaves = 1;
+    let subarray = [];
+    for (let x = 0; x < devices.length-1; x++) {
+        subarray.push(devices[x]);
+        if (devices[x+1] === devices[x]+3) {
+            console.log(subarray);
+            leaves *= recursive(subarray);
+            subarray = [];
+        }
+    }
+    return leaves
 }
-console.log(adapters(
-`28
-33
-18
-42
-31
-14
-46
-20
-48
-47
-24
-23
-49
-45
-19
-38
-39
-11
-1
-32
-25
-35
-8
-17
-7
-9
-4
-2
-34
-10
-3`))
+ // 0 1 2 3 4 5 6 8 9 check each tree of each child that isn't the first child you find. 
+ // every first child would be the tree of immediate jumps 
+var recursive = (array) => {
+    let total = 1;
+    for (let x = 0; x < array.length-2; x++) {
+        for (let i = x + 2; array[i] < array[x]+4; i++) {
+            total += recursive(array.slice(i));
+        }
+    }
+
+    return total
+}
+
+console.log(adapters(input));
 // console.log(adapters(
 // `16
 // 10
@@ -63,7 +51,38 @@ console.log(adapters(
 // 6
 // 12
 // 4`))
-
+// console.log(adapters(
+// `28
+// 33
+// 18
+// 42
+// 31
+// 14
+// 46
+// 20
+// 48
+// 47
+// 24
+// 23
+// 49
+// 45
+// 19
+// 38
+// 39
+// 11
+// 1
+// 32
+// 25
+// 35
+// 8
+// 17
+// 7
+// 9
+// 4
+// 2
+// 34
+// 10
+// 3`))
     // So I have two ways of tackling this. One create a function that will map out every single
     // massive path from 0 -> end, changing one path fork each time. 
     // Or I can find a way to calculate it if I have an adapter at every single value. 
