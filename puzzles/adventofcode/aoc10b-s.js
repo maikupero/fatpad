@@ -10,19 +10,75 @@ var adapters = input => {
     devices.splice(0, 0, 0);                        //add charging outlet (starting value)
     devices.push(devices[devices.length - 1] + 3); //add your device (ending value)
 
-return devices
-// so starting over. i need to find the number of ways to get from x to x+3. 
-// if x+1, x+2 don't exist. there is only one way. if x+1 or x+2 exist, there are two.
-// if both exist, there are four. 
-// however, i need to past x+3. the number of ways to go from x to y
-// 
+    console.log(devices);
 
+    let counter = 0;
+    let sum = 1;
+    for (let x in devices) {
+        counter += 1;
+        if (devices[x+2] > devices[x]+3) {
+            sum *= counter
+            counter = 1;
+            continue
+        } 
+        if (devices[x+2] < devices[x]+3) {
+            counter += 1;
+        }
+        if (devices[x+3] === devices[x]+3 {
+            counter += 1;
+        }
+    }    
+
+return devices
+//i need it to go through... every time there is a gap of 3 or more, that ends a tree. 
+// so in this example, we have a tree of 4 numbers, and a tree of 3 numbers. any tree of <3 numbers 
+// gives us no new combinations as it's a 3 jump to it, and a 3 jump out. 
+// any time there is a gap of less than 3. start a separate counter. for every 
 }
 console.log(adapters(
-`1
+`28
+33
+18
+42
+31
+14
+46
+20
+48
+47
+24
+23
+49
+45
+19
+38
+39
+11
+1
+32
+25
+35
+8
+17
+7
+9
+4
 2
+34
+10
 3`))
-    // console.log(devices);
+// console.log(adapters(
+// `16
+// 10
+// 15
+// 5
+// 1
+// 11
+// 7
+// 19
+// 6
+// 12
+// 4`))
 
     // So I have two ways of tackling this. One create a function that will map out every single
     // massive path from 0 -> end, changing one path fork each time. 
@@ -118,51 +174,9 @@ console.log(adapters(
 // }
 
 // console.log(adapters(input));
-// console.log(adapters(
-// `16
-// 10
-// 15
-// 5
-// 1
-// 11
-// 7
-// 19
-// 6
-// 12
-// 4`))
 
-// console.log(adapters(
-// `28
-// 33
-// 18
-// 42
-// 31
-// 14
-// 46
-// 20
-// 48
-// 47
-// 24
-// 23
-// 49
-// 45
-// 19
-// 38
-// 39
-// 11
-// 1
-// 32
-// 25
-// 35
-// 8
-// 17
-// 7
-// 9
-// 4
-// 2
-// 34
-// 10
-// 3`))
+
+
 
 // --- Part Two ---
 // how many different ways can they be arranged? 
