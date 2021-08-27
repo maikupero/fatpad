@@ -1,61 +1,62 @@
 function validateBattlefield(field) {
-    let ships = [0,0,0,0]
     // [battleship,cruiser,destroyer,submarine] - we want [1,2,3,4] at the end
+    let ships = [0,0,0,0]
+    let ships = {
+        '4': 0,
+        '3': 0,
+        '2': 0,
+        '1': 0
+    };
+    //so we don't find & count the same ship multiple times
+    let saved = [];
 
-    for (let y in field) {    //for each x
-        for (let x in y) {  //for each y in each x
-            if (field[y][x] === 1) { //if a ship is found
-                let a = x
-                let b = y
-                let ship_length = 0;
-                while (field[a][b] === 1) {
-                    ship_length += 1;
-                    if (!diagonal_check(a, b)) return false
-                    // a += direction or b += direction?
+    for (let y in field) {    //for each y
+        for (let x in y) {  //for each x in each y
+            if (saved.indexOf([x,y]) != -1) continue //if already logged the ship's location
+            if (field[y][x] === 1) { //if a new ship is found
+                let direction = directional_check(a, b, field);
+                switch (direction) {
+                    case 'illegal': return false
+                    case 'right':
+                        while (field[a][b] === 1) {
+                            a += 1;
+                            ship_length += 1;
+                            savedX.push(a);
+                            savedY.push(b);
+                        }
+                        break;
+                    case 'down':
+                        while (field[a][b] === 1) {
+                            b += 1;
+                            ship_length += 1;
+                            savedX.push(a);
+                            savedY.push(b);
+                        }
+                        break;
                 }
-
-                
-                ship_type(direction_check(x, y)) ? ships[ship_type(n)] += 1 : false
+                ships[count_ship(ship_length)] += 1;
             }
         }
     }
-    // when find 1 check diagonals. if 1 is present, return false.
-    // check for the direction (check up, down, left, right) the ship is facing. 
-        // if > 1, return false.
-        // else if 0, return 0; 
-        // else return direction to go
-    // check ship length (2 3 or 4). at each increment checking 
-    // count the ship with ship_type(ship_length)
-
     return ships === [1,2,3,4]
 }
 
-let diagonal_check = (x, y) => (field[x+1][y+1] + field[x+1][y-1] + field[x-1][y+1] + field[x-1][y-1]) != 0
-
-let direction_check = (x, y) => {
-    
-    let neighbors = 0;
-    neighbors += field[x+1][y]
-    neighbors += field[x-1][y]
-    neighbors += field[x][y+1]
-    neighbors += field[x][y-1]
-    if (neighbors > 1) return false
-    if (neighbors = 0) return sub
+let directional_check = (x, y, field) => {
+    let a = x;
+    let b = y;
+    let ship_length = 1;
+    let right = field[x+1][y];
+    let down = field[x][y+1];
+    if ((field[x-1][y+1] + field[x-1][y] + field[x-1][y-1] + field[x][y-1] + field[x+1][y-1] + field[x+1][y+1]) != 0) return 'illegal'// confirm no neighbors besides down/right
+    if (right + down === 0) return 1
+    else if (right === 1 && down === 0) {
+        return 'right'
+    } else if (right === 0 && down === 1) {
+        return 'down'
+    } else return 'illegal'
 }
 
-let ship_check = (x, y) => {
-    //check diagonals first
-    if ((field[x+1][y+1] + field[x+1][y-1] + field[x-1][y+1] + field[x-1][y-1]) != 0) return false
-    //then check up down left right
-}
-
-let ship_type = (n) => {
-    if (n === 1) return 3
-    else if (n === 2) return 2
-    else if (n === 3) return 1
-    else if (n === 4) return 0
-    else return false
-}
+let count_ship = (n) => ships[n.toString()] += 1
 
 console.log(validateBattlefield(
     [[1, 0, 0, 0, 0, 1, 1, 0, 0, 0],
@@ -69,7 +70,6 @@ console.log(validateBattlefield(
      [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ]), 'expected "true"');
-
 
 // Write a method that takes a field for well-known board game "Battleship" 
 // as an argument and returns true if it has a valid disposition of ships, false otherwise. 
