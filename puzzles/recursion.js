@@ -220,13 +220,36 @@
 
 // Finally, from https://youtu.be/mz6tAJMVmfM
 // Collatz Conjecture
-let collatz = (n) => {
-    if (n === 1) {
-        return 0
-    } else if (n % 2 === 0) {
-        return 1 + collatz(n / 2)
+// let collatz = (n) => {
+//     if (n === 1) {
+//         return 0
+//     } else if (n % 2 === 0) {
+//         return 1 + collatz(n / 2)
+//     } else {
+//         return 1 + collatz(n * 3 + 1)
+//     }
+// }
+// console.log(collatz(31));
+
+
+//from https://eloquentjavascript.net/03_functions.html
+// We’ve seen that % (the remainder operator) can be used to test whether a number is even or odd 
+// by using % 2 to see whether it’s divisible by two. Here’s another way to define whether a 
+// positive whole number is even or odd:
+// Zero is even. One is odd.
+// For any other number N, its evenness is the same as N - 2.
+// Define a recursive function isEven corresponding to this description. 
+// The function should accept a single parameter (a positive, whole number) and return a Boolean.
+
+//My function:
+function oddeven_recursive(n) {
+    if (n < 0) n *= -1;
+    if (n === 0) {
+        return true
+    } else if (n === 1) {
+        return false
     } else {
-        return 1 + collatz(n * 3 + 1)
+        return oddeven_recursive(n-2);
     }
 }
-console.log(collatz(31));
+console.log(oddeven_recursive(-26));
