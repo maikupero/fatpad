@@ -1,0 +1,128 @@
+https://www.learncpp.com/cpp-tutorial/introduction-to-these-tutorials/
+
+------------------------------------------ 0.1 ------------------------------------------
+Type in the examples by hand and compile them yourself.
+
+As you make mistakes or find bugs in your programs, fix them. 
+
+Try to solve your own problems before asking others for help. 
+
+Experiment with the examples.
+
+Write your own short programs using the concepts you have learned. 
+
+Nothing is better than practice.
+
+------------------------------------------ 0.2 ------------------------------------------
+
+MACHINE LANGUAGE(code) - limited set of instructions that a CPU can understand directly
+
+Sample machine language: 10110000 01100001
+
+ASSEMBLY LANGUAGE invented because Humans can't read machine language - uses abbreviations.
+CPU can't understand assembly language directly. Translate it to execute it. Use assembler. 
++ very fast
+- require a lot of instructions to do even simple tasks. 
+(like trying to understand a sentence by looking at each letter individually)
+- not very portable -- outcome and readability depends on hardware.
+
+Sample assembly language: mov al, 061h
+
+HIGH LEVEL LANGUAGES like C/C++ invented for people to code without worrying about the computer. 
+Also have to translate for machine to read it. 
+
+Sample High level language: a = 97;
+
+COMPILER
+code -> compile -> executable
+executable -> run on hardware -> program results
+
+INTERPRETER 
+code -> interpreter -> run on hardware -> program results
+
+------------------------------------------ 0.3 ------------------------------------------
+
+The underlying design philosophy of C and C++ can be summed up as “trust the programmer."
+Language often won’t stop you from doing things that don’t make sense, 
+because it will assume you’re doing so for some reason it doesn’t understand.
++ Video games
++ Real-time systems (e.g. for transportation, manufacturing, etc…)
++ High-performance financial applications (e.g. high frequency trading)
++ Graphical applications and simulations
++ Productivity / office applications
++ Embedded software
++ Audio and video processing
++ Artificial intelligence and neural networks
+
+------------------------------------------ 0.4 / 0.5 ------------------------------------------
+
+1. Define the Problem to Solve                      -what-
+2. Design a solution                                -how-
+3. write a program that implements the solution     
+4. compile the program
+5. link object files
+6. test program
+7. debug -> back to 4
+
+The C++ core language is actually fairly small and concise. 
+C++ also comes with an extensive library called the C++ Standard Library 
+Provides additional functionality. Common is iostream library, which contains functionality for 
+printing text on a monitor and getting keyboard input from a user. 
+Almost every C++ program written utilizes the standard library in some form, 
+so it’s very common for the standard library to get linked into your programs. 
+Most linkers will automatically link in the standard library as soon as you use any part of it.
+
+------------------------------------------ 1.1 ------------------------------------------
+
+Types of statements in C++:
+1. Declaration statements
+2. Jump statements
+3. Expression statements
+4. Compound statements
+5. Selection statements (conditionals)
+6. Iteration statements (loops)
+7. Try blocks
+
+A function is a collection of statements that executes sequentially (in order, from top to bottom).
+Every C++ program must have a special function named main (all lower case letters). 
+When the program is run, the statements inside of main are executed in sequential order.
+
+int main – ‘int main’ means that our function needs to return some integer at the end of execution.
+Returning 0to the operating system as the last statement  is the standard, means “everything went okay!”. 
+
+------------------------------------------ 1.2 ------------------------------------------
+
+At the library, program, or function level, use comments to describe what.
+Inside the library, program, or function, use comments to describe how.
+At the statement level, use comments to describe why.
+
+------------------------------------------ 1.3 ------------------------------------------
+
+How do programs actually produce results? By manipulating (reading, changing, and writing) data. 
+In computing, data is any information that can be moved, processed, or stored by a computer.
+*** Programs are collections of instructions that manipulate data to produce a desired result.
+
+Memory / RAM / random access memory
+Series of numbered mailboxes. each holds a piece of data while the program is running. 
+A single piece of data, stored in memory somewhere, is called a value.
+
+In some older programming languages (like Apple Basic), you could directly access these mailboxes 
+"go get the value stored in mailbox number 7532"
+
+In C++, direct memory access is not allowed. Instead, we access memory indirectly through an object. 
+An object is a region of storage (usually memory) that has a value and other associated properties.
+From Basic's 7532 to "go get the value stored by this object."
+Focus on using objects to store and retrieve values, not where it's stored.
+Objects can be named (variables with identifiers) or unnamed (anonymous).   
+
+*** In general programming, object typically refers to a variable, data structure in memory, or function. 
+*** In C++, the term object has a narrower definition that excludes functions.
+
+In C++, the type of a variable must be known at compile-time (when the program is compiled), 
+and that type can not be changed without recompiling the program.
++ C++ also allows you to create your own user-defined types.
+
+Defining multiple variables of same type - int a;  int b;  -->  int a,b;
+
+------------------------------------------ 1.4 ------------------------------------------
+continue 8/31
