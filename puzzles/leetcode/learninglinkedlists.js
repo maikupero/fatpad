@@ -27,10 +27,10 @@ let string_to_list = (string) => {
     return head
 }
 
-let print_list = (node) => {
-    while (node.next != null) {
-        console.log(node);  
-        node = node.next;
+let print_list = (head) => {
+    while (head.next != null) {
+        console.log(head.val);  
+        head = head.next;
     }
 }
 
