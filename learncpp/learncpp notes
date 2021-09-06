@@ -125,4 +125,28 @@ and that type can not be changed without recompiling the program.
 Defining multiple variables of same type - int a;  int b;  -->  int a,b;
 
 ------------------------------------------ 1.4 ------------------------------------------
-continue 8/31
+
+4 ways to initialize a variable: 
+
+int a; // no initializer
+int b = 5; // initializer after equals sign
+int c( 6 ); // initializer in parenthesis
+int d { 7 }; // initializer in braces
+
+int width { 4.5 }; // error: not all double values fit into an int
+Copy and direct initialization would drop the fractional part, 
+resulting in initialization of value 4 into variable width. 
+However, with list initialization, this will cause the compiler to issue an error
+
+int a = 5, b = 6; // copy initialization
+int c( 7 ), d( 8 ); // direct initialization
+int e { 9 }, f { 10 }; // list initialization (preferred)
+
+BEST PRACTICE: Favor braces. Initialize your variables upon creation.
+
+------------------------------------------ 1.5 ------------------------------------------
+
+std::endl breaks line in a std::out statement  use it to indicate a "complete thought."
+but we just use \n in a string statement, or '\n'
+
+------------------------------------------ 1.5 ------------------------------------------
