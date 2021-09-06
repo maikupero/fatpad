@@ -1,0 +1,54 @@
+// ------------------ Convert a linked list to a string ------------------
+// https://www.codewars.com/kata/582c297e56373f0426000098/train/javascript
+
+// After Solving Reflection + Improvements
+
+// function stringify(list) {
+//     return list === null ? "null" : `${list.data} -> ${stringify(list.next)}`; 
+// }
+
+// My Solution
+
+class Node {
+    constructor(data, next = null) {
+      this.data = data;
+      this.next = next;
+    }
+}
+
+function stringify(list) {
+    let counter = list;
+    let string = '';
+    while (counter != null) {
+        string += counter.data + ' -> ';
+        counter = counter.next;
+    }
+    if (counter === null) string += 'null';
+
+    return string
+}
+
+  console.log(stringify(new Node(1, new Node(2, new Node(3)))), "1 -> 2 -> 3 -> null");
+  console.log(stringify(new Node(0, new Node(1, new Node(4, new Node(9, new Node(16)))))), "0 -> 1 -> 4 -> 9 -> 16 -> null");
+  console.log(stringify(null), "null");
+
+// Task
+// Create a function stringify which accepts an argument list/$list and returns a string 
+// representation of the list. The string representation of the list starts with the value 
+// of the current Node, specified by its data/$data/Data property, followed by a whitespace 
+// character, an arrow and another whitespace character (" -> "), followed by the rest of the list. 
+// The end of the string representation of a list must always end with null/NULL/None/nil/nullptr/null() 
+// (all caps or all lowercase depending on the language you are undertaking this Kata in). 
+// For example, given the following list:
+// new Node(1, new Node(2, new Node(3)))
+// ... its string representation would be:
+// "1 -> 2 -> 3 -> null"
+
+// And given the following linked list:
+// new Node(0, new Node(1, new Node(4, new Node(9, new Node(16)))))
+// ... its string representation would be:
+// "0 -> 1 -> 4 -> 9 -> 16 -> null"
+
+// Note that null itself is also considered a valid linked list. 
+// In that case, its string representation would simply be "null"
+// You may assume that any Node in this Kata may only contain non-negative integer values.
