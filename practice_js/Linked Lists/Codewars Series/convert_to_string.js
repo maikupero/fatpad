@@ -2,20 +2,11 @@
 // https://www.codewars.com/kata/582c297e56373f0426000098/train/javascript
 
 // After Solving Reflection + Improvements
-
-// function stringify(list) {
-//     return list === null ? "null" : `${list.data} -> ${stringify(list.next)}`; 
-// }
-
-// My Solution
-
-class Node {
-    constructor(data, next = null) {
-      this.data = data;
-      this.next = next;
-    }
+function stringify(list) {
+    return list === null ? "null" : `${list.data} -> ${stringify(list.next)}`; 
 }
 
+// My Solution
 function stringify(list) {
     let counter = list;
     let string = '';
@@ -26,6 +17,13 @@ function stringify(list) {
     if (counter === null) string += 'null';
 
     return string
+}
+
+class Node {
+  constructor(data, next = null) {
+    this.data = data;
+    this.next = next;
+  }
 }
 
   console.log(stringify(new Node(1, new Node(2, new Node(3)))), "1 -> 2 -> 3 -> null");

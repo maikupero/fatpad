@@ -1,15 +1,29 @@
 // ------------------ Linked Lists - Push & BuildOneTwoThree ------------------
 // https://www.codewars.com/kata/linked-lists-push-and-buildonetwothree
 
-class Node {
-  constructor(data, next = null) {
-    this.data = data;
-    this.next = next;
-  }
+//turns whatever data i get into nodes
+function Node(data) {
+  this.data = data;
+  this.next = null;
 }
 
-console.log(stringify(new Node(1, new Node(2, new Node(3)))), "1 -> 2 -> 3 -> null");
-console.log(stringify(null), "null");
+function push(head, data) {
+  
+}
+
+function buildOneTwoThree() {
+  
+}
+
+console.log(push(null, 1).data, 1, "Should be able to create a new linked list with push().");
+console.log(push(null, 1).next, null, "Should be able to create a new linked list with push().");
+console.log(push(new Node(1), 2).data, 2, "Should be able to prepend a node to an existing node.");
+console.log(push(new Node(1), 2).next.data, 1, "Should be able to prepend a node to an existing node.");
+
+console.log(buildOneTwoThree().data, 1, "First node should should have 1 as data.");
+console.log(buildOneTwoThree().next.data, 2, "First node should should have 1 as data.");
+console.log(buildOneTwoThree().next.next.data, 3, "Second node should should have 2 as data.");
+console.log(buildOneTwoThree().next.next.next, null, "Third node should should have 3 as data.");
 
 // Write push() and buildOneTwoThree() functions to easily update and initialize linked lists. 
 // Try to use the push() function within your buildOneTwoThree() function.
@@ -21,9 +35,11 @@ console.log(stringify(null), "null");
 // chained = push(chained, 2)
 // chained = push(chained, 1)
 // push(chained, 8) === 8 -> 1 -> 2 -> 3 -> null
-// The push function accepts head and data parameters, where head is either a node object or null/None/nil. Your push implementation should be able to create a new linked list/node when head is null/None/nil.
+// The push function accepts head and data parameters, where head is either a node object or null/None/nil. 
+// Your push implementation should be able to create a new linked list/node when head is null/None/nil.
 
-// The buildOneTwoThree function should create and return a linked list with three nodes: 1 -> 2 -> 3 -> null
+// The buildOneTwoThree function should create and 
+// return a linked list with three nodes: 1 -> 2 -> 3 -> null
 
 // Related Kata in order of expected completion (increasing difficulty):
 // Linked Lists - Push & BuildOneTwoThree            <-- Here
