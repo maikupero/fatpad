@@ -149,4 +149,20 @@ BEST PRACTICE: Favor braces. Initialize your variables upon creation.
 std::endl breaks line in a std::out statement  use it to indicate a "complete thought."
 but we just use \n in a string statement, or '\n'
 
------------------------------------------- 1.5 ------------------------------------------
+std::cout << "Enter two numbers separated by a space: ";
+int x;
+int y;
+std::cin >> x >> y;
+std::cout << "You entered " << x << " and " << y << '\n';
+
+------------------------------------------ 1.6 ------------------------------------------
+
+Initialization = The object is given a known value at the point of definition.
+Assignment = The object is given a known value beyond the point of definition.
+Uninitialized = The object has not been given a known value yet.
+
+For now, always initialize - cost is minimal.
+Once comfortable, may be cases of omission, done selectively and intentionally.
+
+------------------------------------------ 1.7 ------------------------------------------
+for 9/7
