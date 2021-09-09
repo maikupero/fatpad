@@ -7,14 +7,22 @@ function Node(data) {
   this.next = null;
 }
 
+// function push((list you're appending to), (what you're appending)) {
 function push(head, data) {
-  
+  let push = new Node();
+    push.data = data;
+    push.next = head;
+
+  return push
 }
 
 function buildOneTwoThree() {
-  
+    let OneTwoThree = push(push(push(null, 3), 2), 1);
+    return OneTwoThree
 }
 
+console.log(push(new Node(1), 2));
+console.log(buildOneTwoThree());
 console.log(push(null, 1).data, 1, "Should be able to create a new linked list with push().");
 console.log(push(null, 1).next, null, "Should be able to create a new linked list with push().");
 console.log(push(new Node(1), 2).data, 2, "Should be able to prepend a node to an existing node.");
