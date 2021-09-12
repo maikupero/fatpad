@@ -36,7 +36,7 @@ class Node {
     }
 }
 // console.log(buildOneTwoThree());
-console.log(getNth(buildOneTwoThree(), 4), 'expected 1');
+console.log(getNth(buildOneTwoThree(), 1), 'expected 1');
 
 // Implement a GetNth() function that takes a linked list and an integer index 
 // and returns the node stored at the Nth index position. 

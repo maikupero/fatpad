@@ -3,30 +3,30 @@
 
 // Post-submission
 
-function insertNth(head, index, data) {
-    if (index == 0) return push(head, data)
-    head.next = insertNth(head.next, index - 1, data);
+// function insertNth(head, index, data) {
+//     if (index == 0) return push(head, data)
+//     head.next = insertNth(head.next, index - 1, data);
 
-    return head;
-}
+//     return head;
+// }
 
 // ---------- For 04 Insert Nth Node ----------
-// function insertNth(head, index, data) {
-//     if (head === null) return push(null, data)
-//     let nth = head;
-//     console.log(nth);
+function insertNth(head, index, data) {
+    if (head === null) return push(null, data)
+    let nth = head;
+    console.log(nth);
 
-//     if (index === 0) return push(head, data)
+    if (index === 0) return push(head, data)
 
-//     while (index > 1) {
-//         index -= 1;
-//         nth = nth.next;
-//         if (nth.next === null && index > 1) throw new Error
-//     }
-//     if (index === 1) nth.next = push(nth.next, data);
+    while (index > 1) {
+        index -= 1;
+        nth = nth.next;
+        if (nth.next === null && index > 1) throw new Error
+    }
+    if (index === 1) nth.next = push(nth.next, data);
     
-//     return head
-// }
+    return head
+}
 
 // // ---------- From 01 Push & Build ----------
 function push(head, data) {
