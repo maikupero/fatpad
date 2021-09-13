@@ -10,6 +10,7 @@ function removeDuplicates(head) {
     while (counter.next) {
         counter.next.data === counter.data ? counter.next = counter.next.next : counter = counter.next
     }
+    
     return head
 }
 
