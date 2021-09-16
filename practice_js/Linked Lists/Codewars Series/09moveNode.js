@@ -34,7 +34,7 @@ function buildOneTwoThree() {
 }
 function buildFourFiveSix() {
     return push(push(push(null, 6), 5), 4);
-  }
+}
 
 // // ---------- Defining a Node in a Linked List ----------
 class Node {
