@@ -2,17 +2,21 @@
 // https://www.codewars.com/kata/linked-lists-move-node-in-place
 
 // Broken kata. Got switched to beta while working on it.
+// ---------- Defining a Node in a Linked List ----------
+function Node(data, next) {
+    this.data = data === undefined ? null : data;
+    this.next = next === undefined ? null : next;
+}
+
 // ---------- For 10 Move Node In-Place ----------
 function moveNode(source, dest) {
     if (!source || !dest || !source.data) throw 'Error';
 
-    if (dest.data) {
-        let head = push(dest.data, dest.next);
-        dest.data = source.data;
-        dest.next = head; 
-    } else {
-        dest.data = source.data;
+    if (dest.data) { 
+        dest.next = new Node(dest.data, dest.next);
     }
+    dest.data = source.data;
+
     if (source.next) {
         source.data = source.next.data;
         source.next = source.next.next;
@@ -20,21 +24,6 @@ function moveNode(source, dest) {
         source.data = null;
         source.next = null;
     }
-}
-
-// ---------- From 01 Push & Build ----------
-function push(data, next) {
-    let push = new Node();
-    push.data = data;
-    push.next = next;
-  
-    return push
-}
-  
-// ---------- Defining a Node in a Linked List ----------
-function Node(data) {
-    this.data = data === undefined ? null : data;
-    this.next = null;
 }
 
 // Write a MoveNode() function which takes the node from the front of the source list and moves it 
