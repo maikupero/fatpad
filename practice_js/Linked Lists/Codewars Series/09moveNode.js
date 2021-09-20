@@ -3,7 +3,7 @@
 
 // ---------- Perfected -----------
 function moveNode(source, dest) {
-  return new Context(source.next, new Node (source.data, dest));
+  return new Context(source.next, new Node(source.data, dest));
 }
 
 // ---------- For 09 Move Node ----------

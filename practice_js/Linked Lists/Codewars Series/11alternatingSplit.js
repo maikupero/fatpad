@@ -1,7 +1,7 @@
 // ------------------ Linked Lists - Alternating Split ------------------
 // https://www.codewars.com/kata/linked-lists-alternating-split
 
-// ---------- From 09 Move Node ----------
+// ---------- For 11 Alternating Split ----------
 function Node(data) {
     this.data = data;
     this.next = null;
@@ -13,47 +13,42 @@ function Context(first, second) {
 }
 
 function alternatingSplit(head) {
-  // Your code goes here.
-  // Remember to return the context.
-}
+    if (!head || !head.next) throw "Null or Single Node"
 
-// ---------- Perfected -----------
-function moveNode(source, dest) {
-    return new Context(source.next, new Node (source.data, dest));
-}
-  
-// ---------- From 09 Move Node ----------
-function Context(source, dest) {
-    this.source = source;
-    this.dest = dest;
-}
+    let first = new Node(head.data);
+    let first_counter = first;
+    head = head.next;
+    let second = new Node(head.data);
+    let second_counter = second;
+    
+    while (head.next != null) {
+        first_counter.next = new Node(head.next.data);
+        first_counter = first_counter.next;
+        head = head.next;
 
+        if (head.next != null) {
+            second_counter.next = new Node(head.next.data);
+            second_counter = second_counter.next;
+            head = head.next;
+        }
+    }
 
-// ---------- From 01 Push & Build ----------
-function push(head, data) {
+    return new Context(first, second)
+}  
+
+// Testing Suite
+function buildOnetoSix() {
+    return push(push(push(push(push(push(null, 6), 5), 4), 3), 2), 1);
+}
+function push(next, data) {
     let push = new Node();
     push.data = data;
-    push.next = head;
-
+    push.next = next;
+  
     return push
 }
-
-function buildOneTwoThree() {
-    return push(push(push(null, 3), 2), 1);
-}
-function buildFourFiveSix() {
-    return push(push(push(null, 6), 5), 4);
-}
-
-// ---------- Defining a Node in a Linked List ----------
-class Node {
-    constructor(data, next = null) {
-        this.data = data;
-        this.next = next;
-    }
-}
   
-console.log(moveNode(buildOneTwoThree(), buildFourFiveSix()), '\nSource: 2 -> 3 -> null || Dest: 1 -> 4 -> 5 -> 6 -> null');
+console.log(alternatingSplit(buildOnetoSix()), 'first: 1 -> 3 -> null || second: 2 -> null');
 
 // Write an AlternatingSplit() function that takes one list and divides up its nodes to make two 
 // smaller lists. The sublists should be made from alternating elements in the original list.
