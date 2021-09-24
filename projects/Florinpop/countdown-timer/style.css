@@ -25,15 +25,26 @@ h1 {
     font-weight: normal;
     font-size: 3rem;
     margin-top: 3rem;
+    margin-bottom: 0rem;
     opacity: .8;
+}
+
+h2 {
+    background: -webkit-linear-gradient(#fff,#ffcd42);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: .7;
 }
 
 .countdown-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     position: absolute;
-    top: 90%;
-    -ms-transform: translateY(-90%);
-    transform: translateY(-90%);
+    top: 48%;
+    -ms-transform: translateY(-48%);
+    transform: translateY(-48%);
 }
 
 .big-text {
@@ -42,11 +53,11 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
-    font-size: 8rem;
+    font-size: 3rem;
     line-height: 1;
-    margin: 0 3rem;
+    margin: 0 2rem;
     opacity: .75;
-    -webkit-text-stroke: .5px white;
+    -webkit-text-stroke: .6px black;
     text-shadow: 3px 3px 20px gold;
 }
 
