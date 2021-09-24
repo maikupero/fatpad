@@ -15,6 +15,13 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     text-shadow: 3px 1px 10px gold;
+    top: 50%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 h1 {
@@ -24,9 +31,8 @@ h1 {
     -webkit-text-fill-color: transparent;
     font-weight: normal;
     font-size: 3rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-bottom: 0rem;
-    opacity: .8;
 }
 
 h2 {
@@ -34,17 +40,13 @@ h2 {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    opacity: .7;
 }
 
 .countdown-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    position: absolute;
-    top: 48%;
-    -ms-transform: translateY(-48%);
-    transform: translateY(-48%);
+    position: relative;
 }
 
 .big-text {
@@ -53,10 +55,9 @@ h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1;
     margin: 0 2rem;
-    opacity: .75;
     -webkit-text-stroke: .6px black;
     text-shadow: 3px 3px 20px gold;
 }
