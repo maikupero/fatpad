@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://photos.smugmug.com/photos/i-7CD24gt/0/X5/i-7CD24gt-X5.jpg");
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    text-shadow: 3px 1px 10px gold;
+}
+
+h1 {
+    background: -webkit-linear-gradient(#fff,#ffcd42);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: normal;
+    font-size: 3rem;
+    margin-top: 3rem;
+    opacity: .8;
+}
+
+.countdown-container {
+    display: flex;
+    position: absolute;
+    top: 90%;
+    -ms-transform: translateY(-90%);
+    transform: translateY(-90%);
+}
+
+.big-text {
+    background: -webkit-linear-gradient(#fff,#ffcd42);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 8rem;
+    line-height: 1;
+    margin: 0 3rem;
+    opacity: .75;
+    -webkit-text-stroke: .5px white;
+    text-shadow: 3px 3px 20px gold;
+}
+
+.countdown-el {
+    text-align: center;
+}
+
+.countdown-el span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    opacity: 1;
+    -webkit-text-stroke: .8px black;
+}
