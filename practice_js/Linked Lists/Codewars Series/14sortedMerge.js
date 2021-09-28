@@ -1,74 +1,59 @@
 // ------------------ Linked Lists - Sorted Merge ------------------
 // https://www.codewars.com/kata/linked-lists-sorted-merge
 
+// ---------- For 14 Sorted Merge ----------
+function sortedMerge(first, second) {
+    // Easy null cases
+    if (!first) return second;
+    if (!second) return first;
+
+    let merged = new Node();
+    let builder = merged;
+
+    // Till one of the lists reaches its end, add the lower data to merged, go next.
+    while (first && second) {
+        if (first.data <= second.data) {
+            builder.data = first.data;
+            first = first.next;
+        } else {
+            builder.data = second.data;
+            second = second.next;
+        }        
+        if (!first) builder.next = second;
+        else if (!second) builder.next = first;
+        else builder.next = new Node();
+        builder = builder.next;
+    }
+    // In the event of only one list reaching the end, iterate through to build merged.
+    while (builder.next) {
+        builder = builder.next;
+    }
+    return merged;
+}
+
 // ---------- Node Class ----------
 function Node(data) {
     this.data = data === undefined ? null : data;
     this.next = null;
 }
-
-// ---------- For 14 Sorted Merge ----------
-function sortedMerge(first, second) {
-    
-}
-
-// ---------- From 13 Shuffle Merge ----------
-function shuffleMerge(first, second) {
-    if (!first && !second) return null
-    
-    let merged = new Node();
-    let placeholder = new Node();
-
-    while (first || second) {
-        if (!first) {
-            placeholder = moveNode(second, new Node()).dest;
-            second = second.next;
-        } else {
-            placeholder = moveNode(first, new Node()).dest;
-            first = first.next;
-            if (second) {
-                placeholder.next = moveNode(second, placeholder.next).dest;
-                second = second.next;
-            }
-        }
-        !merged.data ? merged = placeholder : append(merged, placeholder);
-    }
-
-    return merged
-}
-
-// ---------- From 09 Move Node ----------
-function Context(source, dest) {
-    this.source = source;
-    this.dest = dest;
-}
-function moveNode(source, dest) {
-    return new Context(source.next, new Node(source.data, dest));
-}
-
-// ---------- From 07 Append ----------
-function append(listA, listB) {
-    let head = listA;
-    while (head.next) {
-        head = head.next;
-    }
-    head.next = listB;
-
-    return listA
-}
-
 // Testing
-function buildOnetoThree() {
-    return push(push(push(null, 3), 2), 1);
+function buildOneTwoFour() {
+    return push(push(push(null, 4), 2), 1);
 }
-function buildFourtoSix() {
-    return push(push(push(null, 6), 5), 4);
+function buildThreeFiveSix() {
+    return push(push(push(null, 6), 5), 3);
 }
-function buildOne() {
+function testA() {
+    return push(push(push(null, 8), 3), 1);
+}
+function testB() {
+    return push(push(push(null, 9), 4), 2);
+}
+function testC() {
     return push(null, 1);
 }
-function buildTwotoFour() {
-    return push(push(push(null, 4), 3), 2);
+function testD() {
+    return push(push(null, 5), 4);
 }
 
 function push(next, data) {
@@ -79,9 +64,12 @@ function push(next, data) {
     return push
 }
 
-console.log(shuffleMerge(buildOnetoThree(), buildFourtoSix()), 'front: 1 -> 4 -> 2 -> 5 -> 3 -> 6 -> null)');
-console.log(shuffleMerge(buildOne(), buildTwotoFour()), 'front: 1 -> 2 -> 3 -> 4 -> null)');
-console.log(shuffleMerge(buildOne(), null), 'front: 1 -> null)');
+// console.log(sortedMerge(buildThreeFiveSix(), buildOneTwoFour()), '1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null)');
+// console.log(sortedMerge(buildOne(), buildTwotoFour()), 'front: 1 -> 2 -> 3 -> 4 -> null)');
+// console.log(sortedMerge(buildOne(), null), 'front: 1 -> null)');
+// console.log(sortedMerge(testA(), testB()), "result should be 1 -> 2 -> 3 -> 4 -> 8 -> 9 -> null.");
+// console.log(sortedMerge(testC(), testD()), "result should be 1 -> 4 -> 5 -> null.");
+
 
 // Related Kata in order of expected completion (increasing difficulty):
 // Linked Lists - Push & BuildOneTwoThree
