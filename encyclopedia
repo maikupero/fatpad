@@ -198,3 +198,10 @@ rm delete
 mv move
 
 process.exit() for exiting node 
+
+
+
+
+------ HTML/CSS ------
+.(text) -> div with class
+ul>li*4>input+label 4 items with input and label within a UL.
