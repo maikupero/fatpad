@@ -1,40 +1,57 @@
 // ------------------ Linked Lists - Merge Sort ------------------
 // https://www.codewars.com/kata/55e5fa3501fd9c3f4d000050/train/javascript
 
-
-// ---------- For 15 Merge Sort ----------
+// Could not understand what was being asked for. I was on the right track,
+// but would not have gotten the throwing error message which I think was a mistake 
+// on the author's part. Correct solution that I was aiming for:
 function mergeSort(list) {
-    // Your code goes here.
+    if(!list || !list.next) return list;
+    let front = new Node(), back = new Node();
+    frontBackSplit(list, front, back);
+    return sortedMerge(mergeSort(front), mergeSort(back));
 }
 
-// ---------- From 14 Sorted Merge ----------
-function sortedMerge(first, second) {
-    // Easy null cases
-    if (!first) return second;
-    if (!second) return first;
+// ---------- My 15 Merge Sort ----------
+// function mergeSort(list) {
+//     if (!list || !list.next) throw 'Error'
+//     let a = new Node();
+//     let b = new Node();
 
-    let merged = new Node();
-    let builder = merged;
+//     frontBackSplit(list, a, b);
+//     console.log("Hey:",a,b);
+//     //Sort a
+//     //Sort b
+//     let head = sortedMerge(a, b);
+//     head.next = sortedMerge(a, b);
+//     return head 
+// }
 
-    // Till one of the lists reaches its end, add the lower data to merged, go next.
-    while (first && second) {
-        if (first.data <= second.data) {
-            builder.data = first.data;
-            first = first.next;
-        } else {
-            builder.data = second.data;
-            second = second.next;
-        }        
-        if (!first) builder.next = second;
-        else if (!second) builder.next = first;
-        else builder.next = new Node();
-        builder = builder.next;
+//Recursive sortedMerge solution
+function sortedMerge(a, b) {
+    if(!a) return b;
+    if(!b) return a;
+    return a.data < b.data ? new Node(a.data, sortedMerge(a.next, b)) : new Node(b.data, sortedMerge(a, b.next));
+}
+
+//Cleaner frontBackSplit from codewars
+function frontBackSplit(source, front, back) {
+    let cnt = 0;
+    let node = source;
+    while (node) {
+      cnt++;
+      node = node.next;
     }
-    // In the event of only one list reaching the end, iterate through to build merged.
-    while (builder.next) {
-        builder = builder.next;
+    let frontLength = Math.ceil(cnt / 2);
+
+    node = source;
+    for (let i = 0; i < frontLength - 1; i++) {
+        node = node.next;
     }
-    return merged;
+    back.data = node.next.data;
+    back.next = node.next.next;
+    node.next = null;
+    front.data = source.data;
+    front.next = source.next;
 }
 
 // ---------- Node Class ----------
@@ -43,25 +60,9 @@ function Node(data) {
     this.next = null;
 }
 // Testing
-function buildOneTwoFour() {
-    return push(push(push(null, 4), 2), 1);
+function buildOnetoSix() {
+    return push(push(push(push(push(push(null, 2), 4), 6), 1), 5), 3);
 }
-function buildThreeFiveSix() {
-    return push(push(push(null, 6), 5), 3);
-}
-function testA() {
-    return push(push(push(null, 8), 3), 1);
-}
-function testB() {
-    return push(push(push(null, 9), 4), 2);
-}
-function testC() {
-    return push(null, 1);
-}
-function testD() {
-    return push(push(null, 5), 4);
-}
-
 function push(next, data) {
     let push = new Node();
     push.data = data;
@@ -70,11 +71,7 @@ function push(next, data) {
     return push
 }
 
-// console.log(sortedMerge(buildThreeFiveSix(), buildOneTwoFour()), '1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null)');
-// console.log(sortedMerge(buildOne(), buildTwotoFour()), 'front: 1 -> 2 -> 3 -> 4 -> null)');
-// console.log(sortedMerge(buildOne(), null), 'front: 1 -> null)');
-// console.log(sortedMerge(testA(), testB()), "result should be 1 -> 2 -> 3 -> 4 -> 8 -> 9 -> null.");
-// console.log(sortedMerge(testC(), testD()), "result should be 1 -> 4 -> 5 -> null.");
+console.log(mergeSort(buildOnetoSix()), '1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null');
 
 // Write a MergeSort() function which recursively sorts a list in ascending order.
 // Note that this problem requires recursion. Given FrontBackSplit() and SortedMerge(), 
