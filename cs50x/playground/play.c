@@ -9,11 +9,13 @@ int main()
 {
     int arr[] = {85, 24, 63, 45, 17, 31, 96, 50};
     int arr_size = sizeof(arr)/sizeof(arr[0]);
-    printf("Given array is n");
+    printf("Given array is [");
     printArray(arr, arr_size);
+    printf("]\n");
     mergeSort(arr, 0, arr_size - 1);
-    printf("nSorted array is n");
+    printf("Sorted array is [");
     printArray(arr, arr_size);
+    printf("]\n");
     return 0;
 }
 
@@ -26,17 +28,17 @@ void merge(int arr[], int l, int m, int r)
     int L[n1], R[n2];
 
     for (i = 0; i < n1; i++)
-        {
-            L[i] = arr[l + i];
-        }
+    {
+        L[i] = arr[l + i];
+    }
     for (j = 0; j < n2; j++)
-        {
-            R[j] = arr[m + 1+ j];
-        }
+    {
+        R[j] = arr[m + 1+ j];
+    }
+
     i = 0;
     j = 0;
     k = l;
-
     while (i < n1 && j < n2)
     {
         if (L[i] <= R[j])
@@ -82,6 +84,14 @@ void printArray(int A[], int size)
 {
     int i;
     for (i=0; i < size; i++)
-    printf("%d ", A[i]);
-    printf("n");
+    {
+        if (i == 7)
+        {
+            printf("%d", A[i]);
+        }
+        else
+        {
+            printf("%d, ", A[i]);
+        }
+    }
 }
