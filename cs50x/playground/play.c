@@ -1,11 +1,19 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 int main(void)
 {
-    int i = 5 / 2.0;
-    printf("%d\n", i);
-    i = round(i);
-    printf("%i\n", i);
-    printf("type: %s", typeof i);
+    int jpgnum = -1;
+    char *filename;
+
+    while (jpgnum < 30)
+    {
+        jpgnum += 1;
+        while (strlen(filename) < 3)
+        {
+            sprintf(filename, jpgnum);
+        }
+        printf("Filename = %s.jpg", filename);
+    }
 }
