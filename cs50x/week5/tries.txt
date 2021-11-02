@@ -1,0 +1,13 @@
+array of pointers that each point to arrays (of pointers that ...)
+
+constant time searching.
+
+no matter how complex or numerous the data, the number of steps required for search are not impacted.
+
+
+O(1) run time   :]
+but cost a lot of memory up front..
+
+
+Abstract data structures:
+Queues, stacks, dictionaries.

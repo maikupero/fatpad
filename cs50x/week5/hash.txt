@@ -1,0 +1,41 @@
+[ ] - albus
+[ ] 
+[ ] - cedric
+[ ] - draco
+[ ]
+[ ] - fred
+[ ] - ginny     - george
+[ ] - hermione  - harry     - hagrid
+[ ]
+[ ] - james
+[ ] - kingsley
+[ ] - luna      - lily      - lucius    - lavender
+[ ] - minerva
+[ ] - neville
+[ ]
+[ ] - petunia
+[ ]
+[ ] - ron       - remus
+[ ] - severus   - sirius
+[ ]
+[ ]
+[ ] - vernon
+[ ]
+[ ]
+[ ] 
+[ ] - zacharias
+
+when we introduce harry, if this is just an array everything breaks down.
+what if array is an array of linked lists? 
+input -> hash function -> output. takes as input some string and returns some output.
+that output is going to be a number between (in this case) 0 and 25.
+albus -> hash function -> 0
+zacharias -> hash function -> 25
+
+Could make a second array for each second letter... and third for third.
+But pay for the sorting efficiency with up front memory costs.
+
+Look at some input, produce some numeric output. 
+i.e. sort by characteristic, then you can sort each characteristc by another characteristic.
+
+Optimization baby.
