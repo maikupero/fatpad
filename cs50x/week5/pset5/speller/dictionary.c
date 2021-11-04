@@ -124,10 +124,10 @@ unsigned int hash(const char *word)
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // printf("Word is: %s\n", word);
+    printf("Word is: %s\n", word);
     unsigned int hashnum = 0;
     hashnum = hash(word);
-    // printf("Check hash: %u\n", hashnum);
+    printf("Check hash: %u\n", hashnum);
 
     if (table[hashnum] != NULL)
     {
@@ -135,16 +135,16 @@ bool check(const char *word)
         search = table[hashnum]->next;
         do
         {
-            // printf("%s W||D %s\n", word, search->word);
+            printf("%s W||D %s\n", word, search->word);
             if (strcasecmp(word, search->word) == 0)
             {
-                // printf("________TRUE________\n\n");
+                printf("________TRUE________\n\n");
                 return true;
             }
             search = search->next;
         } while (search != NULL);                           //HERE
     }
-    // printf("________FALSE________\n\n");
+    printf("________FALSE________\n\n");
 
     return false;
 }
