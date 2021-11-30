@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <style>
+
+            body {
+                background-color: #fff;
+                color: #212529;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                margin: 0;
+                text-align: left;
+            }
+
+            .container {
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .jumbotron {
+                background-color: #477bff;
+                color: #fff;
+                margin-bottom: 2rem;
+                padding: 2rem 1rem;
+                text-align: center;
+            }
+
+            .section {
+                padding: 0.5rem 2rem 1rem 2rem;
+            }
+
+            .section:hover {
+                background-color: #f5f5f5;
+                transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+            }
+
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 48px;
+            }
+
+            button, input[type="submit"] {
+                background-color: #d9edff;
+                border: 1px solid transparent;
+                border-radius: 0.25rem;
+                font-size: 0.95rem;
+                font-weight: 400;
+                line-height: 1.5;
+                padding: 0.375rem 0.75rem;
+                text-align: center;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                vertical-align: middle;
+
+                cursor: pointer;
+            }
+
+            button:hover {
+            opacity: .7;
+            background-color: #333333;
+            border: 1px #99ccff solid;
+            }
+
+
+            input[type="text"] {
+                line-height: 1.8;
+                width: 25%;
+            }
+
+            input[type="text"]:hover {
+                background-color: #f5f5f5;
+                transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+            }
+
+        </style>
+        <script>
+
+            // Run the script once the html elements are loaded.
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // Select correct answer, and upon click turn it green and give feedback.
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function {
+                    correct.style.backgroundColor = "green";
+                    document.querySelector('#feedback1').innerHTML = 'Correct!';
+                });
+
+                // Deal with incorrect answer responses too.
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect.';
+                    });
+                }
+
+                // Free response question
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === '3' || input.value === "Prisoner of Azkaban") {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect.';
+                    }
+                });
+
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Which programming language came first and is the OG?</h3>
+                <button class="correct">C</button>
+                <button class="incorrect">C++</button>
+                <button class="incorrect">JS</button>
+                <button class="incorrect">Python</button>
+
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Which was the best Harry Potter movie?</h3>
+                <input type="text"></input>
+                <button id="check">Check Answer</button>
+
+                <p id="feedback2"></p>
+            </div>
+
+        </div>
+    </body>
+</html>
