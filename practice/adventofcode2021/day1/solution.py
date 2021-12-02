@@ -1,16 +1,49 @@
-# PART 2
+# CLEANER VERSION
+import sys
+
 depths = []
-for line in open("data.txt"):
-    depths.append(int(line))
 
-counter = 0
+with open('input', 'r') as file:
+	for line in file.readlines():
+		depths.append(int(line))
 
-for i in range(3, len(depths)):
-    a = depths[i] + depths[i-1] + depths[i-2]
-    b = depths[i-1] + depths[i-2] + depths[i-3]
-    if a > b:
-        counter += 1
-print(counter)
+def part1(depths):
+    counter = 0
+
+    for i in range(1, len(depths)):
+        if depths[i] - depths[i-1] > 0:
+            counter += 1
+            
+    return counter
+
+def part2(depths):
+    counter = 0
+
+    for i in range(3, len(depths)):
+        a = depths[i] + depths[i-1] + depths[i-2]
+        b = depths[i-1] + depths[i-2] + depths[i-3]
+        if a > b:
+            counter += 1
+    return counter
+
+first = part1(depths)
+second = part2(depths)
+
+print(f'Part 1: {part1(depths)}, Part 2: {part2(depths)}')
+
+# # PART 2
+# depths = []
+# for line in open("data.txt"):
+#     depths.append(int(line))
+
+# counter = 0
+
+# for i in range(3, len(depths)):
+#     a = depths[i] + depths[i-1] + depths[i-2]
+#     b = depths[i-1] + depths[i-2] + depths[i-3]
+#     if a > b:
+#         counter += 1
+# print(counter)
 
 # PART 1
 
