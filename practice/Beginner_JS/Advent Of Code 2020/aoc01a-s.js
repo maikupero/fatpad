@@ -1,5 +1,3 @@
-
-
 twoNumbers = function(input) {
     data = input.split(' ');
     numbers = data.map(x => parseInt(x, 10));
