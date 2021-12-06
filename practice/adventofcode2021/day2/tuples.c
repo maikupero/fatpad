@@ -6,7 +6,9 @@ typedef struct {
     int distance;
 } tuple;
 
-int part1(tuple* mvmt, int siz)
+tuple mvmt[1000]; 
+
+unsigned int part1(tuple* mvmt, int siz)
 {
 	int vertical = 0;
 	int horizontal = 0;
@@ -31,7 +33,7 @@ int part1(tuple* mvmt, int siz)
 }
 
 
-int part2(tuple* mvmt, int siz)
+unsigned int part2(tuple* mvmt, int siz)
 {
 	int aim = 0;
 	int vertical = 0;
@@ -61,7 +63,6 @@ int part2(tuple* mvmt, int siz)
 int main(void)
 {
 	int i = 0;
-	tuple mvmt[1000]; 
 
 	while (fscanf(stdin, "%s %i", mvmt[i].direction, &mvmt[i].distance) == 2) i++;
 
@@ -70,8 +71,8 @@ int main(void)
     //     printf("direction[%i]: %s, /distance[%i]: %i\n", x, mvmt[x].direction, x, mvmt[x].distance);
     // }
 
-	int first = part1(mvmt, 1000);
-	int second = part2(mvmt, 1000);
+	unsigned int first = part1(mvmt, 1000);
+	unsigned int second = part2(mvmt, 1000);
 	printf("Part 1: %i | ", first);
 	printf("Part 2: %i\n", second);
 
