@@ -1,29 +1,50 @@
------- RUST ------
-$ rustc (file to open)
-$ ./(executable file)
+--------------------------------------------------------------------------------------------------
+------------------------------ DECEMBER NOTES DURING AOC2021 -------------------------------------
+--------------------------------------------------------------------------------------------------
 
-for new projects, in rust directory: 
-    $ cargo new _____ --vcs=git (for gitignores when already in a git repository)
-    $ cd _____
-    ($ cargo build)  -- or just when you run it the first time is ok
+CACHE AND DESTRUCTURING
+@wraps(fn)
+def cache(fn):
+  _cache = {}
+  def cached_fn(*args, **kwargs):
+    if (args, kwargs) in _cache:
+      return _cache[(args, kwargs)]
+    result = fn(*args, **kwargs)
+    _cache[(args, kwargs)] = result
+    return result
 
-for switching projects, in terminal cd ../(program)
+l = [0, 1, 2]
+fn(l)  # equivalent to fn([0, 1, 2])
+fn(*l)  # equivalent to fn(0, 1, 2)
 
-To learn about dependencies: cargo doc --open
+d = { "a": 0, "b": 1 }
+fn(d)  # same as fn({ "a": 0, "b": 1 })
+fn(**d)  # same as fn(a=0, b=1)
 
-./target/debug/hello_cargo, cargo run, or check(compile without executable)
-when done, cargo build --release
+def fn(a, b, *args, **kwargs):
+  print("a:", a, "b:", b, "args:", args, "kwargs:", kwargs)
 
-1. Rust style is to indent with four spaces, not a tab.
-2. println! calls a Rust macro. If it called a function instead, println (no !)
-3. "Hello, world!" string passes as argument to println!, and the string is printed to the screen.
-4. Semicolon line enders are common (;).
-5. Rust’s naming convention for constants is to use all uppercase with underscores between words, 
-and underscores can be inserted in numeric literals to improve readability
+fn()  # value error
+fn(0, 1, 2, 3, 4, 5)  # a: 0 b: 1 args: [2, 3, 4, 5]
+fn(0, 1, 2, c=3, d=4, e=5)  # a: 0 b: 1 args: [2] kwargs: {"c":3, "d":4, "e":5}
 
-use std::io;    io: input output library, from standard lib
+destructuring is technically:
+l = [0, 1]
+a, b = l  # this is destructuring
+x, y = (12, 35)  # this is destructuring
+p, q = a, b  # this is destructuring as righthand is an implicit tuple
 
-.gen_range(1..101);   inclusive on lower, exclusive on upper. alternatively: 1..=100
+
+
+
+
+
+
+
+
+
+
+
 
 Variables
     let foo = 5; // immutable
@@ -205,3 +226,34 @@ process.exit() for exiting node
 ------ HTML/CSS ------
 .(text) -> div with class
 ul>li*4>input+label 4 items with input and label within a UL.
+
+
+
+
+
+------ RUST ------
+$ rustc (file to open)
+$ ./(executable file)
+
+for new projects, in rust directory: 
+    $ cargo new _____ --vcs=git (for gitignores when already in a git repository)
+    $ cd _____
+    ($ cargo build)  -- or just when you run it the first time is ok
+
+for switching projects, in terminal cd ../(program)
+
+To learn about dependencies: cargo doc --open
+
+./target/debug/hello_cargo, cargo run, or check(compile without executable)
+when done, cargo build --release
+
+1. Rust style is to indent with four spaces, not a tab.
+2. println! calls a Rust macro. If it called a function instead, println (no !)
+3. "Hello, world!" string passes as argument to println!, and the string is printed to the screen.
+4. Semicolon line enders are common (;).
+5. Rust’s naming convention for constants is to use all uppercase with underscores between words, 
+and underscores can be inserted in numeric literals to improve readability
+
+use std::io;    io: input output library, from standard lib
+
+.gen_range(1..101);   inclusive on lower, exclusive on upper. alternatively: 1..=100
