@@ -1,6 +1,6 @@
 import requests
 
-api_key = "1a9bae62d6c677c1f405b70c87ab14d7"
+api_key = ""
 base_url = "https://api.openweathermap.org/data/2.5/weather?"
 city_name = input("Enter City name or Coordinates to the thousandth-place precision: ")
 measure = "&units=imperial"
