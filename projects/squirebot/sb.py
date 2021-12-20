@@ -71,6 +71,8 @@ async def on_message(message):
     #             await ctx.send(f"Nope it was {computer}")
 
 async def sb_help(message):
+    print(message.content)
+    tags = []
     await message.channel.send(f"Someone help {message.author.name}!")
 
 async def sb_attend(message):
