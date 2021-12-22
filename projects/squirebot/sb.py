@@ -3,6 +3,7 @@ import random
 import requests
 import asyncio
 
+from dota import heroes, pools, teams
 from mytoken import mytoken, maps_api
 
 client = discord.Client()
@@ -19,40 +20,47 @@ async def on_message(message):
 
     # google coroutines you noob
     if message.content.lower().startswith('sb.'):
-        print(f"Attempting to handle `{(message.content)[3:]} command` from {message.author}")
+        ctx = (message.content)[3:]
+        print(f"Attempting to handle '{ctx}' command from {message.author}")
 
         ### ONE LINERS ###
-        if (message.content)[3:].startswith('hello'):
-            await message.channel.send(f'Hey {str(message.author)[:-5]}! How are ya?')
-        if (message.content)[3:].startswith('go'):
+        if ctx.startswith("hello") or ctx.startswith("hey"):
+            await message.channel.send(f"Hey {str(message.author)[:-5]}! How are ya?")
+        if ctx.startswith("go"):
             await message.channel.send("No")
-        if (message.content)[3:].startswith('yo'):
+        if ctx.startswith("yo") or ctx.startswith("hola"):
             await message.channel.send("sup")
-        if (message.content)[3:].startswith('sup'):
-            await message.channel.send("chillin'")
+        if ctx.startswith("sup"):
+            await message.channel.send("chillin', u?")
 
         ### LIL ONES ###
-        if (message.content)[3:].startswith('attend'):
+        if ctx.startswith('attend'):
             await sb_attend(message)
-        if (message.content)[3:].startswith("help"):
+        if ctx.startswith("help"):
             await sb_help(message)
-        if (message.content)[3:].startswith("dota"):
-            await dota(message)
-        if message.content[3:].startswith('randomciv') or message.content[3:].startswith('aoe') or message.content[3:].startswith('civ'):
+        if ctx.strip() == ("dota"):
+            await dota_help(message)
+        if ctx.startswith("randomciv") or message.content[3:].startswith("aoe") or message.content[3:].startswith("civ"):
             await randomciv(message)
 
         ### BIG ONES ###
-        if (message.content)[3:].startswith("today") or (message.content)[3:].startswith("weather"):
-            await message.channel.send("City? Or coordinates to the thousandth-place precision if you're a nerd.")
-            def check(msg):
-                return msg.author == message.author and msg.channel == message.channel
-            try:
-                location = await client.wait_for("message", check=check, timeout=30) # 30 seconds to reply
-                await weather(message, location.content)
-            except asyncio.TimeoutError:
-                await message.channel.send("I'm so sorry sir, :man_bowing: I have too many other things to take care of I really must get going but do not hesitate to call again I'm so sorry, milord.")
-            except Exception as e:
-                print(e)
+        if ctx.startswith("dota") and len(ctx.split(" ")) > 1:
+            await dota(message, ctx[5:])
+
+        if ctx.startswith("weather"):
+            if len(ctx.split(' ')) > 1:
+                await weather(message, ctx[8:])
+            else:
+                await message.channel.send("City, zip code, or coordinates to the thousandth-place precision if you're a nerd.")
+                def check(msg):
+                    return msg.author == message.author and msg.channel == message.channel
+                try:
+                    location = await client.wait_for("message", check=check, timeout=30) # 30 seconds to reply
+                    await weather(message, location.content)
+                except asyncio.TimeoutError:
+                    await message.channel.send("I'm so sorry sir, :man_bowing: I have too many other things to take care of I really must get going but do not hesitate to call again I'm so sorry, milord.")
+                except Exception as e:
+                    print(e)
     
     # if message.content.startswith(sb.game):
     #     @client.command()
@@ -70,11 +78,34 @@ async def on_message(message):
     #         else:
     #             await ctx.send(f"Nope it was {computer}")
 
+### LIL ONES ###
 async def sb_help(message):
-    print(message.content)
     tags = []
-    await message.channel.send(f"Someone help {message.author.name}!")
-
+    msg = message.content.split(' ')
+    if len(msg) > 1: 
+        for tag in range(1, len(msg)):
+            if msg[tag].startswith("<"):
+                tags.append(msg[tag])
+        to_send = ("Someone help ")
+        for user in range(len(tags)):
+            if user == 0:
+                to_send += tags[user]
+            else: 
+                to_send += (f" and {tags[user]}")
+        to_send += "!"
+        await message.channel.send(to_send)
+    else:
+        await message.channel.send(f"I'm here to help, {message.author.name}, sir, if it please you!\n")
+    header = ":man_bowing::man_bowing::man_bowing: Command list: `sb.(commandgoeshere)` :man_bowing::man_bowing::man_bowing:"
+    hr = "________________________________________"
+    help = "`help` (Very wise, sir, figuring this one out already)."
+    greet = "`(various greetings)` :wave:"
+    attend = "`attend` What does my lord require?"
+    weather = "`weather` :white_sun_cloud:"
+    dota = f"`dota` {discord.utils.get(message.guild.emojis, name='omni')}"
+    aoe = f"`randomciv`/`aoe`/`civ` {discord.utils.get(message.guild.emojis, name='hre')}"
+    await message.channel.send(f"{header}\n{hr}\n{help}\n{greet}\n{attend}\n{weather}\n{dota}\n{aoe}")
+    
 async def sb_attend(message):
     num = random.randint(1,7)
     response = str()
@@ -96,8 +127,135 @@ async def sb_attend(message):
         response = "$peon"
     await message.channel.send(response)
 
-async def dota(message):
-    await message.channel.send("Dota sucks.")
+async def dota_help(message):
+    await message.channel.send("Dota sucks. Use `sb.dota (command)`.")
+    hr = "________________________________________"
+    random = "`random (category)` If no category specified, random hero. Can specify role, attribute, or hero pool."
+    pool = "`pool (user)` List of pools. Or list of heroes/pools from specified user/pool."
+    team = "`team (team title)` List of teams. Or list of heroes in specified team."
+    append = "`append` For adding in heroes/roles/pools."
+    await message.channel.send(f"{hr}\n{random}\n{pool}\n{append}")
+
+async def randomciv(message):
+    civ_id = random.randint(1,8)
+    civ = str()
+    if civ_id == 1:
+        civ = "The Abbasid Dynasty"
+        emoji_name = "abbasid"
+    if civ_id == 2:
+        civ = "The Chinese"
+        emoji_name = "chinese"
+    if civ_id == 3:
+        civ = "The Delhi Sultanate"
+        emoji_name = "delhi"
+    if civ_id == 4:
+        civ = "The French"
+        emoji_name = "french"
+    if civ_id == 5:
+        civ = "The English"
+        emoji_name = "english"
+    if civ_id == 6:
+        civ = "The Holy Roman Empire"
+        emoji_name = "hre"
+    if civ_id == 7:
+        civ = "The Mongols"
+        emoji_name = "mongols"
+    if civ_id == 8:
+        civ = "The Rus Civilization"
+        emoji_name = "rus"
+
+    flag = discord.utils.get(message.guild.emojis, name=emoji_name)
+    await message.channel.send(f'{flag} {flag} {flag} {civ} {flag} {flag} {flag}')
+
+### BIG ONES ###
+async def dota(message, ctx):
+    message.channel.send(f"Handling request: {ctx} from {message.author}")
+    if ctx.startswith("random"):
+        if ctx == "random":
+            num = random.randint(0,(len(heroes)-1))
+            await message.channel.send(heroes[num])
+        else:
+            ctx = ctx[7:]
+            if ctx.startswith("str"):
+                str_heroes = []
+                for hero in heroes:
+                    if hero['attribute'].startswith("str"):
+                        str_heroes.append(hero['hero'])
+                num = random.randint(0,(len(str_heroes)-1))
+                result = str_heroes[num]
+            if ctx.startswith("agi"):
+                agi_heroes = []
+                for hero in heroes:
+                    if hero['attribute'].startswith("agi"):
+                        str_heroes.append(hero['hero'])
+                num = random.randint(0,(len(agi_heroes)-1))
+                result = agi_heroes[num]
+            if ctx.startswith("int"):
+                int_heroes = []
+                for hero in heroes:
+                    if hero['attribute'].startswith("int"):
+                        int_heroes.append(hero['hero'])
+                num = random.randint(0,(len(agi_heroes)-1))
+                result = int_heroes[num]
+            if ctx == "core":
+                cores = []
+                for hero in heroes:
+                    if 1 in hero['role'] or 2 in hero['role'] or 3 in hero['role']:
+                        cores.append(hero['hero'])
+                num = random.randint(0,(len(cores)-1))
+                result = cores[num]
+            if ctx == "1" or ctx == "carry":
+                role1 = []
+                for hero in heroes:
+                    if 1 in hero['role']:
+                        role1.append(hero['hero'])
+                num = random.randint(0,(len(role1)-1))
+                result = role1[num]
+            if ctx == "2" or ctx == "mid":
+                role2 = []
+                for hero in heroes:
+                    if 2 in hero['role']:
+                        role2.append(hero['hero'])
+                num = random.randint(0,(len(role2)-1))
+                result = role2[num]
+            if ctx == "3" or ctx == "offlane":
+                role3 = []
+                for hero in heroes:
+                    if 3 in hero['role']:
+                        role3.append(hero['hero'])
+                num = random.randint(0,(len(role3)-1))
+                result = role3[num]
+            if ctx == "4" or ctx == "5" or ctx == "support":
+                supports = []
+                for hero in heroes:
+                    if 4 in hero['role'] or 5 in hero['role']:
+                        supports.append(hero['hero'])
+                num = random.randint(0,(len(supports)-1))
+                result = supports[num]
+            await message.channel.send(result)
+    if ctx.startswith("pool"):
+        print('pool')
+    if ctx.startswith("team"):
+        print('team')
+    if ctx.startswith("append"):
+        if ctx == "append":
+            await message.channel.send("Specify what you'd like to add/edit! Try `sb.dota pool` or `sb.dota team` to see lists.")
+        else:
+            ctx = ctx[7:]
+            if ctx.startswith("hero"):
+                sb_prompts = ["Hero name?", "Roles, one at a time please.", "Hero's primary attribute", "Do you hate them?"]
+                await message.channel.send(sb_prompts[0])
+                def check(msg):
+                    return msg.author == message.author and msg.channel == message.channel
+                try:
+                    location = await client.wait_for("message", check=check, timeout=30) # 30 seconds to reply
+                    await weather(message, location.content)
+                except asyncio.TimeoutError:
+                    await message.channel.send("I'm so sorry sir, :man_bowing: I have too many other things to take care of I really must get going but do not hesitate to call again I'm so sorry, milord.")
+            if ctx.startswith("team"):
+                await message.channel.send("Team function not ready")
+            if ctx.startswith("pool"):
+                await message.channel.send("Pool function not ready.")
 
 async def weather(message, location):
     api_key = maps_api
@@ -110,7 +268,11 @@ async def weather(message, location):
         coords = city_name.replace(" ", "").split(',')
         complete_url = base_url + "lat=" + coords[0] + "&lon=" + coords[1] + "&appid=" + api_key + measure
     else:
-        complete_url = base_url + "q=" + city_name + "&appid=" + api_key + measure
+        try:
+            int(city_name)
+            complete_url = base_url + "zip=" + str(city_name) + "&appid=" + api_key + measure
+        except:
+            complete_url = base_url + "q=" + city_name + "&appid=" + api_key + measure
 
     # Get method of requests module
     response = requests.get(complete_url)
@@ -149,36 +311,6 @@ async def weather(message, location):
     else:
         print("Some other error... check: https://openweathermap.org/faq#error401")
 
-async def randomciv(civ_id, message):
-    civ_id = random.randint(1,8)
-    civ = str()
-    if civ_id == 1:
-        civ = "The Abbasid Dynasty"
-        emoji_name = "abbasid"
-    if civ_id == 2:
-        civ = "The Chinese"
-        emoji_name = "chinese"
-    if civ_id == 3:
-        civ = "The Delhi Sultanate"
-        emoji_name = "delhi"
-    if civ_id == 4:
-        civ = "The French"
-        emoji_name = "french"
-    if civ_id == 5:
-        civ = "The English"
-        emoji_name = "english"
-    if civ_id == 6:
-        civ = "The Holy Roman Empire"
-        emoji_name = "hre"
-    if civ_id == 7:
-        civ = "The Mongols"
-        emoji_name = "mongols"
-    if civ_id == 8:
-        civ = "The Rus Civilization"
-        emoji_name = "rus"
-
-    flag = discord.utils.get(message.guild.emojis, name=emoji_name)
-    await message.channel.send(f'{flag} {flag} {flag} {civ} {flag} {flag} {flag}')
 
 def main(): 
     client.run(mytoken)
