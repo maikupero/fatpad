@@ -1,3 +1,10 @@
+git clone (url)
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+pip freeze > requirements.txt
+
 heroku login
 
 git clone
@@ -27,7 +34,7 @@ git commit -m "commit message goes here"
 git push heroku main
 heroku open - finally check it's all working
 
-heroku addons:create papertrail - logging addon
+heroku addons:create - logging addon
 heroku addons - check what's installed
 heroku addons:open papertrail - check on the logging info
 
