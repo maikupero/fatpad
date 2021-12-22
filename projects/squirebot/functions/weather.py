@@ -1,14 +1,17 @@
 import requests
+from mytoken import maps_api
 
-api_key = ""
+api_key = maps_api
 base_url = "https://api.openweathermap.org/data/2.5/weather?"
-city_name = input("Enter City name or Coordinates to the thousandth-place precision: ")
+city_name = input("Enter City name, zip code, or Coordinates to the thousandth-place precision: ")
 measure = "&units=imperial"
 
 # Complete url address, converted for your convenience.
 if len(city_name.replace(" ", "").split(',')) == 2:
     coords = city_name.replace(" ", "").split(',')
     complete_url = base_url + "lat=" + coords[0] + "&lon=" + coords[1] + "&appid=" + api_key + measure
+elif len(city_name) == 5 and 9999 < city_name < 100000:
+        complete_url = base_url + "zip=" + city_name + "&appid=" + api_key + measure
 else:
     complete_url = base_url + "q=" + city_name + "&appid=" + api_key + measure
 

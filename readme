@@ -8,26 +8,32 @@
 ------------------------------- About My Github -------------------------------
 -------------------------------------------------------------------------------
 
-    As you can see, it's an unorganized mess that will get cleaned up as I 
-    develop a more clear understanding of programming and my path.
+    Unorganized mess approaching higher levels of organization. 
+    These days, coding primarily in python. 
+    Wrapping up CS50, working on a discord bot, and other projects. 
 
+    Check out my work:
+    (various) CS50 - fantastic 12 week course set up by Harvard. Highly recommend.
+        ~/studies/cs50x
+    (Python) Squirebot - a discord bot in production
+        ~/projects/squirebot
+        
 -------------------------------------------------------------------------------
 ---------------------------------- About Me -----------------------------------
 -------------------------------------------------------------------------------
 
 My name's Michael Perreault, 29 year old US/Canadian dual citizen 
-currently living in Sweden after 6 years in Japan.
+moved back to the US to study coding after 2021 in Sweden, and 2015-2020 in Japan.
 
-I spent my 20s pushing myself to succeed at countless difficult situations.
+I spent my 20s pushing myself towards challenge instead of away from it.
 As a result, I know these things:
-1. I can learn anything. I can teach it, and I can get them excited about it.
+1. I can learn anything, teach it, and get people excited about it.
 2. I love people, communication and collaboration.
 3. Joy and results come together from a balance of effort and environment.
 
-Through that time games, esports, and communities I could stay in touch with online wherever 
-I went were the steady joy that colored the rest of my irrefutably colorful life. 
-It was what I would always come back to and what kept me stable when nothing else about my day-to-day was.
-It became clear that this was the environment I should be putting my efforts into.
+I've been a teacher, a translator, a barista, a bike tour company founder (and guide),
+a pilgrim, a photographer, a videographer, a local business consultant, and a web designer.
+Every one of these experiences benefits me directly in my coding, which is my sole focus now.
 
 Timeline: 
 - 2010: Astrophysics @ Virginia Polytechnic Institute
@@ -48,78 +54,33 @@ You can see some of my visual work at: maikerupero.smugmug.com
 ------------------------------ About My Learning ------------------------------
 -------------------------------------------------------------------------------
 
-What: Primarily Javascript, exploring C++, fascinated by game dev.
+What: General path has been Javascript->C->Python.
+Approaching learning coding as I learned Japanese.
+Started with 2 months of codewars/leetcode to learn through immersion and necessity.
+Dove into CS50 (3 month course) to learn a broader holistic approach and fundamentals.
+Now coding in Python as I build projects every day, and having the time of my life.
 
-When: Set off full time self-study since July 20, 2021, and I haven't looked back.
+When: Began full time self-study on July 20, 2021, more fun every day.
 
-Why: This is the most important question.
-• I look forward to spending time doing this every day. 
-    My lifestyle with coding feels in sync. This is everything.
-    Joy and results come together from a balance of effort and environment.
+Why: 
 • I want to work in a team. 
     Discovering that coding is not only collaborative, but a social and human
-    form of art fascinates and motivates me beyond explanation.
-• This stuff is in my blood.
-    Who knows why. It doesn't matter where I go or what I do in life..
-    Games and coding, my joy for these weird electronic creations - it is in my core. 
+    form of art fascinates and motivates me deeply.
+• It fits my lifestyle.
+    It doesn't matter where I go or what I do in life,
+    games, tech and coding are in my mind and every day.
+    Embracing it, using my other skills to supplement coding,
+    and using coding to bring my other skills to life. 
+    This seems the path to fulfillment.
+• The study of coding is joyful to me.
+    For me, the balance of understanding and application is paramount.
+    The most meaningful creation of any medium is manifested through 
+    creating what is useful through true understanding.
 
 How:
-Main Focus
-• Daily leetcode and codewars problems (deconstructive approach)
-• Lots of personal projects to start soon (constructive approach)
-• learncpp.com for C++ (fundamentals and knowledge base)
-
-Supplemental
-• Learning some Unreal Engine 5 once I get more comfortable with C++
-• UE5 tutorials https://youtu.be/gQmiqmxJMtA
-• https://cs50.harvard.edu/
-• FreeCodeCamp projects 
-• TheOdinProject projects (mostly just skimming the reading, using for project practice
-• https://eloquentjavascript.net/04_data.html 
-• Design Dive Discord Community for game design - current game devs active and weekly talks
-
--------------------------------------------------------------------------------
----------------------------------- Roadmap ------------------------------------
--------------------------------------------------------------------------------
-
------- Towards the Future ------
-Keep in Mind:
-> Concrete Projects of my own
-> Concrete opensource projects & contributions
-> Specific language and field I find interesting
-> Gamedev, webdev
-
------- August 2021 ------
-Goal: 
-> Continue growing fluency with coding through puzzles and problems. 
-    > Explore different sites and formats to grow flexibility.
-> Explore interest in C, C++, Rust
-    > 8/12 Rust has been frustrating to say the least. though interesting to learn about core
-     CS concepts and stuff, but just getting it to work with simple functions in VSC has been a headache.
-> Start work on one personal project
-> Start contributing work on one opensource shared project
-> 8/12 - Let's do this course! https://cs50.harvard.edu/x/2021/
-    -> by 8/22 Week 0 & 1
-    -> by 8/29 Week 2 & 3
-    -> 8/18@Lib One codewars problem. CS50 Week 2. 
-    -> 8/19 Start building website on Heroku to host projects.
-    -> Build a calculator. Then build my first project, the timer webapp.
-    -> https://devcenter.heroku.com/articles/getting-started-with-nodejs
-    -> Finish Week 0 project, heroku start, one codewars to warm up.
-    -> To do this week (8/22 -> 8/29)
-        • Figure out the odin project's projects -> 1 FCC html project/day
-        • CS50
-        • 1 Codewars/day
-        • be stumped with AOC
-        8/23: done
-
-
------- JULY 2021 ------ (Began July 20th)
-> Get started with learning to deconstruct. i.e. solve problems that are set up for me. codewars etc.
-> Move with JS according to bro's advice.
-    • Weird language lots of people who learned a different language hate switching to
-    • Growing language
-    • Good for easily sharing anything I build in the future via browser.
-> Get ready to begin practicing construction i.e. projects and github open source
-> Assemble resources and a general plan to move forward, education, money, location, curriculum, timing.
+Balance of these 4:
+• Deconstructive Approach - Daily leetcode and codewars problems, algorithms and logic, develop a coding mind.
+• Constructive Approach - Lots of personal projects - try to make any idea you can conceptualize.
+• Fundamentals - Any course that feels interesting, useful and concise.
+• Community - Open-source projects, and as much collaboration and communication as possible. 
 
