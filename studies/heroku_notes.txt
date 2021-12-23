@@ -1,3 +1,6 @@
+https://github.com/erperreault/18xxgamesbot
+https://github.com/technomunk/bottica
+
 git clone (url)
 python -m venv venv
 source venv/bin/activate
