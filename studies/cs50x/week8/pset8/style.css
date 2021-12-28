@@ -27,11 +27,13 @@ main {
 
 address {
     display: flex;
-    text-align: align-items-center;
-    justify-content: space-around;
-    margin: 2rem;
+    justify-content: center;
+    margin-top: 5rem;
 }
+address h6 {
+    margin: 1rem;
+}
+
 #background {
     position: absolute;
-    
 }
