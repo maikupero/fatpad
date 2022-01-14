@@ -7,7 +7,36 @@
 # -------------------------------- My solution ----------------------------------
 # -------------------------------------------------------------------------------
 
+def overlap(a, b):
+    return a[0] <= b[1] and a[1] >= b[0]
+
+def no_overlaps(intervals):
+    # print(intervals)
+    def delap():
+        
+        for a_index, a in enumerate(intervals):
+            for b_index, b in enumerate(intervals[a_index+1:], a_index+1):
+                if overlap(a, b):
+                    a = (min(*a,*b), max(*a,*b))
+                    intervals[a_index] = a
+                    del intervals[b_index]
+                    # print(intervals)
+                    return True
+        return False
+    
+    while delap():
+        pass
+
 def sum_of_intervals(intervals):
+    no_overlaps(intervals)
+    return sum(b-a for a, b in intervals)
+
+
+
+
+
+
+def sum_of_intervals1(intervals):
     final = get_true_intervals(intervals)
     sum = 0
     for interv in final:
