@@ -1,0 +1,102 @@
+Web Development In 2022 - A Practical Guide
+https://youtu.be/EqzUcMzfV1w
+
+
+learn sass
+further learn browser dev tools
+learn tools: emmet, prettier, eslint, github copilot
+deploying projects: netlify, vercel, cpanel, amazon s3
+domain names: namecheap, domain.com, bluehost, godaddy
+
+Basic frontend dev should be able to:
+	• create website layouts with css/html
+	• understand basic design
+	• know JS and how to work with DOM
+	• create basic interactive frontend apps
+	• connect to APIs make basic requests with Fetch
+	• work with GIT and use version control
+	• deploy and manage small production projects
+
+from there…
+	—> web design
+	—> frontend framework (react, vue, svelte, state managers, serverside rendering)
+	—> backend (node, python, php, c#, go, mongo&postgres, http&api dev
+	—> advanced js (module bundlers, testing, design patterns)
+
+front end frameworks
+	browser only loads single page, and rest is done through JS using framework
+	for me probably react (facebook) and google (angular), but try vue and maybe svelte
+
+typescript
+	- dont need to define types….?? interpreted for you.
+    - class, module support. apparently less prone to errors and more definitive code. 
+
+ui kits
+    all have some version of material and some version of bootstrap
+    react: onsen, chakra
+    angular: ng-zorro, ng-bootstrap
+    vuetify: vuetify, buefy (bulma css)
+    svelte: materialify, smelte
+
+testing: 
+    gonna learn this with bro, but
+    e2e testing - emulating a user
+    JS testing tools: jest, cypress, puppeteer
+
+server-side rendering: cool aspect of modern webdev. away from single page apps, render frontend frameworks on the server. 
+    next-react, nuxt-vue, remix-react, sveltekit, angular universal
+static-site generators: uses data preloaded from various sources. very performant.
+    gatsby-react, next, gridsome-vue, jekyll for ruby.
+
+CMS - content management system for creating APIs with no frontend.
+    strapi, sanity.io, contentful, graphcms. authentication tools built in, reduces workload of creating backend. 
+
+server-side language & web frameworks:
+    node.js (weaker with cpu heavy tasks), 
+        express, fastify, koa, nest.js
+    python (datascience, machine learning)
+        django, flask, fastapi
+    ruby 
+        on rails, sinatra
+    golang
+        gin, beego
+    rust (web assembly)
+        rocket, actix web
+
+Databases, mostly fine on but:
+    postgresql, mysql, mongodb, firebase(mysql)/supabase(postgres), redis
+
+REST APIs
+    representational state transfer. 
+    http requests to work with data/resources stored in DB then from app/http client make a request to API.
+    basically - instead of loading whole site and navigating around it, create different endpoints from url.
+GraphQL - apollo
+    used like rest api, but requests data from single endpoint. more control for what you get back from requests. less maintenance.
+
+Authentication, Authorization
+    JSON web tokens
+    Cookies & Sessions
+    OAuth (login via google, twitter, github)
+    Authentication Libraries (Passport, Grant, etc)
+    Password hashing (Bcrypt)
+    Protecting endpoints and routes
+
+Deploying full stack projects & DevOps
+    Hosting - AWS, heroku, digitalocean
+    Server software - apache, nginx
+    Containers & Virtualization - kubernetes, docker..  (really only for devops)
+    Image & Video - cloudinary, amazon s3
+
+Backend & Fullstack Web Developer
+    • Comfortable with a serverside programming language
+    • Know how to setup and manage a database & ORM/ODM
+    • Know how to create REST apis from the ground up, implement authentication
+    • Familiar with terminal and UNIX commands
+    • Deploy apps and APIs in some kind of platform
+
+Web3 stuff:
+    blockchain, etherium & smart contracts, solidity programming, NFTs
+Webassembly:
+    lowlevel assembly language for the web. rust, c, c++, compile to WASM. assemblyscript for typescript. 
+AI: 
+    programming tools (github copilot), testing tools, ML APIs, chatbots, spam filters, suggestions etc.
