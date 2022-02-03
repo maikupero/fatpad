@@ -100,3 +100,68 @@ Webassembly:
     lowlevel assembly language for the web. rust, c, c++, compile to WASM. assemblyscript for typescript. 
 AI: 
     programming tools (github copilot), testing tools, ML APIs, chatbots, spam filters, suggestions etc.
+
+
+
+
+
+
+------------------------------------------------
+---------------- LEARNING REACT ----------------
+------------------------------------------------
+https://youtu.be/bMknfKXIFA8
+
+Why React? 
+It's composable.
+Build custom components and put those together to make your html. 
+
+It's declarative. (What should be done? Like JS). Not imperative (C or regular js).
+We build our entire page in JS with react. 
+
+JSX as a flavor of JS that looks like html. 
+
+function temporaryName() ... render(temporaryName()) OR
+function TemporaryName() ... render(<TemporaryName />, ...)
+
+
+- Why do we need to `import React from "react"` in our files?
+    React is what defines JSX
+
+- If I were to console.log(page) in index.js, what would show up?
+    A JavaScript object. React elements that describe what React should
+    eventually add to the real DOM for us.
+
+- What's wrong with this code:
+    const page = (
+        <h1>Hello</h1>
+        <p>This is my website!</p>
+    )
+
+    We need our JSX to be nested under a single parent element
+
+- What does it mean for something to be "declarative" instead of "imperative"?
+    Declarative means I can tell the computer WHAT to do 
+    and expect it to handle the details. Imperative means I need
+    to tell it HOW to do each step.
+
+- What does it mean for something to be "composable"?
+    We have small pieces that we can put together to make something
+    larger/greater than the individual pieces. 
+
+- What is a React component?
+    A function that returns React elements. (UI)
+
+- What's wrong with this code?
+    function myHeader() {
+        return (
+            <header>
+                <nav>
+                    <img src="./react-logo.png" width="40px" />
+                </nav>
+            </header>
+        )
+    }
+    ReactDOM.render(myHeader(), document.getElementById("root"))
+
+    Need Pascal Case, not Camel Case -> MyHeader()
+    Need <MyHeader /> not myHeader()

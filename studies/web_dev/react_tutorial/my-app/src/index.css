@@ -1,0 +1,24 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-logo {
+    width: 60px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px;
+}
+.nav-items {
+    list-style: none;
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+}
+
+.nav-items > li {
+    padding: 10px;
+}
