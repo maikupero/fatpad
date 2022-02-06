@@ -1,86 +1,18 @@
-            In this readme:
-        1. About My Github
-        2. About Me
-        3. About My Learning
-        4. Roadmap
-
 -------------------------------------------------------------------------------
-------------------------------- About My Github -------------------------------
+--------------------------  In this practice pad:  ----------------------------
 -------------------------------------------------------------------------------
+    
+    This is where I began my journey on July 20th, 2021, and the place I dump all things coding related.
+    You can find:
 
-    Unorganized mess approaching higher levels of organization. 
-    These days, coding primarily in python. 
-    Wrapping up CS50, working on a discord bot, and other projects. 
-
-    Check out my work:
-    (various) CS50 - fantastic 12 week course set up by Harvard. Highly recommend.
-        ~/studies/cs50x
-    (Python) Squirebot - a discord bot in production
-        ~/projects/squirebot
+    • All my algorithm practice in, you guessed it, /practice:
+        • Current ongoing series of the Top 100 liked Leetcode challenges, alternating Py and JS.
+        • Countless Leetcode & Codewars challenges, often recommended to me by current professionals.
+        • Advent of Code 2020 and 2021.
+        • Series on recursion, linked lists, etc - wherever I felt like I needed extra practice with concepts.
+    • Various studies I've undertaken
+        • My course work from CS50, completed over 2 months in the Fall.
+        • Dabbling in rust and cpp, though this was truly mostly studying and less practical application.
+        • Web Dev work - various tutorials from experienced programmers, react, web apps, DB setup, and games.
+    • Random project ideas and other notes that will probably mean nothing to you but I keep them around anyways.
         
--------------------------------------------------------------------------------
----------------------------------- About Me -----------------------------------
--------------------------------------------------------------------------------
-
-My name's Michael Perreault, 29 year old US/Canadian dual citizen 
-moved back to the US to study coding after 2021 in Sweden, and 2015-2020 in Japan.
-
-I spent my 20s pushing myself towards challenge instead of away from it.
-As a result, I know these things:
-1. I can learn anything, teach it, and get people excited about it.
-2. I love people, communication and collaboration.
-3. Joy and results come together from a balance of effort and environment.
-
-I've been a teacher, a translator, a barista, a bike tour company founder (and guide),
-a pilgrim, a photographer, a videographer, a local business consultant, and a web designer.
-Every one of these experiences benefits me directly in my coding, which is my sole focus now.
-
-Timeline: 
-- 2010: Astrophysics @ Virginia Polytechnic Institute
-- 2014: Dual degree Philosophy / International Studies at Virginia Commonwealth University.
-    Background in community service and local development led to bikeandbuild.org across the US for affordable housing.
-- 2015: Completed the Shikoku Pilgrimage on foot and lived in Japan for 6 years. During which I: 
-    • Self-taught business-level fluency Japanese in two years.
-    • Co-founded and ran for 3 years the massively successful biketourjapan.com
-    • Began a successful freelance career of videography, photography, and web design.
-    • Worked with coffee shops, libraries, tourism bureaus, guest houses across Japan.
-    • Worked as a private educator and also as a translator.
-    • Worked for tech startup stak, Inc. in Hiroshima, Japan - first opportunity to code.
-- 2021: Moved to Sweden during the pandemic and decided to commit myself full-time to studying coding.
-
-You can see some of my visual work at: maikerupero.smugmug.com
-
--------------------------------------------------------------------------------
------------------------------- About My Learning ------------------------------
--------------------------------------------------------------------------------
-
-What: General path has been Javascript->C->Python.
-Approaching learning coding as I learned Japanese.
-Started with 2 months of codewars/leetcode to learn through immersion and necessity.
-Dove into CS50 (3 month course) to learn a broader holistic approach and fundamentals.
-Now coding in Python as I build projects every day, and having the time of my life.
-
-When: Began full time self-study on July 20, 2021, more fun every day.
-
-Why: 
-• I want to work in a team. 
-    Discovering that coding is not only collaborative, but a social and human
-    form of art fascinates and motivates me deeply.
-• It fits my lifestyle.
-    It doesn't matter where I go or what I do in life,
-    games, tech and coding are in my mind and every day.
-    Embracing it, using my other skills to supplement coding,
-    and using coding to bring my other skills to life. 
-    This seems the path to fulfillment.
-• The study of coding is joyful to me.
-    For me, the balance of understanding and application is paramount.
-    The most meaningful creation of any medium is manifested through 
-    creating what is useful through true understanding.
-
-How:
-Balance of these 4:
-• Deconstructive Approach - Daily leetcode and codewars problems, algorithms and logic, develop a coding mind.
-• Constructive Approach - Lots of personal projects - try to make any idea you can conceptualize.
-• Fundamentals - Any course that feels interesting, useful and concise.
-• Community - Open-source projects, and as much collaboration and communication as possible. 
-
