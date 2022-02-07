@@ -9,7 +9,7 @@
 * @return {number}
 */
  var searchInsert = function(nums, target) {
-    
+    return 0
 };
 // Given Examples
 exnums1 = [1,3,5,6]
@@ -22,26 +22,21 @@ exnums3 = [1,3,5,6]
 extarg3 = 7
 output3 = 4
 
-console.log(`Example 1: ${exnums1, extarg1} yields: ${isValid(exnums1, extarg1)}, expected: ${output1}`);
-console.log(`Example 2: ${exnums2, extarg2} yields: ${isValid(exnums2, extarg2)}, expected: ${output2}`);
-console.log(`Example 3: ${exnums3, extarg3} yields: ${isValid(exnums3, extarg3)}, expected: ${output3}`);
-
+console.log(`Example 1: ${exnums1, extarg1} yields: ${searchInsert(exnums1, extarg1)}, expected: ${output1}`);
+console.log(`Example 2: ${exnums2, extarg2} yields: ${searchInsert(exnums2, extarg2)}, expected: ${output2}`);
+console.log(`Example 3: ${exnums3, extarg3} yields: ${searchInsert(exnums3, extarg3)}, expected: ${output3}`);
+testing = []
+console.log(testing.length)
 // My created test cases
-test1 = "({{}})"
-expected1 = true
-test2 = "({[}])"
-expected2 = false
-test3 = "({[]}}"
-expected3 = false
-console.log(`Test 1: ${test1} yields: ${isValid(test1)}, expected: ${expected1}`)
-console.log(`Test 2: ${test2} yields: ${isValid(test2)}, expected: ${expected2}`)
-console.log(`Test 3: ${test3} yields: ${isValid(test3)}, expected: ${expected3}`)
-
-// Failed this test case because the prompt is unclear. Give me more examples. What. 
-// Knowing this would be failed, I would've just coded in a queue stack.
-failed = "([)]"
-failresult = false
-console.log(`Failed: ${failed} yields: ${isValid(failed)}, expected: ${failresult}`);
+// test1 = "({{}})"
+// expected1 = true
+// test2 = "({[}])"
+// expected2 = false
+// test3 = "({[]}}"
+// expected3 = false
+// console.log(`Test 1: ${test1} yields: ${searchInsert(test1)}, expected: ${expected1}`)
+// console.log(`Test 2: ${test2} yields: ${searchInsert(test2)}, expected: ${expected2}`)
+// console.log(`Test 3: ${test3} yields: ${searchInsert(test3)}, expected: ${expected3}`)
 
 
 // The prompt
