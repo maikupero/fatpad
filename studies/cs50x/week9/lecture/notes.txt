@@ -1,0 +1,12 @@
+flask as a framework so every single time you want to do anything
+in your web app you dont have to specifically write out every single http request
+
+design patterns such as MVC
+        MODEL   
+updates↓     ↑manipulates
+    VIEW     CONTROLLER
+    sees↓     ↑uses
+         USER
+
+web programming frame works let you factor out common content. in flask, layout.html
+ {% block body %}{% endblock %}
