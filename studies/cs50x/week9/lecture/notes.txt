@@ -10,3 +10,31 @@ updates↓     ↑manipulates
 
 web programming frame works let you factor out common content. in flask, layout.html
  {% block body %}{% endblock %}
+
+ {% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>Register</h1>
+    <form action="/register" method="post">
+
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <select name="sport">
+            <option disabled selected value="">Choose a Sport</option>
+            <option value="Dodgeball">Dodgeball</option>
+            <option value="Flag Football">Flag Football</option>
+            <option value="Soccer">Soccer</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+        </select>
+        <input type="submit" value="Register">
+
+    </form>
+
+
+in inspect html you can literally change the input data and send in values that aren't there.
+onus is on the programmer to make sure users cannot do that.
+
+instead, don't copy paste the options. 
+
+in app.py..
