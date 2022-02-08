@@ -1,15 +1,43 @@
 // Best solution:
+function searchInsert(nums, target) {
+    return binarySearch(nums, target, 0, nums.length - 1);
+};
 
-// Solution for their specific prompt which fails sequences if different order at any point:
 
-// My simple solution for checking right amounts in right order: 
-/*
-* @param {number[]} nums
-* @param {number} target
-* @return {number}
-*/
+function binarySearch(array, target, start, end) {
+    if (start > end) return start;
+    
+    const midPoint = Math.floor((start + end)/2);
+
+    if (array[midPoint] === target) return midPoint;
+    
+	// search the left side
+    if (array[midPoint] > target) return binarySearch(array, target, start, midPoint - 1);
+    // search the right side
+    if (array[midPoint] < target) return binarySearch(array, target, midPoint + 1, end);
+}
+
+
+// My simple solution:
  var searchInsert = function(nums, target) {
-    return 0
+    if (nums.indexOf(target) != -1) {
+        return nums.indexOf(target)
+    } else if (target < nums[0]) {
+        return 0
+    } else if (target > nums[nums.length-1]) {
+        return nums.length
+    } else {
+        i = 1
+        while (nums.indexOf(target) == -1) {
+            if (nums.indexOf(target-i) != -1) {
+                return (nums.indexOf(target-i) + 1)
+            } else if (nums.indexOf(target+i) != -1) {
+                return (nums.indexOf(target+i))
+            } else {
+                i++;
+            }
+        }
+    }
 };
 // Given Examples
 exnums1 = [1,3,5,6]
@@ -22,21 +50,23 @@ exnums3 = [1,3,5,6]
 extarg3 = 7
 output3 = 4
 
-console.log(`Example 1: ${exnums1, extarg1} yields: ${searchInsert(exnums1, extarg1)}, expected: ${output1}`);
-console.log(`Example 2: ${exnums2, extarg2} yields: ${searchInsert(exnums2, extarg2)}, expected: ${output2}`);
-console.log(`Example 3: ${exnums3, extarg3} yields: ${searchInsert(exnums3, extarg3)}, expected: ${output3}`);
-testing = []
-console.log(testing.length)
-// My created test cases
-// test1 = "({{}})"
-// expected1 = true
-// test2 = "({[}])"
-// expected2 = false
-// test3 = "({[]}}"
-// expected3 = false
-// console.log(`Test 1: ${test1} yields: ${searchInsert(test1)}, expected: ${expected1}`)
-// console.log(`Test 2: ${test2} yields: ${searchInsert(test2)}, expected: ${expected2}`)
-// console.log(`Test 3: ${test3} yields: ${searchInsert(test3)}, expected: ${expected3}`)
+console.log(`Example 1: ${exnums1}, ${extarg1} yields: ${searchInsert(exnums1, extarg1)}, expected: ${output1}`);
+console.log(`Example 2: ${exnums2}, ${extarg2} yields: ${searchInsert(exnums2, extarg2)}, expected: ${output2}`);
+console.log(`Example 3: ${exnums3}, ${extarg3} yields: ${searchInsert(exnums3, extarg3)}, expected: ${output3}`);
+
+// Failed test cases
+nums1 = [1,3,5,6]
+target1 = 0
+expected1 = 0
+//  Got -1
+nums2 = [3,6,7,8,10]
+target2 = 5
+expected2 = 1
+//  Got 0
+
+console.log(`Failed test: ${nums1}, ${target1} yields: ${searchInsert(nums1, target1)}, expected: ${expected1}`);
+console.log(`Failed test: ${nums2}, ${target2} yields: ${searchInsert(nums2, target2)}, expected: ${expected2}`);
+
 
 
 // The prompt
