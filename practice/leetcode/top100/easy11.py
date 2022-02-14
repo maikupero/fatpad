@@ -1,5 +1,9 @@
 class Solution:
     # Best solution:
+    def singleNumberBest(self, nums):
+        for i in range(1,len(nums)):
+            nums[0] ^= nums[i]
+        return nums[0]
 
     # My solution - pretty good!: 
     def singleNumber(nums):
