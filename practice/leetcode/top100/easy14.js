@@ -1,16 +1,15 @@
 // Best solution:
+// My solution: ELEGANT. no need to compare .vals, just compare the whole node/linked list.
 
-
-// My solution:
-/*
-* Definition for singly-linked list.
-* function ListNode(val) {
-*     this.val = val;
-*     this.next = null;
-* }
-*/
  var getIntersectionNode = function(headA, headB) {
-    
+    let left = headA, right = headB
+
+    while (left !== right) {
+        left = !left ? headB : left.next;
+        right = !right ? headA : right.next;
+    }
+
+    return left
 };
 
 // Examples
