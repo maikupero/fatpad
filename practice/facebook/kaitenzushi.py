@@ -1,6 +1,25 @@
 from typing import List
 from collections import deque
 
+
+# Solved
+def getMaximumEatenDishCount(N: int, D: List[int], K: int) -> int:
+  dishDict = {}
+  count = 0
+  
+  for dish in D:
+    if not dishDict.get(dish):  
+      count += 1
+      dishDict[dish] = count
+    elif (dishDict[dish] + K) <= count:
+        count += 1
+        dishDict[dish] = count
+        
+  return count
+
+
+
+
 def getMaximumEatenDishCount(N: int, D: List[int], K: int) -> int:
   eaten = deque([], K)
   skips = 0
