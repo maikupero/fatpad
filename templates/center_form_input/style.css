@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(253, 252, 247);
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    color: rgb(134, 75, 194);
+    font-size: 4rem;
+    text-align: center;
+    opacity: 0.5;
+}
+
+form {
+    max-width: 100%;
+    width: 400px;
+    margin: auto;
+}
+
+.input {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    display: block;
+    width: 100%;
+}
+
+.input::placeholder {
+    color: b5b5b5;
+}
