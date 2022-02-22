@@ -103,3 +103,11 @@ https://www.reddit.com/r/learnprogramming/comments/bn20hz/best_way_to_learn_html
 https://css-tricks.com/
 > MDN Intro to Web Dev
 https://developer.mozilla.org/en-US/docs/Learn
+
+
+
+
+------ MAC OS ------
+> Hide the Dock
+defaults write com.apple.Dock autohide-delay -float 5 && killall Dock 
+To restore: defaults delete com.apple.Dock autohide-delay 
