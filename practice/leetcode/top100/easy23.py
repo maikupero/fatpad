@@ -1,3 +1,8 @@
+# Summary:
+# Introduce a dict to keep track of recent indices of each letter in the string. 
+# Also our max length to return at the end, a start index, and an end index (start/left and end/right of substring).
+# At every step right the letter to the dict at current index.
+# Reset the start index whenever we find the letter to be already in our dict at an index greater than start.
 
 # Definition for a binary tree node.
 class Solution:
