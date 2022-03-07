@@ -4,7 +4,7 @@
 class Solution:
     def nextPermutation(self, nums: list) -> None:
         # Find the first non-increasing element, starting from the end
-        a = b = len(nums) - 1
+        x = y = len(nums) - 1
 
         while x > 0 and nums[x-1] >= nums[x]:
             x -= 1
