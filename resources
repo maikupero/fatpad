@@ -78,6 +78,15 @@ https://www.hatchways.io/
 > Codeacademy's Take Home
 https://medium.com/codecademy-engineering/how-to-ace-our-apprenticeship-take-home-a37cf137c36d
 
+
+------ Frameworks ------
+> Poetry (Python) - streamlines dependencies (venv, requirements.txt)
+https://python-poetry.org/
+> Pydantic (Python) - typehinting -> typeenforcing
+https://pydantic-docs.helpmanual.io/
+> SQLAlchemy (Python) - streamli
+https://www.sqlalchemy.org/
+
 ------ C & C++ ------
 > CPP Reference
 https://en.cppreference.com/w/
