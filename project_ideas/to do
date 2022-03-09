@@ -1,0 +1,8 @@
+Improve to do app built at maikupero.github.io/todo-app/index.html
+in these ways:
+
+• Add a time scale
+Complete (and cancelled) to the left
+Today in the middle
+tomorrow next to it
+future to the right - give a time scale when adding items here - as the dates get closer they gradually get bigger.
