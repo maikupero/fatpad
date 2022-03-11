@@ -23,10 +23,18 @@
 
 // Shape of these permutation/dfs style functions is: result list, call the function, it goes through all the possible perms, returns results.
 // shape of the dfs function: 
-/**
+    // if break case return (when it gets as long as our original list)
+    // for each element in the original list:
+    //     skip if used before (if true)
+    //     else, build a new path, and mark that as used. 
+    //     send this new path into the same function.
+    //     clean out the start of path and mark it as unused. 
+    //     go on to the next element.
+    
+/*
  * @param {number[]} nums
  * @return {number[][]}
- */
+*/
  var permute = function(letters) {
     let permutations = [];
     dfs(letters, [], Array(letters.length).fill(false), permutations);
