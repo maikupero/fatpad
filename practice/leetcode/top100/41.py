@@ -1,7 +1,43 @@
 class Solution:
+    # Smart way: https://leetcode.com/problems/unique-paths/discuss/22975/Python-easy-to-understand-solutions-(math-dp-O(m*n)-and-O(n)-space).
+    # Simple way: https://leetcode.com/problems/unique-paths/discuss/23204/44ms-Python-DP-solution
     # Starting to see clearly the patterns of these problems.
-    def uniquePaths(self, m: int, n: int) -> int:
-        return 0
+    # 0  1  1  1  1  1  1
+    # 1  2  3  4  5  6  7
+    # 1  3  6  10 15 21 28
+
+    # 1  4  10 20 35 66 94
+
+    # Learned about xrange
+    # initializing a with range(), x with xrange()
+    # a = range(1,10000)
+    # x = xrange(1,10000)
+
+    # The return type of range() is : 
+    # <type 'list'>
+    # The return type of xrange() is : 
+    # <type 'xrange'>
+
+    # The size allotted using range() is : 
+    # 80064
+    # The size allotted using xrange() is : 
+    # 40
+
+    # However, as it's type xrange it cannot be sliced x[2:5] will be an error.
+
+    # ********
+    # Turns out xrange is python 2 only.
+    # ********
+    
+    def uniquePaths(m: int, n: int) -> int:
+        if not m or not n:
+            return 0
+
+        cur = [1] * n
+        for i in range(1, m):
+            for j in range(1, n):
+                cur[j] += cur[j-1]
+        return cur[-1]
 
 test1m = 3
 test1n = 7
