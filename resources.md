@@ -134,6 +134,8 @@ https://github.com/getify/You-Dont-Know-JS
 https://www.udemy.com/share/101XjU/
 > Fullstack Open
 https://fullstackopen.com/en/
+> Arrays Visualized
+https://js-arrays-visualized.com/
 
 
 ------ WEB ------
