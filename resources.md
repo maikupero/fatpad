@@ -70,6 +70,8 @@ https://www.quora.com/What-is-it-like-to-take-CS-140-Operating-Systems-at-Stanfo
 https://cs50.harvard.edu/x/2021/
 > University of Helsinki MOOC
 https://www.mooc.fi/en/
+> Fullstack Open
+https://fullstackopen.com/en/
 
 
 
@@ -132,8 +134,6 @@ https://youtu.be/PFmuCDHHpwk
 https://github.com/getify/You-Dont-Know-JS
 > Udemy - JavaScript: Understanding the Weird Parts
 https://www.udemy.com/share/101XjU/
-> Fullstack Open
-https://fullstackopen.com/en/
 > Arrays Visualized
 https://js-arrays-visualized.com/
 
