@@ -2,7 +2,7 @@
 --------------------------  In this practice pad:  ----------------------------
 -------------------------------------------------------------------------------
     
-    This is where I began my journey on July 20th, 2021, and the place I dump all things coding related.
+    This is where I began learning on July 20th, 2021, and the place I dump all things coding related.
     
     You can find:
     • All my algorithm and coding practice in /practice:
@@ -14,5 +14,7 @@
         • My course work from CS50, completed over 2 months in the Fall.
         • Dabbling in rust and cpp, though this was truly mostly studying and less practical application.
         • Web Dev work - various tutorials from experienced programmers, react, web apps, DB setup, and games.
-    • Random project ideas and other notes that will probably mean nothing to you but I keep them around anyways.
-        
+    • Random Scripts I've made in shell and python.
+    • Templates for starting apps and projects.
+    • A collection of resources for learning, doing, and improving code in resources.
+    

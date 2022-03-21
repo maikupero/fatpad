@@ -14,6 +14,9 @@ https://www.hackerrank.com/
 > Practice It!
 https://practiceit.cs.washington.edu/problem/list
 
+
+
+
 ------ Projects ------
 > Invent With Python (games)
 https://inventwithpython.com/invent4thed/
@@ -24,12 +27,17 @@ https://doc.rust-lang.org/book/ch20-00-final-project-a-web-server.html
 > From Nand to Tetris
 https://www.nand2tetris.org/
 
+
+
+
 ------ Opensource ------
 > Reddit: I used vanilla JavaScript to build a point & shoot game (source code included)
 https://www.reddit.com/r/learnjavascript/comments/ov8dxh/i_used_vanilla_javascript_to_build_a_point_shoot/
 https://codepen.io/franksLaboratory/pen/ZEKodqd
 > Finding Opensource work
 https://opensource.guide/
+
+
 
 
 ------ Tutorials / Courses ------
@@ -63,6 +71,10 @@ https://cs50.harvard.edu/x/2021/
 > University of Helsinki MOOC
 https://www.mooc.fi/en/
 
+
+
+
+
 ------ Job Related Things ------
 > How to get a job as a web developer
 http://web.archive.org/web/20160925155912/http://www.happybearsoftware.com/how-to-get-a-programmer-job.html
@@ -81,14 +93,16 @@ https://www.hatchways.io/
 > Codeacademy's Take Home
 https://medium.com/codecademy-engineering/how-to-ace-our-apprenticeship-take-home-a37cf137c36d
 
+------ Interview Prep ------
+> 20 Python Interview Questions
+https://towardsdatascience.com/20-python-interview-questions-to-challenge-your-knowledge-cddc842297c5
+> Sean Prashad
+https://github.com/SeanPrashad/leetcode-patterns
+> Coding Interview University
+https://github.com/jwasham/coding-interview-university
 
------- Frameworks ------
-> Poetry (Python) - streamlines dependencies (venv, requirements.txt)
-https://python-poetry.org/
-> Pydantic (Python) - typehinting -> typeenforcing
-https://pydantic-docs.helpmanual.io/
-> SQLAlchemy (Python) - streamli
-https://www.sqlalchemy.org/
+
+
 
 ------ C & C++ ------
 > CPP Reference
@@ -97,6 +111,14 @@ https://en.cppreference.com/w/
 ------ Rust ------
 > Understanding Variables - Const, Mutables and Immutables
 https://www.tutorialspoint.com/rust/rust_variables.htm
+
+------ Frameworks ------
+> Poetry (Python) - streamlines dependencies (venv, requirements.txt)
+https://python-poetry.org/
+> Pydantic (Python) - typehinting -> typeenforcing
+https://pydantic-docs.helpmanual.io/
+> SQLAlchemy (Python) - streamli
+https://www.sqlalchemy.org/
 
 
 ------ Javascript ------
@@ -114,16 +136,20 @@ https://www.udemy.com/share/101XjU/
 https://fullstackopen.com/en/
 
 
------- HTML/CSS ------
+------ WEB ------
 > Reddit: How to learn these two
 https://www.reddit.com/r/learnprogramming/comments/bn20hz/best_way_to_learn_htmlcss/
 > CSS Tricks
 https://css-tricks.com/
 > MDN Intro to Web Dev
 https://developer.mozilla.org/en-US/docs/Learn
+> Astro Websites
+https://astro.build/
 
 
-
+------ DESIGN ------
+> Native code Figma Alternative
+https://icons8.com/lunacy
 
 ------ MAC OS ------
 > Hide the Dock
