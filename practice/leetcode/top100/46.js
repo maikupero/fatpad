@@ -1,104 +1,73 @@
 // Summary of Best Solution
-// https://leetcode.com/problems/sort-colors/discuss/1049327/4-approaches-for-your-interview
 
-// 3 ways
-// 1. Brute Force Checking
-// 2. One pass Algorithm
-// 3. Intuitive Approach
 
 /*
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
+ * @param {character[][]} board
+ * @param {string} word
+ * @return {boolean}
  */
+ var exist = function(board, word) {
+    if (board.length === 0) return false
 
-// One pass way
-var sortColors2 = function(nums) {
-    console.log(nums)
-    
-    let l = 0, m = 0, r = nums.length-1;
+    const col = board.length // Number of rows
+    const row = board[0].length // Number of els in a row
 
-    while (m <= r) {
-        if (nums[m] === 0) {
-            swap(l,m);
-            m++;
-            l++;
-        } else if (nums[m] === 1) {
-            m++;
-        } else {
-            swap(m,r);
-            r--;
+    const dirs = [[-1,0],[0,1],[1,0],[0,-1]]
+
+    function search(y,x,i) {
+        // Break cases (letter not matching the letter of the word) or finding the whole word
+        if (board[y][x] !== word[i]) return false;
+        if (i === word.length-1) return true;
+
+        board[y][x] = '*';
+        for (const [dy,dx] of dirs) {
+            const a = x+dx;
+            const b = y+dy;
+            if (a >= 0 && a < row && b >= 0 && b < col) {
+                if (search(b, a, i+1)) return true
+            }
+        }
+        board[y][x] = word[i];
+        return false;
+    }
+
+    for (let y = 0; y < col; y++) {
+        for (let x = 0; x < row; x++) {
+            if (search(y, x, 0)) return true
         }
     }
 
-    function swap(a,b) {
-        [nums[b],nums[a]] = [nums[a],nums[b]]
-    }
-
-    console.log(nums)
-};
-// First way (my first intuition) of brute force. 
-// Also intuited you can do it without counting 2s, just count the other 2, and calc the difference.
-var sortColors1 = function(nums) {
-    console.log(nums)
-    let reds=0, whites=0, blues=0;
-
-    for (let num of nums) {
-        if (num === 0) reds++;
-        else if (num === 1) whites++;
-        else blues++;
-    }
-
-    nums.length = 0;
-
-    for (let i = 0; i < reds; i++) nums.push(0);
-    for (let i = 0; i < whites; i++) nums.push(1);
-    for (let i = 0; i < blues; i++) nums.push(2);
-    
-    console.log(nums)
+    return false
 };
 
 
-let test1 = [2,0,2,1,1,0];
-let expected1 = [0,0,1,1,2,2];
-let test2 = [2,0,1];
-let expected2 = [0,1,2]
+board1 = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+word1 = "ABCCED"
+expected1 = true
+board2 = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+word2 = "SEE"
+expected2 = true
+board3 = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+word3 = "ABCB"
+expected3 = false
  
- 
-console.log(`||| TESTED with target ${test1} \n||| RETURNS: ${sortColors2(test1)}\n||| EXPECTED: ${expected1}`)
-console.log(`||| TESTED with target ${test2} \n||| RETURNS: ${sortColors2(test2)}\n||| EXPECTED: ${expected2}`)
+console.log(`||| TESTED with target ${board1, word1} \n||| RETURNS: ${exist(board1, word1)}\n||| EXPECTED: ${expected1}`)
+console.log(`||| TESTED with target ${board2, word2} \n||| RETURNS: ${exist(board2, word2)}\n||| EXPECTED: ${expected2}`)
+console.log(`||| TESTED with target ${board3, word3} \n||| RETURNS: ${exist(board3, word3)}\n||| EXPECTED: ${expected3}`)
 
-79. Word Search
-https://leetcode.com/problems/word-search/
-Given an m x n grid of characters board and a string word, return true if word exists in the grid.
-
-The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
-
- 
-
-Example 1:
+// 79. Word Search
+// https://leetcode.com/problems/word-search/
+// Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+// The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
 
 
-Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
-Output: true
-Example 2:
-
-
-Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
-Output: true
-Example 3:
-
-
-Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
-Output: false
  
 
-Constraints:
-
-m == board.length
-n = board[i].length
-1 <= m, n <= 6
-1 <= word.length <= 15
-board and word consists of only lowercase and uppercase English letters.
+// Constraints:
+// m == board.length
+// n = board[i].length
+// 1 <= m, n <= 6
+// 1 <= word.length <= 15
+// board and word consists of only lowercase and uppercase English letters.
  
-
-Follow up: Could you use search pruning to make your solution faster with a larger board?
+// Follow up: Could you use search pruning to make your solution faster with a larger board?
