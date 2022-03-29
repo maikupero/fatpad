@@ -143,6 +143,8 @@ https://js-arrays-visualized.com/
 https://www.reddit.com/r/learnprogramming/comments/bn20hz/best_way_to_learn_htmlcss/
 > CSS Tricks
 https://css-tricks.com/
+> CSS Grid
+https://learncssgrid.com/
 > MDN Intro to Web Dev
 https://developer.mozilla.org/en-US/docs/Learn
 > Astro Websites
