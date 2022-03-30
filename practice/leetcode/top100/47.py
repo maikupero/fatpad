@@ -1,7 +1,6 @@
 # Honestly have no idea what this is. 
 # https://leetcode.com/problems/unique-binary-search-trees/discuss/31761/Python-with-explanation.-I-guess-you-could-call-this-%22DP%22...
 # Study this one more.
-
 class Solution:
 
     def numTrees(n: int) -> int:
