@@ -1,5 +1,5 @@
 // Summary of Best Solution
-//  Was under the impression these were sorted. So my solution worked for that.
+// Was under the impression these were sorted. So my solution worked for that.
 // But apparently not. Eh. Mine is just messy and misses exception cases. 
 // This case showed me I had the wrong idea about it: [[2,3],[4,5],[6,7],[8,9],[1,10]]
 
