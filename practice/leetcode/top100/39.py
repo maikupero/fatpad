@@ -1,7 +1,7 @@
 class Solution:
     # Intuition says to start at the end, and work back. 
     # At the end, if we're at index 0, true, otherwise, false. 
-    #  Found a solution that did just that, and explained it well.
+    # Found a solution that did just that, and explained it well.
     # https://leetcode.com/problems/jump-game/discuss/596454/Python-Simple-solution-with-thinking-process-Runtime-O(n)
 
     def canJump(nums) -> bool:
