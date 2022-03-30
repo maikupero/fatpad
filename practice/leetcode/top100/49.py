@@ -1,5 +1,4 @@
 # https://leetcode.com/problems/binary-tree-level-order-traversal/discuss/746422/Binary-tree-level-order-traversal-Python3-Solution-with-a-Detailed-Explanation
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
