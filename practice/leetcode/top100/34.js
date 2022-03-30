@@ -40,7 +40,6 @@ test3a = [2]
 test3b = 1
 expected3 = []
  
-
 console.log(`${test1a} with target ${test1b} returns ${combinationSum(test1a, test1b)} expected: ${expected1}`)
 console.log(`${test2a} with target ${test2b} returns ${combinationSum(test2a, test2b)} expected: ${expected2}`)
 console.log(`${test3a} with target ${test3b} returns ${combinationSum(test3a, test3b)} expected: ${expected3}`)
