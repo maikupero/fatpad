@@ -7,9 +7,6 @@ class Solution:
                 nums[i] += nums[i-1]
         return max(nums)
 
-    
-    
-    
     # def maxSubArray(nums):
     #     global current
     #     current = nums[0]
