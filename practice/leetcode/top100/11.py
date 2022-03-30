@@ -29,6 +29,7 @@ print(f"singleNumber{test1} yields: {Solution.singleNumber(test1)}. Expected: {e
 print(f"singleNumber{test2} yields: {Solution.singleNumber(test2)}. Expected: {expected2}")
 print(f"singleNumber{test3} yields: {Solution.singleNumber(test3)}. Expected: {expected3}")
 
+# 136. Single Number
 # https://leetcode.com/problems/single-number/
 # Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 # You must implement a solution with a linear runtime complexity and use only constant extra space.
