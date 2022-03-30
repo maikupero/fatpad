@@ -60,6 +60,5 @@ print(f"Testing {test2m,test2n} returns {Solution.uniquePaths(test2m,test2n)} ex
 # The robot can only move either down or right at any point in time.
 # Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
 # The test cases are generated so that the answer will be less than or equal to 2 * 109.
-
 # Constraints:
 # 1 <= m, n <= 100
