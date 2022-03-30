@@ -66,5 +66,4 @@ console.log(`||| TESTED with target ${board3, word3} \n||| RETURNS: ${exist(boar
 // 1 <= m, n <= 6
 // 1 <= word.length <= 15
 // board and word consists of only lowercase and uppercase English letters.
- 
 // Follow up: Could you use search pruning to make your solution faster with a larger board?
