@@ -67,12 +67,10 @@ expected2 = 1
 console.log(`Failed test: ${nums1}, ${target1} yields: ${searchInsert(nums1, target1)}, expected: ${expected1}`);
 console.log(`Failed test: ${nums2}, ${target2} yields: ${searchInsert(nums2, target2)}, expected: ${expected2}`);
 
-
 // 35. Search Insert Position
 // https://leetcode.com/problems/search-insert-position/
 // Given a sorted array of distinct integers and a target value, return the index if the target is found. 
 // If not, return the index where it would be if it were inserted in order.
-
 // You must write an algorithm with O(log n) runtime complexity.
 
 // Constraints:
