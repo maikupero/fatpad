@@ -1,7 +1,6 @@
 class Solution:
     # Binary search y value, binary search x value.
     def searchMatrix(matrix: list, target: int) -> bool:
-
         def searchY(row):
             for y in range(1,len(row)):
                 if row[y] > target:
