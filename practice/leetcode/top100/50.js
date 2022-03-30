@@ -90,7 +90,6 @@ expected2 = [0,1,1,2,1,2]
 // test3 = 19
 // expected3 = [1,1,0,0,1]
  
- 
 console.log(`||| TESTED with target ${test1} \n||| RETURNS: ${countBits(test1)}\n||| EXPECTED: ${expected1}`)
 console.log(`||| TESTED with target ${test2} \n||| RETURNS: ${countBits(test2)}\n||| EXPECTED: ${expected2}`)
 // console.log(`||| TESTED with target ${test3} \n||| RETURNS: ${countBits(test3)}\n||| EXPECTED: ${expected3}`)
