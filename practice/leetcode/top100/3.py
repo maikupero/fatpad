@@ -48,14 +48,6 @@ class Solution:
             return head
                 
             
-
-        
-        
-
-
-
-
-# Examples
 test1 = ([1,2,4], [1,3,4])
 expected1 = [1,1,2,3,4,4]
 test2 = ([], [])
@@ -68,7 +60,7 @@ print(f"twoSum{test2[0], test2[1]} yields: {Solution.mergeTwoLists(test2[0], tes
 print(f"twoSum{test3[0], test3[1]} yields: {Solution.mergeTwoLists(test3[0], test3[1])}. Expected: {expected1}")
 
 
-
+# 21. Merge Two Sorted Lists
 # https://leetcode.com/problems/merge-two-sorted-lists/
 
 # You are given the heads of two sorted linked lists list1 and list2.
