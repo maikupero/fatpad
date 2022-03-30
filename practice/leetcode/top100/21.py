@@ -26,6 +26,7 @@ class Solution(object):
 test1a = [1,3,2,5]
 test1b = [2,1,3,None,4,None,7]
 expected1 = [3,4,5,5,4,None,7]
+
 test2a = [1]
 test2b = [1,2]
 expected2 = [2,2]
