@@ -5,6 +5,7 @@
 // can compare the strings to the keys in various ways,
 // if they match, add to that value list. if not make a new k-v.
 // return values.
+
 // Would definitely benefit from not doing javascript. 
 
 // Want to understand: 
