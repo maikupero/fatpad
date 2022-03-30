@@ -27,7 +27,7 @@ print(f"singleNumber{test1} yields: {Solution.majorityElement(test1)}. Expected:
 print(f"singleNumber{test2} yields: {Solution.majorityElement(test2)}. Expected: {expected2}")
 print(f"singleNumber{failed3} yields: {Solution.majorityElement(failed3)}. Expected: {expected3}")
 
- 
+# 169. Majority Element
 # https://leetcode.com/problems/majority-element/
 # Given an array nums of size n, return the majority element.
 # The majority element is the element that appears more than ⌊n / 2⌋ times. 
