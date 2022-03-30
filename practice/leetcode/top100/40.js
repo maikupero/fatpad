@@ -65,6 +65,7 @@ expected3 = [[0,4]]
 test4 = [[1,4],[0,2],[3,5]]
 expected4 = [[0,5]]
 
+
 console.log(`||| TESTED with target ${test1} \n||| RETURNS: ${merge(test1)}\n||| EXPECTED: ${expected1}`)
 console.log(`||| TESTED with target ${test2} \n||| RETURNS: ${merge(test2)}\n||| EXPECTED: ${expected2}`)
 console.log(`||| TESTED with target ${test3} \n||| RETURNS: ${merge(test3)}\n||| EXPECTED: ${expected3}`)
