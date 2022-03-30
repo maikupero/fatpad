@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/discuss/1164542/JS-Python-Java-C%2B%2B-or-Easy-Two-Pointer-Solution-w-Explanation
 // Notion of giving fast a head start of n. 
 // That way it reaches the end at the same time as slow reaches n.
+
 var removeNthFromEnd = function(head, n) {
     let fast = head, slow = head;
 
