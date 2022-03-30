@@ -43,7 +43,6 @@ print(f"Testing {test1} yields {Solution.jump(test1)} expected {expected1}")
 print(f"Testing {test2} yields {Solution.jump(test2)} expected {expected2}")
 print(f"Testing {test3} yields {Solution.jump(test3)} expected {expected3}")
 
-
 # 45. Jump Game II
 # https://leetcode.com/problems/jump-game-ii/
 # Given an array of integers nums sorted in non-decreasing order,
