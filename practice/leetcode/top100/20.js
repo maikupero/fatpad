@@ -1,5 +1,3 @@
-// Best solution:
-
 // My solution: 
 /*
 * Definition for singly-linked list.
