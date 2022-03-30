@@ -6,8 +6,9 @@ class TreeNode:
         self.right = right
 
 class Solution:
+
     # Best solution:
-    # recursively
+        # recursively
     def inorderTraversal1(self, root):
         res = []
         self.helper(root, res)
@@ -19,7 +20,7 @@ class Solution:
             res.append(root.val)
             self.helper(root.right, res)
 
-    # iteratively       
+        # iteratively       
     def inorderTraversal(self, root):
         res, stack = [], []
         while True:
