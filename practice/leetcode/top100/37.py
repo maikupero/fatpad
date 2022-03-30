@@ -14,6 +14,7 @@ class Solution:
     # Best solution
     def rotate(matrix) -> None:
         rotated = []
+        
         for col in range(len(matrix)):
             temp = []
             for row in range(len(matrix)-1,-1,-1):
