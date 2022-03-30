@@ -1,4 +1,3 @@
-# Summary:
 # Essentially keep a dict (map in other lanauges). 
 # if target - current num = a num in the dict, that's our answer. otherwise, add current num to dict.
 
