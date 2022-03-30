@@ -20,7 +20,6 @@ var isSymmetric = function(root) {
     return isMirror(root.left, root.right);
 };
 
-
 // My simple solution
 var isSymmetric = function(root) {
     // Need a left traversal and right traversal. 
@@ -65,7 +64,6 @@ var isSymmetric = function(root) {
 // Example 2:
 // Input: root = [1,2,2,null,3,null,3]
 // Output: false
- 
 
 // 101. Symmetric Tree
 // https://leetcode.com/problems/symmetric-tree/
