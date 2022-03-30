@@ -1,5 +1,5 @@
 // Summary of Best Solution
-https://leetcode.com/problems/minimum-path-sum/discuss/502072/Javascript-95-Speed-O(mn)-time-O(1)-space-w-comments
+// https://leetcode.com/problems/minimum-path-sum/discuss/502072/Javascript-95-Speed-O(mn)-time-O(1)-space-w-comments
 /**
  * @param {number[][]} grid
  * @return {number}
