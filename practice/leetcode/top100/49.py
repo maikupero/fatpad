@@ -37,7 +37,6 @@ test2 = [1]
 expected2 = [[1]]
 test3 = []
 expected3 = []
- 
 
 
 print(f"Testing {test1} returns {Solution.levelOrder(test1)} expected {expected1}")
