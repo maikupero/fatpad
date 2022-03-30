@@ -33,7 +33,6 @@ expected1 = 5
 test2 = 1
 expected2 = 1
  
-
 print(f"Testing {test1} returns {Solution.numTrees(test1)} expected {expected1}")
 print(f"Testing {test2} returns {Solution.numTrees(test2)} expected {expected2}")
 
