@@ -24,7 +24,6 @@ class Solution:
     # 40
 
     # However, as it's type xrange it cannot be sliced x[2:5] will be an error.
-
     # ********
     # Turns out xrange is python 2 only.
     # ********
