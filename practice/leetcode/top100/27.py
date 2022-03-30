@@ -27,7 +27,6 @@ class Solution:
 
         return combinations
 
-
 # Example cases:
 test1 = "23"
 expected1 = ["ad","ae","af","bd","be","bf","cd","ce","cf"]
