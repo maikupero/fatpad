@@ -1,5 +1,3 @@
-# Best solution:
-
 # My solution: This took me WAY too long, even though I had the logic down about 5 minutes in. 
 
 class Solution:  
@@ -114,10 +112,7 @@ print(f"twoSum{failed3} yields: {Solution.maxSubArray(failed3)}. Expected: {corr
 print(f"twoSum{failed4} yields: {Solution.maxSubArray(failed4)}. Expected: {correct4}")
 print(f"twoSum{failed5} yields: {Solution.maxSubArray(failed5)}. Expected: {correct5}")
 
-
-
-
-
+# 53. Maximum Subarray
 # https://leetcode.com/problems/maximum-subarray/
 # Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 # A subarray is a contiguous part of an array.
