@@ -44,9 +44,9 @@ out3 = 1
 console.log(`Example 1: ${ex1} yields: ${climbStairs(ex1)}, expected: ${out1}`);
 console.log(`Example 1: ${ex2} yields: ${climbStairs(ex2)}, expected: ${out2}`);
 console.log(`Example 1: ${ex3} yields: ${climbStairs(ex3)}, expected: ${out3}`);
-// Failed test cases
 
-
+// 70. Climbing Stairs
+// https://leetcode.com/problems/climbing-stairs/
 // You are climbing a staircase. 
 // It takes n steps to reach the top.
 // Each time you can either climb 1 or 2 steps. 
