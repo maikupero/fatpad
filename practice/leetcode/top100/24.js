@@ -59,7 +59,6 @@ var longestPalindrome2 = function(s) {
     }
 };
 
-
 test1 = "babad"
 expected1 = "bab"
 // Explanation: "aba" is also a valid answer.
