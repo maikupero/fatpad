@@ -31,7 +31,6 @@ var groupAnagrams = function(strs) {
     return Object.values(resultsDict)
 };
 
-
 test1 = ["eat","tea","tan","ate","nat","bat"]
 expected1 = [["bat"],["nat","tan"],["ate","eat","tea"]]
 test2 = [""]
