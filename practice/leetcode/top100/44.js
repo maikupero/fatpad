@@ -63,7 +63,6 @@ let expected1 = [0,0,1,1,2,2];
 let test2 = [2,0,1];
 let expected2 = [0,1,2]
  
- 
 console.log(`||| TESTED with target ${test1} \n||| RETURNS: ${sortColors2(test1)}\n||| EXPECTED: ${expected1}`)
 console.log(`||| TESTED with target ${test2} \n||| RETURNS: ${sortColors2(test2)}\n||| EXPECTED: ${expected2}`)
 
