@@ -34,7 +34,6 @@ expected1 = true
 test2 = [5,1,4,null,null,3,6]
 expected2 = false
 // Explanation: The root node's value is 5 but its right child's value is 4.
- 
 
  
 console.log(`||| TESTED with target ${board1, word1} \n||| RETURNS: ${exist(board1, word1)}\n||| EXPECTED: ${expected1}`)
