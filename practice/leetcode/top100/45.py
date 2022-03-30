@@ -52,8 +52,6 @@ test2 = [0]
 expected2 = [[],[0]]
 print(f"Testing {test1} returns {Solution.subsets(test1)} expected {expected1}")
 print(f"Testing {test2} returns {Solution.subsets(test2)} expected {expected2}")
-# print(f"Testing {test1a,test1b} returns {Solution.searchMatrix(test1a,test1b)} expected {expected1}")
-# print(f"Testing {test2a,test2b} returns {Solution.searchMatrix(test2a,test2b)} expected {expected2}")
 
 # 78. Subsets
 # https://leetcode.com/problems/subsets/
