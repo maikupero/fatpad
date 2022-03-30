@@ -22,7 +22,6 @@ var isSymmetric = function(root) {
 
 
 // My simple solution
-
 var isSymmetric = function(root) {
     // Need a left traversal and right traversal. 
     // Traverse in opposite directions and compare values. 
@@ -58,7 +57,7 @@ var isSymmetric = function(root) {
         b = node.left;
     }
 }
-// Given Examples
+
 // Example 1:
 // Input: root = [1,2,2,3,4,4,3]
 // Output: true
@@ -67,14 +66,13 @@ var isSymmetric = function(root) {
 // Input: root = [1,2,2,null,3,null,3]
 // Output: false
  
+
+// 101. Symmetric Tree
+// https://leetcode.com/problems/symmetric-tree/
+// Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
 // Constraints:
 // The number of nodes in the tree is in the range [1, 1000].
 // -100 <= Node.val <= 100
 
-// Failed test cases
-
-
-// Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
 // Follow up: Could you solve it both recursively and iteratively?
-
-
