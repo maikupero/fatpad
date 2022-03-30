@@ -8,13 +8,7 @@ var climbStairs = function(n) {
 
 // My simple solution... Well, this is fibonacci, starting at 1 (can't have 0 ways to ascend).
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
-
-/*
- * @param {number} n
- * @return {number}
- */
 // So build it as I go.
-
 var climbStairs = function(n) {
     let x = [1,1];
     for (let y = 2; y <= n; y++) {
@@ -32,7 +26,6 @@ function climbStairs(n) {
         return (climbStairs(n - 1) + climbStairs(n - 2))
     }
 }
-
     
 // Given Examples
 ex1 = 2
