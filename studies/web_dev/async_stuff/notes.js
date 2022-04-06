@@ -7,63 +7,63 @@ const fs = require('fs');
 //********** Callbacks ***********
 
 //setTimeout
-// setTimeout(() => {
-//     console.log('Waited 1 second');
-// }, 1000);
+setTimeout(() => {
+    console.log('Waited 1 second');
+}, 1000);
 
 // Nested setTimeouts
-// setTimeout(() => {
-//     console.log('3');
-//     setTimeout(() => {
-//         console.log('2')
-//         setTimeout(() => {
-//             console.log('1')
-//         }, 1000);
-//     }, 1000);
-// }, 1000);
+setTimeout(() => {
+    console.log('3');
+    setTimeout(() => {
+        console.log('2')
+        setTimeout(() => {
+            console.log('1')
+        }, 1000);
+    }, 1000);
+}, 1000);
 
 // button event handler in browser JS, just for example of a callback.
-// let btn;
-// btn.addEventListener('click', () => {
+let btn;
+btn.addEventListener('click', () => {
 
-// })
+})
 
 // error first callback
 // shows data
-// fs.readFile('./input.txt', {encding:'utf-8'}, (err, data) => {
-//     console.log(data);
-// }) 
+fs.readFile('./input.txt', {encding:'utf-8'}, (err, data) => {
+    console.log(data);
+}) 
 
 // undefined shows as there was an err, no data. 
-// fs.readFile('./input2.txt', {encding:'utf-8'}, (err, data) => {
-//     console.log(data);
-// }) 
+fs.readFile('./input2.txt', {encding:'utf-8'}, (err, data) => {
+    console.log(data);
+}) 
 
 // more common is:
-// fs.readFile('./input.txt', {encoding:'utf-8'}, (err, data) => {
-//     if (err) {
-//         console.error("ERROR");
-//         console.error(err);
-//     } else {
-//         console.error("GOT DATA");
-//         console.log(data);
-//     }
-// }); 
+fs.readFile('./input.txt', {encoding:'utf-8'}, (err, data) => {
+    if (err) {
+        console.error("ERROR");
+        console.error(err);
+    } else {
+        console.error("GOT DATA");
+        console.log(data);
+    }
+}); 
 // if an error is thrown it will log it all out.
 
 // Error-first callback, promises and async await, with asynchronous things sometimes things go wrong, this is how to be prepared.
 
 // Creating a promise - pass a function that accepts a resolve and a reject callback. 
 // Always have a success path and a fail path. then return one of above.
-// const myPromise = new Promise((resolve, reject) => {
-//     const rand = Math.floor(Math.random() * 2);
-//     console.log(rand);
-//     if (rand === 0) {
-//         resolve();
-//     } else {
-//         reject();
-//     }
-// });
+const myPromise = new Promise((resolve, reject) => {
+    const rand = Math.floor(Math.random() * 2);
+    console.log(rand);
+    if (rand === 0) {
+        resolve();
+    } else {
+        reject();
+    }
+});
 
 // .then will take a callback function, log something like success.
 // myPromise
