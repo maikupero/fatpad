@@ -1,3 +1,6 @@
 {
-    "python.globalModuleInstallation": true
+    "python.globalModuleInstallation": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+     }
 }
