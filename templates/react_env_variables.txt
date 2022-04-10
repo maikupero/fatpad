@@ -89,3 +89,16 @@ The difference is clear. I have not supplied the secret token this time in my re
 I receive this request in my middle-ware API, add my secret token with it and forward it to the Harvest API. The response from Harvest API is returned to our middle_ware API and hence forward back to our Reactjs client application.
 
 The secret token now resides on my server-side API and safe from external users.
+
+
+If you are reading this page in 2020 and don’t want to develop server-side code for whatever reasons(saving hosting cost, etc), severless function might be the solution.
+
+This also calls 3rd party API from the server-side, but you don’t have to develop a full-fledged server-side API proxy.
+
+Netlify has documentation on this. I guess other providers like AWS lambda, Google cloud function offers similar things but not sure.
+
+https://github.com/netlify/code-examples/tree/master/function_examples/token-hider
+
+Pros No server management
+
+Cons Vendor lock-in
