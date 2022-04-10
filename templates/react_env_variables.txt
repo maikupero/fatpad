@@ -16,4 +16,76 @@ You call the endpoint from React, then Express uses an API key to fetch 3rd part
 
 https://www.rockyourcode.com/secret-keys-in-react/
 
-The canonical way to use a third party API key is for your client side app to send a request to your backend API. Your backend API then formats the request as per the third-party API, adds the key and makes the call to the third-party API. Once it receives the response, it can either unpack it and translate it into domain objects which your front-end app would understand or send the raw response back to the front-end app. In this way, the API key stays at the backend and is never sent to the client-side.
+The canonical way to use a third party API key is for your client side app to send a request to your backend API. Your backend API 
+
+
+
+
+# EXCELLENT ANSWER
+1: Most of the answers are suggesting to make use of the .env file. I would like to make it clear for once and all that .env is not here to add any security layer. The .env as the name depicts is only here to set up an environment at build time. e.g. by using the environment variables you set some global values at build time and can access these values in your application at runtime.
+
+2: Reactjs is simply a framework running your javascript code in the client browser. So the client has complete access to the javascript (Reactjs) code. Nothing is secure on the client-side. So never think of making something secure or hidden from the client by just keeping all your code client-side. Whenever you need to hide something from the client, there is something server-side which you need to incorporate. Only the server-side code is secure from the client-side.
+
+3: So what you do is, You will keep your secure keys on the server-side.
+
+Suppose the purpose of your secure keys is to make a cookie for your client. so the client needs the cookie not the secure keys, right? So the client-side makes a request to the server for a cookie, the server makes the cookie by using the secure keys and returns the cookie to the client. After all the client is only here to eat the cookie and not to know how do we make a cookie right?
+
+4: So the thumb rule is that wherever you have some confidential data, you will keep it on the server. The server will use this confidential data and return the result data to be exposed to the client.
+
+Edit Sep_06_2021
+
+A User has asked for a coding example so I will put up a real time scenario which I have handled using the above described technique. Here is my use case
+
+I have a Reactjs app which submits a public form to non public API.
+
+The non public API is Harvest API hosted by https://www.greenhouse.io/
+
+This API requires an Authentication Header for making requests with it. I have subscribed with the API owner and received a secret token from them which I can use with my requests to get access to their API
+
+Ofcourse I want to keep my token personal and do not expose it to public users
+
+I have used axios client to communicate with the API
+
+I have 2 ways to perform the above described scenario
+
+The Incorrect Method
+
+I am making requests to the API directly from my Reactjs Application
+
+Lets say below is the API endpoint which I want to hit
+
+apiURL=https://boardsapi.greenhouse.io/v1/boards/xyz/jobs/"+jobId+""
+The above API endpoint requires an Authorization Header and I will provide my secret token in it.
+
+const config = { 
+  headers: {
+    "Authorization": "Basic ####MySecretCode#####",
+  } };  
+Suppose I want to post some Form Data with this request
+
+let formData=MyFormData
+I can now send my request using the axios client like below
+
+  let result=await axios.post(apiURL, formData,config);
+Using the above technique I can successfully post my Form Data to the Harvest API.
+
+But Like I said that it's an incorrect way to communicate with this API. Because I have exposed my secret token on client side.
+
+The Correct Way
+
+I built an API on Nodejs and hosted it publicly.
+
+Suppose I want to post some Form Data to the Harvest API
+
+let formData=MyFormData
+I am not going to hit the Harvest API directly from my client application.And instead I have exposed and endpoint in my middleware API to handle this. lets say below is the endpoint URL of my middleware API which I want to hit
+
+apiURL=https://proxy-server/apply
+The above API endpoint does not requires an Authorization Header. So I can send a post requests using the axios client like below
+
+let result=await axios.post(apiURL, formData);
+The difference is clear. I have not supplied the secret token this time in my request. Because this is not a direct request to the Harvest API and instead it's a request to a middle-ware API which is developed and hosted by me.
+
+I receive this request in my middle-ware API, add my secret token with it and forward it to the Harvest API. The response from Harvest API is returned to our middle_ware API and hence forward back to our Reactjs client application.
+
+The secret token now resides on my server-side API and safe from external users.
