@@ -154,8 +154,8 @@ https://astro.build/
 ------ GITHUB PAGES ------
 > No searching could teach me: 
 Each single-app repo can be a page on your github pages. Just publish them as such.
-> Deploying React on Github pages
-https://www.c-sharpcorner.com/article/how-to-deploy-react-application-on-github-pages/
+> Deploying React on Github pages - This one finally worked.
+https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/
 
 ------ DESIGN ------
 > Native code Figma Alternative
