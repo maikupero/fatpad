@@ -98,6 +98,8 @@ https://medium.com/codecademy-engineering/how-to-ace-our-apprenticeship-take-hom
 ------ HIRING & INDUSTRY ------
 > Get your interviewee to read code, not write it.
 https://freakingrectangle.wordpress.com/2022/04/15/how-to-freaking-hire-great-developers/
+> Interview questions to weed out fake-agile teams.
+https://blog.shimin.io/interview-questions-for-fake-agile-teams/
 
 ------ Interview Prep ------
 > 20 Python Interview Questions
