@@ -95,6 +95,10 @@ https://www.hatchways.io/
 > Codeacademy's Take Home
 https://medium.com/codecademy-engineering/how-to-ace-our-apprenticeship-take-home-a37cf137c36d
 
+------ HIRING & INDUSTRY ------
+> Get your interviewee to read code, not write it.
+https://freakingrectangle.wordpress.com/2022/04/15/how-to-freaking-hire-great-developers/
+
 ------ Interview Prep ------
 > 20 Python Interview Questions
 https://towardsdatascience.com/20-python-interview-questions-to-challenge-your-knowledge-cddc842297c5
