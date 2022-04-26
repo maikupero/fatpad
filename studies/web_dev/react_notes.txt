@@ -4,6 +4,10 @@
 -----------------------------------------
 
 
+
+
+
+
 ___________________ 1 ___________________
 Correctly mutating states:
 
@@ -85,10 +89,24 @@ No prop drilling. Use contextAPI, or for more complex things redux.
 
 
 
+
+
+
+
+
+
+
+
+
+
 -----------------------------------------
 ----------- 4 Best Practices ------------
 ----- https://youtu.be/5r4LlVAFrd0 ------
 -----------------------------------------
+
+
+
+
 
 ___________________ 1 ___________________
 Splitting projects into Components is good, not just for readability but for performance.
