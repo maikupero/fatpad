@@ -1,0 +1,279 @@
+-----------------------------------------
+---------- 3 Mistakes to avoid ----------
+----- https://youtu.be/yElTNIMlM9g ------
+-----------------------------------------
+
+
+___________________ 1 ___________________
+Correctly mutating states:
+
+export default function App() {
+	const [counter, setCounter] = useState(0)
+
+	
+	-- Executes code first then rerenders the component to satisfy the change.
+	-- Bad version 1
+	const increment = () => {
+		setCounter(counter + 1);
+		alert(counter) <-- +1 still not rendered at this point
+	}
+
+	-- Bad version 2
+	const increment = () => {
+		for (let i = 0; i < 5; i++) {
+			setCounter(counter + 1);
+		}
+	}
+	
+	-- Good version!
+	const increment = () => {
+		for (let i = 0; i < 5; i++) {
+			setCounter((prev) => prev + 1);
+		}
+	}
+
+	-- Bad version 3
+	const increment = () => {
+		setCounter((prev) => prev + 1);
+		alert(counter)  <-- same issue as before.
+	}
+	
+
+	return (
+		<div className="app">
+			{counter}
+			<button onClick={increment}> increment</button>
+	);
+};
+
+ Whenever you're updating a state based on its current value,
+ use a simple arrow function to access its current value pre-render.
+
+ useState is async. thats why you don't get the same result when console.logging 
+ or alerting the value of it. 
+ you need useEffect with a counter as its dependency to 'sync'
+
+
+___________________ 2 ___________________
+export default function App() {
+	const [counter, setCounter] = useState(0)
+
+	useEffect(() => {
+		setCount((prev) => prev + 1);
+	}); <-- infinite loop as it causes an update which causes it to update again.
+	useEffect(() => {
+		setCount((prev) => prev + 1);
+	}, []);  
+}
+
+Called after component is rendered. 
+Don't forget to add a dependency array. 
+whenever there's any change in your application, call useEffect again.
+
+People use it as like an initial function, when site is first rendered. 
+But it has lots of uses. using dependency, trigger events based on states. i.e.
+• change state on button. check to see if it changed correctly. 
+	logic for check inside useEffect, change as dependency.
+• validating inputs. change values of states based on inputs in form.
+	put those states in dependency array. run checks to validate inputs.
+• keep checking or fetching data depending on state from API.
+	put state in dependency array, fetch logic in useEffect, and it'll check.
+
+___________________ 3 ___________________
+No prop drilling. Use contextAPI, or for more complex things redux.
+
+
+
+
+-----------------------------------------
+----------- 4 Best Practices ------------
+----- https://youtu.be/5r4LlVAFrd0 ------
+-----------------------------------------
+
+___________________ 1 ___________________
+Splitting projects into Components is good, not just for readability but for performance.
+-- empty component that just counts how many times rendered. 
+function Child() {
+	console.count("Rerender: ");
+	return <div></div>;
+}
+export default Child
+
+-- simple component
+function App() {
+	const [color, setColor] = useState("black");
+	return (
+		<div className = "app">
+			<button
+				onClick={() => {
+					setColor(color === "black" ? "red" : "black")
+				}}
+			>
+				Change Color
+			</button>
+
+			<h1 style={{ color: color }}> SAMPLE TEXT </h1>
+
+			<Child /> <-- Imagining this as a completely separate part of the website..\
+		</div>
+	);
+}
+export default app
+
+	Clicking the button shouldn't be impacted by the Child at all. 
+	Yet that's not true. 
+	Every change in value of a state will cause all local components to be rerendered.
+
+	So it should end up looking like 
+	<div className="app">
+		<ChangeColor />
+		<Child />
+	</div>
+
+___________________ 2 ___________________
+Fragments! Check the wordle game by this guy.
+return (
+	<div className="app">
+		<nav>
+			{gameOver ? (
+				<GameOver />
+			) : (
+				<div>   <-- Make sure you bundle them (only can return one html thing per fragment)
+					<h1>Play Game</h1> 
+					<button>Play Game</button>
+				</div>
+			)}
+		</nav>
+	</div>
+);
+
+return (
+	<div className="app">
+		<nav>
+			{gameOver ? (
+				<GameOver />
+			) : (
+				<>   <-- Just use fragments. Doesn't create an extra node in dom. document object model.
+					<h1>Play Game</h1> 
+					<button>Play Game</button>
+				</>
+			)}
+		</nav>
+	</div>
+);
+
+
+___________________ 3 ___________________
+Relation between States and Objects. 
+When should you create a state (object containing various fields),
+	or separate those fields into different states.
+
+Make user as an object containing 3 properties.
+...user keep all other fields the same, except for what follows the comma.
+
+function App() {
+	const [user, setUser] = useState({ name: "", age: 0, email: ""});
+	return (
+		<div className="app">
+			<div className="form">
+
+				<input
+					onChange={(e) => {
+						setUser({ ...user, name: e.target.value });
+					}}
+				/>
+				<input
+					onChange={(e) => {
+						setUser({ ...user, age: e.target.value });
+					}}
+				/>
+					onChange={(e) => {
+						setUser({ ...user, email: e.target.value });
+					}}
+				/>
+
+			</div>
+		</div>
+	);
+}
+
+Alternatively:
+function App() {
+	const [name, setName] = useState("");
+	const [age, setAge] = useState(0);
+	const [email, setEmail] = useState("");
+
+	return (
+		<div className="app">
+			<div className="form">
+
+				<input
+					onChange={(e) => {
+						setName(e.target.value);
+					}}
+				/>
+				<input
+					onChange={(e) => {
+						setAge(e.target.value);
+					}}
+				/>
+					onChange={(e) => {
+						setEmail(e.target.value);
+					}}
+				/>
+				
+			</div>
+		</div>
+	);
+}
+
+Which one is better? Well, it depends. React team says:
+Split states into multiple state variables based on which ones tend to change together.
+In this case, they are all likely to change together.
+First example is not ideal, as any time we change the name for example, it reevaluates all other values. 
+The latter example - enhances performance, but could be clustered and hard to maintain with larger projects.
+
+
+
+___________________ 4 ___________________
+Typechecking in code. So, use typescript instead of JS. 
+But if sticking with JS...
+Proptypes!
+
+import Child from 'components/child.js'
+function App() {
+	return (
+		<div className="app">
+			<Child name="Pedro" age={20} email="email@email.com" isMarried={false} />
+		</div>
+	);
+}
+
+Find a way to prevent accidentally passing the wrong type to any of these props.
+If a number is passed into name, it should log us an error so we're aware. 
+
+so in the component we can define the Proptypes
+
+import PropTypes from "prop-types";
+
+function Child({ name, age, email, isMarried }) {
+	return (
+		<div>
+			<h1> {name} </h1>
+			<h2> {age} </h2>
+			<h3> {email} </h3>
+			<h4> {isMarried} </h4>
+		</div>
+	);
+}
+
+Child.propTypes = {
+	name: PropTypes.string,
+	age: PropTypes.number,
+	email: PropTypes.string,
+	isMarried: PropTypes.bool
+};
+
+export default Child
+
+More about the development/debugging than performance or user-experience.
