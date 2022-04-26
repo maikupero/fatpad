@@ -295,3 +295,26 @@ Child.propTypes = {
 export default Child
 
 More about the development/debugging than performance or user-experience.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------
+----------- All React Hooks -------------
+----- https://youtu.be/LlvBzyy-558 ------
+-----------------------------------------
+
+
+
+
+
