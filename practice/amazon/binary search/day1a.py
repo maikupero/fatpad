@@ -32,5 +32,5 @@ test2a = [-1,0,3,5,9,12,15]
 test2b = 2
 expected2 = -1
 
-print(f"{test1a} with target: {test1b} yields: {search(test1a, test1b)}. Expected: {expected1}")
-print(f"{test2a} with target: {test2b} yields: {search(test2a, test2b)}. Expected: {expected2}")
+print(f"Search {test1a} with target: {test1b} yields: {search(test1a, test1b)}. Expected: {expected1}")
+print(f"Search {test2a} with target: {test2b} yields: {search(test2a, test2b)}. Expected: {expected2}")
