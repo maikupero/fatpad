@@ -1,0 +1,43 @@
+https://youtu.be/gNQ9-kgyHfo
+
+Online Book Store
+
+Get more specific info and requirements, even if you're not gonna use them in the design.
+Vague, so ask about scale. Type of books. Transactions per second, etc.
+Talk to them about it, design it like they're your team member.
+Assuming there is a payment/order service that already exists?
+
+Identify the use case. 
+My focus is on front end. So quickly talk about the backend to support it. 
+
+Database (set up your objects and how they'll be organized, what info is needed)
+
+Customer    Order       Books
+Name:       TransID:    ID:
+ID:         Payment:    Author:
+
+Web Server - API
+How to construct an API.
+Domain / Resource / {Parameters}
+Show them I understand how an API is constructed and what it does.
+Use case of inserting a book into a table.
+HTTP Post operation, use API url    xyz.com/books/
+For Post, need a json object - {ID, Author, Price}
+HTTP Get, Put, Delete, what are these cases, how they can be used.
+Think about exceptions, would this work for ebook or regular book, etc, 
+Transactions, can it support x number per second etc. 
+
+Microservices architecture - basically the components of the website
+Order Service
+Payment Service
+Books
+Search
+How do each of these interact with each other, do they have their own databases, what does each do and are they necessary?
+
+
+Front End 
+Homepage, what components are necessary.
+Search button. What does it do? It invokes the search API. 
+passes the Param for the book, calls the books api, which gets the book.
+when you have the response object back, talk about how that would look to the user.
+image of the book, name of the author, price, cover art, etc.

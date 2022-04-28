@@ -1,0 +1,28 @@
+https://youtu.be/mjZpZ_wcYFg
+
+Coding on the whiteboard.
+Amazon wants to understand:
+
+1. Do I know my CS fundamentals?
+2. Do I have a heuristic for problem-solving? Do I just randomly approach problems?
+3. Do I write clean, logical, maintanable code that others can understand?
+
+It's not: "Have you done every single problem you've read online?"
+It's more: "
+    1. Do you not jump into the proble immediately without looking at the space that it's in?
+    2. Do you try and disambiguate the problem. 
+        Ask quiestions. 
+        Understand the inputs and outputs. 
+        What are some of the edge cases you need to be worried about?
+    3. Do you talk this through out loud? It should be a dialogue, not a recitation. 
+        Help them understand what I'm thinking and why.
+
+Expect 2-4 questions. 
+
+---- Example 1
+Run Length Encoding. Older lossless compression algo, used for image files. 
+aaaabbccc => 4a2b3c.. but what if
+aaaabbccca => 5a2b3c? no. need to acount for this edge case. should be 4a2b3c1a
+so hash map is not optimal.
+so iterative approach!
+

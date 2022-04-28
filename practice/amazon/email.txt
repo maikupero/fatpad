@@ -1,0 +1,132 @@
+-------------------------------------------
+--------- Post initial prep call: ---------
+-------------------------------------------
+What to expect: 
+
+You will have 5 interviews when you are onsite and each interview will last about 60 minutes. 
+These in-depth conversations will be around work experiences from your background. 
+After your interview the team will come together to discuss how you did during the process.
+
+60% of the interview is going to be focused on technical areas/coding and 
+40% will be behavioral questions based around Amazon’s Leadership Principles. 
+
+There are several documents attached that will be vital to your interview preparation:
+
+• Acing the Amazon SDE Interview 
+• Acing the Amazon Behavioral Interview 
+• Amazon Systems Design 
+• Leadership Principle Worksheet (this is something that you can use to prepare some examples for those behavioral questions) 
+ 
+The below videos will also be vital to your preparation:
+System Design: https://youtu.be/gNQ9-kgyHfo
+Coding Sample: https://youtu.be/mjZpZ_wcYFg
+Leadership Principles: https://youtu.be/CpcxVE5JIX4
+ 
+
+These technical concepts will be similar to the questions asked during your interviews:
+“Amazon parking lot example design” and be familiar with those concepts
+“Solve boggle board algorithm”
+“Binary search questions”
+Practice Technical Questions: 
+·        https://www.careercup.com/page?pid=trees-and-graphs-interview-questions
+·        http://codercareer.blogspot.com/p/binary-tree-interview-questions.html
+·        https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree
+·        https://www.hackerrank.com/challenges/tree-level-order-traversal
+·        https://www.hackerrank.com/challenges/balanced-brackets
+·        https://www.hackerrank.com/challenges/contacts
+·        https://www.hackerrank.com/challenges/find-the-running-median
+·        https://www.hackerrank.com/challenges/swap-nodes-algo
+
+General Interview Tips:
+
+Be Specific: Reference data points that catalyze or justify decisions you’ve made.
+
+Ask Questions: 
+    Ask clarifying questions. 
+    There are often ambiguous situations to deal with in the work place, and so there will be a few in your interviews. 
+    Asking questions will give you a clearer understanding of the challenges presented by the team, 
+    and gives the interviewers insight into how you dive deep on issues and solve problems. 
+    This can make a huge difference in you interviews.
+
+Be Honest: 
+    Some interview questions may be negatively oriented. (ex. “Can you tell me about a time when you didn’t meet a deadline?”) 
+    We all have setbacks, but what’s important is how you handle them, and what you learn from them. 
+
+Take Ownership: 
+    Be mindful of appropriately using “I” vs. “we” statements. 
+    Spend more of your time speaking to your responsibilities and what you've accomplished, 
+    as oppose to what your team as a whole accomplished.  
+
+Dress: 
+    Business Casual/Casual. Amazon is a pretty comfortable environment. 
+    We’re interested in what you can accomplish more than what’s in your closet.
+ 
+After your interviews, when you have a moment, please send me an informal email to confidentially share how the interviews went from your perspective. Hiring is one of the most important things we do at Amazon to grow and scale our business and your feedback is valuable as we strive to improve the candidate experience. If you have any questions or concerns, please do not hesitate to reach out.
+
+Interview Prep Resources <-- (Broken Link)
+
+Congrats again! The team is so excited for you to interview with us.
+
+ 
+
+-------------------------------------------
+--------- Post assessment success: --------
+-------------------------------------------
+
+Hello Michael,
+
+Please respond to this email as confirmation that you have received this information. 
+We're looking forward to having you interview on Thursday, May 5th.  
+Your first session is tentatively scheduled to begin at 9:00am PT/12:00pm ET. 
+I'll send you a confirmation email with the final details of your interviews 3-5 business days prior to your interview day. 
+
+In the meantime, here are some things to note:  
+MUST READ: Due to the ongoing Novel Coronavirus (COVID-19) travel advisories and health concerns, this interview will be 100% virtual via Amazon Chime. The health and safety of our employees and candidates is a top priority. The World Health Organization (WHO) provides more information about COVID-19 here on their website. 
+
+Prep Call:
+ (Call details omitted)
+
+Interview Information:
+You are scheduled to virtually meet with 3-5 team members familiar with the role and responsibilities of the position for which you’re interviewing. You may also meet a few others who can help give you a better idea of the AWS culture. Each meeting will be a one-on-one interview session that should last for about 45-60 minutes.
+
+If you would like to request an accommodation for the interview, please let me know and I will connect you to our accommodation team. You may also reach them directly by visiting https://www.amazon.jobs/en/disability/us.” (if in the US)
+ 
+Pre-Interview Homework:
+If you haven’t already, we recommend you review the following:
+
+Brush up on the leadership principles that make us who we are at AWS. https://www.amazon.jobs/en/principles
+Practice makes perfect! Here are some interview resources to help you prepare. https://www.amazon.jobs/en/landing_pages/in-person-interview
+Learn more about our commitment to Diversity and Inclusion at Amazon. https://www.amazon.jobs/en/landing_pages/diversity-and-inclusion
+Learn more about the types of benefits and perks our employees receive. https://www.amazon.jobs/en/benefits/us-benefits-and-stock
+Please review our SDEII prep guide to learn how to best demonstrate your skills and what to expect during the interview process. https://www.amazon.jobs/en/software-development-interview-prep?cmpid=ECOTOT700005B#/
+
+Coding and Design - Whiteboarding Guidance: 
+In my final confirmation e-mail to you, I will provide a LiveCode link for the coding session of the interview. This system will allow you to code collaboratively with your interviewer. For your design session, we have approved the following guidance:
+1. Use a pen and paper to share designs with the interviewer through your video camera; or
+2. Use your favorite white boarding app, any other applications on your desktop (e.g. Paint) and share your screen in Chime by clicking the screen icon on the top navigation bar and select share screen or window; or
+3. If you have a whiteboard at home, feel free to use that!  
+Note: Please test any whiteboard product (and Chime) prior to the scheduled interview to make sure there is proper understanding of how it functions. 
+
+Dress Code: 
+We’re all about business casual around here, so dress comfortably.
+
+Breaks: 
+Let your interviewer know If you need a break to use the restroom or grab something to drink.
+
+Non-Disclosure Agreement: 
+You will receive an email from no-reply@amazon.com containing a link to sign an NDA. 
+Please take a moment to read and accept (check your spam mail for this email).
+
+Post-Interview Survey:
+Your candidate experience is very important to us and we value your opinion.  
+After your interview, you'll be emailed a short survey asking about your recruiting experience. 
+We appreciate you taking a moment to complete it.
+
+Plan to hear back from us regarding next steps within one week of your interview. 
+Please stay in touch with your recruiting team contacts (listed below) with any questions.
+
+(Name omitted) Recruiting Coordinator: Questions regarding interview scheduling, travel, and expenses.
+(Name omitted) Recruiter: Relocation/benefit questions and interview outcome.
+(Name omitted) Sourcer: Job openings and position specific questions.
+
+Thank you and best of luck!
