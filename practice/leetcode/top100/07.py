@@ -63,9 +63,9 @@ expected2 = []
 test3 = [1]
 expected3 = [1]
 
-print(f"twoSum{test1} yields: {Solution.inordewrTraversal(test1)}. Expected: {expected1}")
-print(f"twoSum{test2} yields: {Solution.inordewrTraversal(test2)}. Expected: {expected2}")
-print(f"twoSum{test3} yields: {Solution.inordewrTraversal(test3)}. Expected: {expected3}")
+print(f"inorderTraversal{test1} yields: {Solution.inorderTraversal(test1)}. Expected: {expected1}")
+print(f"inorderTraversal{test2} yields: {Solution.inorderTraversal(test2)}. Expected: {expected2}")
+print(f"inorderTraversal{test3} yields: {Solution.inorderTraversal(test3)}. Expected: {expected3}")
 
 # 94. Binary Tree Inorder Traversal
 # https://leetcode.com/problems/binary-tree-inorder-traversal/
