@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////
+//////////////////////// ALGORITHMS ////////////////////////
+////////////////////////////////////////////////////////////
+Binary Search:
+Binary Tree (recursive traversal):
+Queue/Stack:
+    Brackets problem. 
+
+
+////////////////////////////////////////////////////////////
+/////////////// DATA STRUCTURES (BACKEND) //////////////////
+////////////////////////////////////////////////////////////
+*****************
+EXAMPLES TO BUILD:
+    - Query json at API, parse data and return. 
+    - (E)book store. Talk about how to design the API.
+*****************
+
+
+////////////////////////////////////////////////////////////
+///////////// FRAMEWORKS, UI DESIGN (FRONTEND) /////////////
+////////////////////////////////////////////////////////////
+
+*****************
+EXAMPLES TO BUILD:
+- Create a simple form.
+    - Create a button that increments (simple useState hook). ->
+      |-> Retrieve/manipulate/display data from an API endpoint: https://randomuser.me/api )
+*****************
+
+--- STATE MANAGEMENT ---
+Unidirectional Data Flow
+Redux
+Context
+
+--- CLASS VS FUNCTION COMPONENTS --- 
+WHAT    The old vs new in react. 
+        Functional accepts props as an argument and returns a React element.
+        Class components require you to extend from React.Component and create a render function.
+        All about hooks and plugging into lifecycle. 
+WHY     In the past, they were used for different purposes, but API changes + hooks led to functions being used for everything. 
+USE     So much cleaner and more logical.
+
+
+--- HOOKS IN REACT, BINDINGS/STORES IN SVELTE ---
+WHAT    Let you "hook into" react state and lifecycle features from function components. 
+WHY     As above, makes building dynamic websites a breeze - passing props etc unnecessary.
+USE     Built in ones like useState, useEffect, useContext, and can also create own.
+
+--- COMPONENT LIFECYCLE ---
+Phases of life (the flow of the code -> website).
+    | Mounting (component created and placed in DOM) 
+    | -> Updating (occurs when state of components or its props change)
+    | -> Unmounting (component destroyed and removed from DOM tree)
+A series of methods triggered at appropriate phases, like componentDidMount, render.
+Methods of each phase of a component's life with use example:
+How to use hooks to hook into the right part of the cycle:
+Know the differences between old and new API as some have been deprecated.
+
+--- HIGHER ORDER COMPONENTS ---
+Pattern emerging from React's compositional nature.
+higher order components convert components into another component. 
+example is Redux's connect.
+* Allows us to define repeating logic in one place and use it in many components.
+* Alternative is to create your own hook with reusable logic.
+
+--- VIRTUAL DOM, OPTIMIZE LISTS ---
+ > Every person using React in their professional work should know the UI update mechanism implemented in this library.
+In-memory representation of a DOM.
+Component State change -> React updates VDOM -> 
+-> Diffing algorithm compares differences. 
+Optimize lists using a 'key' prop. Gives the element a stable identity, detects changes easily.
+* Why even use VirtualDOM?
+
+--- ASYNC CODE ---
+Callbacks 
+    • functions called when the result of async operation is ready.
+    • problem is code becomes unreadable with multiple async operations in a row. callback hell.
+Promises 
+    • dont need a callback, has its own functions that are called upon success/failure.
+    • ability to change instead of nesting consecutive callbacks.
+Async/Await
+    • syntactic sugar on promises, makes async look more sync, more readable.
+Example with error catching, how to perform several at same time.
