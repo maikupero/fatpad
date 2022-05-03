@@ -1,20 +1,91 @@
+Behavioral interview practice
+Practical Examples
+• teaching english, curriculum redesign convince kurome, double students.
+• talking about kal and hiring someone for something i couldnt do, and trying to delegate tasks.
+• directing movie in kyoto, made sure they scouted locations and contacted temples for legality and shooting windows.
+• translating even fine print for bilingual website stak.
+• Bike tour Japan convince Rob to expand to hiroshima area.
+• regarding starting company in japan - finding lodging, legality, taxes, visas, promises from reservations.
+• sounds of japan / video yurano / web design with photography.
+
+Coding Examples
+• path of studying, algorithm -> cs50 -> build stuff
+• discord bot
+• vanilla js apps attempt to begin react apps 
+• built community of people on discord. i know their toolsets.
+• workflow stuff, how i look for efficiencies, new tech, git.
+• build site for stak, my experience and what i learned from that.
+
+
+
 ////////////////////////////////////////////////////////////
 //////////////////////// ALGORITHMS ////////////////////////
 ////////////////////////////////////////////////////////////
-Binary Search:
-Binary Tree (recursive traversal):
-Queue/Stack:
-    Brackets problem. 
 
+Search
+    Binary
+    Breadth-first
+    Depth-first
+    Binary
+
+Merge Sort 
+Quick Sort
+
+Binary Tree (recursive traversal)
+
+Queue/Stack:
+    Brackets problem 
+
+Linked Lists  
+
+Hash Tables - look through characters that make up the string, do math on them, generate a mostly unique key, store it with that.
+balance of processing time hashing vs storing. 
 
 ////////////////////////////////////////////////////////////
 /////////////// DATA STRUCTURES (BACKEND) //////////////////
 ////////////////////////////////////////////////////////////
+
 *****************
 EXAMPLES TO BUILD:
     - Query json at API, parse data and return. 
     - (E)book store. Talk about how to design the API.
+    - notification system.
+    - get, post API curls.
 *****************
+
+
+API _ 
+talk about validation before user data comes out. 
+does it fit the model? if not we reject request and give error message. 
+
+domain - access points, production for users, but also lower level environments for development. locational use.
+resources - server stack resources, what does the computer in cloud. 
+params - like the headers in a get request, what info i want to get. 
+
+Fetch, promises, async await.
+BUILDING A DATABASE 
+    Databases - 
+        Foreign key (unique) / primary key
+        Composite - for many to many relations, 3rd column that is an index. 
+            or composite key is combination of the two. 
+            reject duplicates.
+
+
+////////////////////////////////////////////////////////////
+//////////////// DESIGN AND CS FUNDAMENTALS ////////////////
+//////////////////////////////////////////////////////////// 
+    Memory (Stack vs Heap)
+    Recursion
+    (Dynamic Programming)
+    Big O Time & Space
+
+Design Patterns:
+    Singleton
+    Factory Method
+    Builder
+    Adapter
+    State
+    Mapper
 
 
 ////////////////////////////////////////////////////////////

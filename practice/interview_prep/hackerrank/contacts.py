@@ -1,7 +1,4 @@
 # https://www.hackerrank.com/challenges/contacts
-# LUKE "SNACK?" FRITZKE WAS HERE
-print("Mikaroo sensi")
-import antigravity
 
 def contacts(queries):
     res = []
