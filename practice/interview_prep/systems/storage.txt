@@ -1,0 +1,11 @@
+Example: 
+First sequence: 
+    • images upload to image write service; 
+    • files are written to persistent store; 
+    • images go to a storage file. 
+Sequence two: 
+    • Client request from image retrieval service; 
+    • image retrieval service gets from image storage file and sends to client.
+
+
+https://medium.com/double-pointer/system-design-interview-dropbox-or-a-similar-file-storage-sharing-service-google-drive-34912a4c1c21

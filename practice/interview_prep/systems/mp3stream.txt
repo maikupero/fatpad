@@ -1,0 +1,16 @@
+DATA
+    what kinds of data are we storing and how.
+BACKEND/API
+    how do we retrieve that data, interact with it, any user requests.
+    Web Server - API
+    How to construct an API.
+    Domain / Resource / {Parameters}
+    Show them I understand how an API is constructed and what it does.
+    Use case of inserting a book into a table.
+    HTTP Post operation, use API url    xyz.com/books/
+    For Post, need a json object - {ID, Author, Price}
+    HTTP Get, Put, Delete, what are these cases, how they can be used.
+FRONTEND
+    what does the user see. 
+USER
+    who is our target user?

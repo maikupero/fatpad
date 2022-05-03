@@ -1,0 +1,115 @@
+https://medium.com/double-pointer/system-design-interview-parking-lot-system-ff2c58167651
+
+Problem Statement
+    Parking lot is an open area designated for parking cars. 
+    We will design a parking lot where a certain number of cars can be parked for a certain amount of time. 
+    The parking lot can have multiple floors where each floor carries multiple slots. 
+    Each slot can have a single vehicle parked in it. 
+    We can incorporate an automatic ticketing system in the design so customers can park their cars without any human intervention.
+
+Functional Requirements
+    The parking lot includes multiple entry and exit points.
+    Multiple parking floors are available.
+    Each floor carries multiple rows of parking slots.
+    The parking lot supports parking of different types of vehicles, including motorcycles, cars, and buses.
+    The parking lot has motorcycle parking spots, compact spots, and large spots.
+    The customer can collect a parking ticket from the entry point and pay the parking fee at any of the exit points.
+
+Non-Functional Requirements
+    Scale the system for 5k parking slots for a parking lot.
+    The system should be able to handle 10k parkings per day.
+    The system should have the capacity to hold ticketing information for, say, 10 years.
+
+----------------------------------------
+\\\\\\\\\\\ Class Hierarchy ////////////
+----------------------------------------
+Set up a class hierarchy for the different literal objects at play here.
+Vehicle: ID (license number), color, type/size
+Parking Lot: ID (to distinguish from other lots). Two functions (our main functions) for vehicle entry and exit.
+    Entry should take vehicle and return ticket
+    Exit takes ticket and returns price
+Ticket: ID, parking spot ID, license ID, entrytime, exittime.
+Parking Spot: ID, type/size, state (vacant / filled)
+
+----------------------------------------
+\\\\\\\\\\\ Database Schema ////////////
+----------------------------------------
+Parking spots stored as a large stack in the system.
+Car entry triggers a check for availability, chooses a suitable spot (according to availability and size/type)
+(i.e. assign based on priority to fit the vehicle types, motorcycle prioritize smaller, trucks only large, etc)
+As such, we can occupied/vacant spots stored separately, and separated in stacks according to size.
+
+----------------------------------------
+\\\\\\\\ CHOOSING THE DATABASE /////////
+----------------------------------------
+Allocating and freeing parking spots, so database with fast lookups. Hashmap (based on key). MySQL.
+When we want to remove a vehicle and free a parking spot, we can perform a lookup on the hashmap with the ticketId as the key. 
+The lookup returns the parkingSpotId for where the vehicle was initially parked.
+parkingSpotId remove (ticketId);
+
+----------------------------------------
+\\\\\\\\\ SYSTEM ARCHITECTURE //////////
+----------------------------------------
+--- VEHICLE ENTRY ---
+Vehicle enters -> Parking service -> Call spot allocation service -> Scans database, picks a spot.
+Spot is changed to 'occupied', returns spot ID to parking service, which prints a ticket using that. 
+--- VEHICLE EXIT ---
+Vehicle exits -> Parking service -> gets parking spot ID via ticket ID from user.
+makes request to spot deallocation service, change spot to available.
+update exitTime on ticket. parking service contacts pricing service. 
+pricing service uses vehicle type, entry and exit times to generate price and return that.
+
+----------------------------------------
+\\\\\\\\\\\\ OPTIMIZATIONS /////////////
+----------------------------------------
+Multiple Entrances: each entrance as a stack of spots. Prioritize spots near that entrance. 
+Multiple Levels: Can do the same. Even organize type of spots for each floor, big vehicles at bottom etc.
+
+
+
+
+https://stackoverflow.com/questions/764933/amazon-interview-question-design-an-oo-parking-lot
+
+Here is a quick start to get the gears turning...
+
+ParkingLot is a class.
+
+ParkingSpace is a class.
+
+ParkingSpace has an Entrance.
+
+Entrance has a location or more specifically, distance from Entrance.
+
+ParkingLotSign is a class.
+
+ParkingLot has a ParkingLotSign.
+
+ParkingLot has a finite number of ParkingSpaces.
+
+HandicappedParkingSpace is a subclass of ParkingSpace.
+
+RegularParkingSpace is a subclass of ParkingSpace.
+
+CompactParkingSpace is a subclass of ParkingSpace.
+
+ParkingLot keeps array of ParkingSpaces, and a separate array of vacant ParkingSpaces in order of distance from its Entrance.
+
+ParkingLotSign can be told to display "full", or "empty", or "blank/normal/partially occupied" by calling .Full(), .Empty() or .Normal()
+
+Parker is a class.
+
+Parker can Park().
+
+Parker can Unpark().
+
+Valet is a subclass of Parker that can call ParkingLot.FindVacantSpaceNearestEntrance(), which returns a ParkingSpace.
+
+Parker has a ParkingSpace.
+
+Parker can call ParkingSpace.Take() and ParkingSpace.Vacate().
+
+Parker calls Entrance.Entering() and Entrance.Exiting() and ParkingSpace notifies ParkingLot when it is taken or vacated so that ParkingLot can determine if it is full or not. If it is newly full or newly empty or newly not full or empty, it should change the ParkingLotSign.Full() or ParkingLotSign.Empty() or ParkingLotSign.Normal().
+
+HandicappedParker could be a subclass of Parker and CompactParker a subclass of Parker and RegularParker a subclass of Parker. (might be overkill, actually.)
+
+In this solution, it is possible that Parker should be renamed to be Car.

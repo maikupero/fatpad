@@ -1,0 +1,27 @@
+In this example, the candidate is asked to review a system that is designed to drive customers 
+who visit an e-commerce website to use the mobile application instead by leveraging ads. 
+The interviewer is asking questions to understand how the candidate would design for performance.
+
+    Interviewer: Alright, now that you've had some time to review this ads scenario, 
+        I'm interested to learn how you would monitor this solution?
+    Candidate: There are some baseline technical metrics that we could monitor such as CPU and memory utilization 
+        for the hosts or processes that are executing our workflow (e.g. if we were using Spark jobs or something similar).
+        We should also emit metrics on workflow success/failure. 
+        This can start out granular but we should also be able to emit these for each workflow step in order to identify 
+        if there are particular steps that have errors or are less reliable. 
+        Timing metrics, per workflow and per overall step, would also be important here so that we can catch any performance 
+        degradation early. We should also look at business metrics and data quality metrics. 
+        For example, if we processed an unexpected number of records (too many or too few) that could be something an operator 
+        needs to look into. We should consult with our business users on what kind of quality metrics are important for them, 
+        as they may be closer to the data or have a better understanding of what certain fields mean and what their expected values are.
+    Interviewer: Thanks for walking me through those examples. 
+        I agree capturing both technical and business metrics is important. 
+        You also mentioned having someone look into issues. How would you report and respond to failures or issues?
+    Candidate: Well, we could send notifications or reports (for example, via email) for someone to investigate. 
+        I've seen in past sometimes workflows can have intermittent failures, so we could also configure retries 
+        and only alarm if all retries are exhausted in order to prevent noisy work for our operators.
+
+Designs for operational performance, plans for failure, and measures the results (e.g., metrics)
+Considers both technical and business metrics, as well as data quality
+Thinks about how to monitor for performance and catch potential problems
+Considers resiliency and making things easier for operators

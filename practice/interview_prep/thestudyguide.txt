@@ -1,9 +1,12 @@
-Behavioral interview practice
+////////////////////////////////////////////////////////////
+////////////// BEHAVIORAL INTERVIEW PRACTICE ///////////////
+////////////////////////////////////////////////////////////
+
 Practical Examples
-• teaching english, curriculum redesign convince kurome, double students.
-• talking about kal and hiring someone for something i couldnt do, and trying to delegate tasks.
+• teaching english, curriculum redesign convince kurome, double students, open new kindergarten.
+• talking about kal and hiring someone for something i couldnt do, not meeting deadlines, and trying to delegate tasks.
 • directing movie in kyoto, made sure they scouted locations and contacted temples for legality and shooting windows.
-• translating even fine print for bilingual website stak.
+• translating even the fine print for bilingual website stak.
 • Bike tour Japan convince Rob to expand to hiroshima area.
 • regarding starting company in japan - finding lodging, legality, taxes, visas, promises from reservations.
 • sounds of japan / video yurano / web design with photography.
@@ -17,65 +20,81 @@ Coding Examples
 • build site for stak, my experience and what i learned from that.
 
 
-
 ////////////////////////////////////////////////////////////
 //////////////////////// ALGORITHMS ////////////////////////
 ////////////////////////////////////////////////////////////
 
-Search
-    Binary
-    Breadth-first
-    Depth-first
-    Binary
+SEARCHES
+    Binary: left, right, middle, compare, set left or right to mid +- 1.
+    Breadth-first: 
+    Depth-first: 
 
-Merge Sort 
-Quick Sort
+SORTS
+    Bubble: Inefficient, let each one float to its place.
+    Merge: 
+    Quick: 
 
 Binary Tree (recursive traversal)
 
 Queue/Stack:
     Brackets problem 
 
-Linked Lists  
+Linked Lists: Efficient memory and storage wise, inefficient with look ups (always at least O(n))
 
 Hash Tables - look through characters that make up the string, do math on them, generate a mostly unique key, store it with that.
 balance of processing time hashing vs storing. 
+
+Recursion
+
 
 ////////////////////////////////////////////////////////////
 /////////////// DATA STRUCTURES (BACKEND) //////////////////
 ////////////////////////////////////////////////////////////
 
-*****************
-EXAMPLES TO BUILD:
-    - Query json at API, parse data and return. 
-    - (E)book store. Talk about how to design the API.
-    - notification system.
-    - get, post API curls.
-*****************
+Domain
+    access points, production for users, but also lower level environments for development. locational use.
+Resources
+    server stack resources, what does the computer in cloud. 
+Params
+    like the headers in a get request, what info i want to get. 
+
+API endpoints 
+    API Benefit - you don’t have to know the specifics of caching - how your resource is retrieved or where it comes from.
+JSON data
+
+HTTP requests
+    Get
+    Post 
+
+Validation
+    talk about validation before user data comes out. 
+    does it fit the model? if not we reject request and give error message. 
+
+Fetch
+
+Promises
+
+Async/await
+
+Database
+    Foreign key (unique) / primary key
+    Composite - for many to many relations, 3rd column that is an index. 
+    or composite key is combination of the two. 
+    reject duplicates.
+
+REST - Representational State Transfer - stateless, cacheable. efficient, json.
+|vs|
+SOAP - Simple Object Access Protocol - request is stateful. stored somewhere. inefficient but lots of info, xml. 
+if state needs to be maintained from one request to another, then SOAP is good. possible with REST, but its more about convention.
+Soap is an envelope, rest is a postcard.
 
 
-API _ 
-talk about validation before user data comes out. 
-does it fit the model? if not we reject request and give error message. 
-
-domain - access points, production for users, but also lower level environments for development. locational use.
-resources - server stack resources, what does the computer in cloud. 
-params - like the headers in a get request, what info i want to get. 
-
-Fetch, promises, async await.
-BUILDING A DATABASE 
-    Databases - 
-        Foreign key (unique) / primary key
-        Composite - for many to many relations, 3rd column that is an index. 
-            or composite key is combination of the two. 
-            reject duplicates.
 
 
 ////////////////////////////////////////////////////////////
 //////////////// DESIGN AND CS FUNDAMENTALS ////////////////
 //////////////////////////////////////////////////////////// 
     Memory (Stack vs Heap)
-    Recursion
     (Dynamic Programming)
     Big O Time & Space
 
@@ -86,18 +105,13 @@ Design Patterns:
     Adapter
     State
     Mapper
-
+    SOA vs microservices - integration (enterprisewide) vs application (app scoped).
+    SOA - service-oriented architecture, make software components reusable & interoperable via service interfaces. 
+    ESB - SOA without ESB is like a bunch of a services. Centralized component to perform integrations between applications.
 
 ////////////////////////////////////////////////////////////
 ///////////// FRAMEWORKS, UI DESIGN (FRONTEND) /////////////
 ////////////////////////////////////////////////////////////
-
-*****************
-EXAMPLES TO BUILD:
-- Create a simple form.
-    - Create a button that increments (simple useState hook). ->
-      |-> Retrieve/manipulate/display data from an API endpoint: https://randomuser.me/api )
-*****************
 
 --- STATE MANAGEMENT ---
 Unidirectional Data Flow

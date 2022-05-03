@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/balanced-binary-tree/
-
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
 // results array, initialize recursive function, return results.
 var inorderTraversal = function(root) {
