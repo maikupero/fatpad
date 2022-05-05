@@ -1,0 +1,2 @@
+how to design a baseball league
+represent all the data, how would you make a database

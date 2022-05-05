@@ -12,7 +12,7 @@ def guessNumber(self, n: int) -> int:
     upper = n
     while lower <= upper:
         mid = (lower + upper) // 2
-        response = guess(mid)
+        response = guessNumber(mid)
         if response == -1:
             upper = mid-1
         elif response == 1:

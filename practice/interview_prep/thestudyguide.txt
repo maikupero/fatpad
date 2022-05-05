@@ -94,6 +94,13 @@ Soap is an envelope, rest is a postcard.
 ////////////////////////////////////////////////////////////
 //////////////// DESIGN AND CS FUNDAMENTALS ////////////////
 //////////////////////////////////////////////////////////// 
+
+OOP - like animals
+    • Encapsulation - associating data and methods in a class.
+    • Abstraction - kinda like how js works. black box, something goes in, something comes out, dont look inside. 
+    • Inheritance - if making a coyote, inherit traits from dog which inherits from animal. at what level does specificity happen.
+    • Polymorphism - class can take different forms. 
+
     Memory (Stack vs Heap)
     (Dynamic Programming)
     Big O Time & Space
