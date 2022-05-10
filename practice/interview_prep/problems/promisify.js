@@ -9,3 +9,5 @@
         // 4. If a non-function type is passed as the fn argument, invalid (string) should be returned.
 // 5. When a function is promisified, it can receive any number of arguments.
 
+
+// https://www.tutorialspoint.com/node-js-util-promisify-method
