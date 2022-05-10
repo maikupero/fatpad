@@ -20,7 +20,7 @@ class Example2 {
 }
 
 const test2 = new Example2();
-console.log(test2.hello)
+console.log(test2.hello())
 
 
 // What's the difference between constructor and no constructor in 2 and 3? JS does a constructor anyways if not explicit, right?
