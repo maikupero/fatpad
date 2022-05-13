@@ -8,9 +8,59 @@
 //     link: "",
 //     key: "5092652",
 //     accessibility: 0.08
-//     }
+//     }`
 // https://www.boredapi.com/api/activity
 
-function getData() = {
-    
+
+// So in sum:
+// Axios - 
+    // 3rd party 
+    // can be imported with require and run without package.json
+    // does .json() for you
+    // works with async await instead of creating a promise.
+    //  promises use .then and .catch, async/await uses try and catch.
+
+const axios = require('axios').default;
+const API_ENDPOINT = 'https://www.boredapi.com/api/activity';
+
+
+async function getData() {
+    try {
+        const res = await axios.get(API_ENDPOINT);
+        if (res.statusText == 'OK') {
+            return res.data;
+        } else {
+            throw new Error(`Error!! ${res.status}`);
+        }
+    } catch (err) {
+        console.log(err);
+    }
 }
+
+// async function getData() {
+//     const json = await axios.get(API_ENDPOINT);
+//     return json.data
+// }
+
+function composeResults(map) {
+    console.log("Or, if you're looking for free activities:")
+    map.forEach((act) => {
+        console.log(`${act.activity} ${act.link ? act.link : ""}`);
+    })
+}
+
+async function handleData(n) {
+    const results = new Map();
+    for (let i = 1; i < n+1; i++) {
+        let data = await getData();
+        while (data.price > 0) {
+            console.log(`${data.activity} for about $${data.price * 100}`);
+            data = await getData();
+        }
+        results.set(`User ${i}`, data);
+    }
+
+    composeResults(results);
+}
+
+handleData(5);
