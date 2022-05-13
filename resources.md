@@ -142,7 +142,8 @@ https://github.com/getify/You-Dont-Know-JS
 https://www.udemy.com/share/101XjU/
 > Arrays Visualized
 https://js-arrays-visualized.com/
-
+> Variables and scoping in ECMAScript 6
+https://2ality.com/2015/02/es6-scoping.html
 
 ------ WEB ------
 > Reddit: How to learn these two
