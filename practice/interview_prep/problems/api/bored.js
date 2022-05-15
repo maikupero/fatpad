@@ -1,3 +1,4 @@
+// https://apipheny.io/free-api/
 // https://gist.github.com/fgilio/230ccd514e9381fafa51608fcf137253
 // Task I've set for myself: Get 5 suggestions of activities to do that are free.
 // Sample object:
@@ -9,7 +10,7 @@
 //     link: "",
 //     key: "5092652",
 //     accessibility: 0.08
-//     }`
+// }
 // https://www.boredapi.com/api/activity
 
 
@@ -27,11 +28,11 @@ const API_ENDPOINT = 'https://www.boredapi.com/api/activity';
 
 async function getData() {
     try {
-        const res = await axios.get(API_ENDPOINT);
-        if (res.statusText == 'OK') {
+        const res = await axios.get('https://www.boredapi.com/api/activit');
+        if (!res.data.error == 'OK') {
             return res.data;
         } else {
-            throw new Error(`Error!! ${res.status}`);
+            throw new Error(`Error!! ${res.data.error}`);
         }
     } catch (err) {
         console.log(err);
