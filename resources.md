@@ -158,6 +158,10 @@ https://developer.mozilla.org/en-US/docs/Learn
 https://astro.build/
 
 
+------ DATABASE ------
+> SQL Practice
+https://www.sql-practice.com/
+
 ------ GITHUB PAGES ------
 > No searching could teach me: 
 Each single-app repo can be a page on your github pages. Just publish them as such.
