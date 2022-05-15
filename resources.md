@@ -144,6 +144,8 @@ https://www.udemy.com/share/101XjU/
 https://js-arrays-visualized.com/
 > Variables and scoping in ECMAScript 6
 https://2ality.com/2015/02/es6-scoping.html
+> Amazing example of what you can do with vanilla JS
+https://ciechanow.ski/mechanical-watch/
 
 ------ WEB ------
 > Reddit: How to learn these two
