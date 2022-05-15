@@ -163,6 +163,10 @@ https://astro.build/
 ------ DATABASE ------
 > SQL Practice
 https://www.sql-practice.com/
+> Free and open (no auth) API
+https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/
+> Other list of API
+https://apipheny.io/free-api/
 
 ------ GITHUB PAGES ------
 > No searching could teach me: 
