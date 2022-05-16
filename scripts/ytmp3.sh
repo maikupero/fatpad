@@ -18,6 +18,11 @@ fi
 
 # Simple script for my personal use, since I keep track of all my music. Custom metadata insertion, automatic file opening and download file deletion.
 
+# In .bashrc:
+# # Download song or playlist from youtube via youtube-dl
+# alias yt="source $PATH/ytmp3.sh"
+
+
 # DOCUMENTATION
 # https://github.com/ytdl-org/youtube-dl/blob/master/README.md#readme
 
