@@ -26,9 +26,12 @@ fi
 # DOCUMENTATION
 # https://github.com/ytdl-org/youtube-dl/blob/master/README.md#readme
 
+# OTHER SCRIPTS
+# https://www.reddit.com/r/youtubedl/wiki/info-scripts#wiki_yt-splitter_.28mp3.29_by_.2Fu.2Fredsolver
+
 # pip install youtube-dl
 # pip install ffmpeg
-# pip install ffprobe
+# ffprobe is included in ffmpeg.
 # Alternatively, brew for mac.
 
 # youtube-dl [OPTIONS] URL [URL...]
