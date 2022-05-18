@@ -160,6 +160,8 @@ https://learncssgrid.com/
 https://developer.mozilla.org/en-US/docs/Learn
 > Astro Websites
 https://astro.build/
+> Finally a good example on using map to dynamically render html/react components from data.
+https://www.positronx.io/how-to-handle-http-request-with-async-await-in-react/
 
 
 ------ DATABASE ------
