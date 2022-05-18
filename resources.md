@@ -146,6 +146,8 @@ https://js-arrays-visualized.com/
 https://2ality.com/2015/02/es6-scoping.html
 > Amazing example of what you can do with vanilla JS
 https://ciechanow.ski/mechanical-watch/
+> Maps & Sets
+https://medium.com/@emma.pejko/es6-maps-sets-783a5bf94306
 
 ------ WEB ------
 > Reddit: How to learn these two
