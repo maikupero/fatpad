@@ -1,0 +1,4 @@
+https://launchschool.com/books/ruby/read/preparations#stylishruby
+https://ruby-doc.org/
+2 indent
+Snake case, camel case for classes. 
