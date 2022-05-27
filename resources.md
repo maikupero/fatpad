@@ -181,6 +181,8 @@ https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/
 ------ DESIGN ------
 > Native code Figma Alternative
 https://icons8.com/lunacy
+> Placeholder JSON
+https://jsonplaceholder.typicode.com/
 
 ------ MAC OS ------
 > Hide the Dock
