@@ -36,7 +36,8 @@ https://www.reddit.com/r/learnjavascript/comments/ov8dxh/i_used_vanilla_javascri
 https://codepen.io/franksLaboratory/pen/ZEKodqd
 > Finding Opensource work
 https://opensource.guide/
-
+> Awesome For Beginners
+https://github.com/MunGell/awesome-for-beginners
 
 
 
