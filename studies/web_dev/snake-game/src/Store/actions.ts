@@ -5,9 +5,7 @@ export const MOVE_DOWN = "MOVE_DOWN";
 
 export const RIGHT = "RIGHT";
 export const LEFT = "LEFT";
-
 export const UP = "UP";
-
 export const DOWN = "DOWN";
 
 export const SET_DIS_DIRECTION = "SET_DIS_DIRECTION";
