@@ -157,6 +157,8 @@ https://www.reddit.com/r/learnprogramming/comments/bn20hz/best_way_to_learn_html
 https://css-tricks.com/
 > CSS Grid
 https://learncssgrid.com/
+> Fancy buttons
+https://www.sliderrevolution.com/resources/css-button-hover-effects/
 > MDN Intro to Web Dev
 https://developer.mozilla.org/en-US/docs/Learn
 > Astro Websites
