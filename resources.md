@@ -189,3 +189,7 @@ https://jsonplaceholder.typicode.com/
 > Hide the Dock
 defaults write com.apple.Dock autohide-delay -float 5 && killall Dock 
 To restore: defaults delete com.apple.Dock autohide-delay 
+
+------ DIGITAL NOMAD ------
+> Visa info
+https://www.internationalcitizens.com/blog/digital-nomad-visas/
