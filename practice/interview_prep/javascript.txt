@@ -1,0 +1,207 @@
+////////////// var & let \\\\\\\\\\\\\\
+1. var older, outdated, let with ES2015/16
+2. var is function scoped, let is block scoped. (garbage collection)
+3. var is hoisted to the top of the function.
+i.e. 
+    if (true) {
+        console.log(v); // undefined but in memory (hoisted)
+        console.log(l); // error, l not defined. 
+        var v = 2;
+        let l = 1;
+    }
+    console.log(v); // 2
+    console.log(l); // error, undefined
+
+
+////////////// let vs const \\\\\\\\\\\\\\
+let l = 1;
+l = 2;
+console.log(l); // 2
+
+const c = 1;
+c = 2;
+console.log(c); // error assignment to const variable.
+
+const c;
+const c = 1; // error missing initializer.
+
+if not a primitive type, and its an object, it works. modifying contents. 
+
+
+////////////// == vs === \\\\\\\\\\\\\\
+comparison operators. 
+value comparison vs value+type comparison.
+=== takes type into account.
+'1' == 1 // true
+'1' === 1 // false
+with ==, it will attempt to convert both to the same type. 
+
+
+////////////// null vs undefined \\\\\\\\\\\\\\
+define a variable but don't assign a value - undefined (placeholder).
+null is an intentional assignment.
+typeof(undefined) // undefined
+typeof(null) // object
+
+
+////////////// arrow function \\\\\\\\\\\\\\
+const profile = {
+    firstName: '',
+    lastName: '',
+    setName: function(name) {
+        let splitName = function(n) {
+            let nameArray = n.split(' ');
+            this.firstName = nameArray[0];
+            this.lastName = nameArray[1];
+        }
+        splitName(name);
+    }
+}
+profile.setName('john doe');
+console.log(profile.firstName); //  _____ (setting to window object)
+console.log(window.firstName); // john
+instead change line 52 to:
+let splitName = (n) => {
+console.log(profile.firstName); // john
+because it doesn't have its own this (not an object), then it inherits its parent.
+
+saves having to type function and return (return is implicit).
+
+
+////////////// prototypal inheritance \\\\\\\\\\\\\\
+every object has a property called prototype.
+can add methods and properties to it.
+when you make other objects from these, the new ones will inherit the parents prototype properties.
+
+when you call a method of an object, it first looks at its own properties to see if its there.
+if not there, it looks at its parents, and if it finds it, it executes it.
+
+let Car = function(model) { // basically a constructor
+    this.model = model;
+}
+
+Car.prototype.getModel = function() { // outside of the above constructor.
+    return this.model;
+}
+
+let toyoto = new Car('toyota');
+console.log(toyota.getModel()); // toyota
+
+
+////////////// function declaration vs expression \\\\\\\\\\\\\\
+console.log(funcD()); // function declaration
+console.log(funcE()); // undefined
+function funcD() {
+    console.log('function declaration');
+}
+let funcE = function() {
+    console.log('function expression');
+}
+cannot pass function declaration to other functions (it's not a variable)
+
+
+////////////// promises and why we use it \\\\\\\\\\\\\\
+make a call that should wait for something else to happen.
+once it comes back, execute a callback function.
+within that callback, we might do another ajax call. 
+nested callback hell. we don't like this. hard to read, debug.
+so simplify - go for promises.
+
+$.ajax({
+	url: 'a.json',
+	success: function(r) {
+		$.ajax({
+		url: 'b.json?' + r.a;
+			success: function(result) {
+				$('#div1").html(result);
+			}
+		});
+	}
+});
+
+var p1 = new Promise(function(resolve, reject) {
+	resolve($.ajax('a.json');)
+})
+
+p1.then(
+	function(r) {
+		return new Promise()
+	}).then(
+		function(result) {
+			$("#div1").html(result);
+		}
+	);
+
+
+////////////// setTimeout() \\\\\\\\\\\\\\
+setTimeout(function() {
+	console.log('a');
+}, 0);
+console.log('b');
+console.log('c');
+
+expected output? 0 timeout -> no timeout, right? 
+answer is b -> c -> a
+timeout is asynchronous, so it will wait for the stack (b and c).
+
+
+////////////// closure \\\\\\\\\\\\\\
+when a function returns another function.
+the returning function should hold its environment.
+let obj = function() {
+	let i = 0;
+
+	return {
+		setI(k) {
+			i = k;
+		},
+		getI() {
+			return i;
+		}
+	}
+};
+
+let x = obj(); 
+x.setI(2);
+console.log(x.getI()); // 2
+console.log(x); // Object {setI: function, getI: function}
+Inside the scopes of each function, they will have the value set to i.
+
+
+
+////////////// template literals \\\\\\\\\\\\\\
+function a() { 
+	return 'hello';
+}
+const sentence = a `hi`;
+console.log(sentence) // hello   (considers template literals as arguments)
+
+////////////// make a page editable \\\\\\\\\\\\\\
+<div contenteditable="true">Hello</div>
+inspect, in browser console type:
+document.body.contentEditable = true;
+
+////////////// arguments \\\\\\\\\\\\\\
+function y() {
+	console.log(this.length);
+}
+var x = {
+	length: 5,
+	method: function(y) {
+		arguments[0]();
+	}
+};
+x.method(y, 1); // 2
+you end up just getting the length of the array of arguments.
+
+////////////// constructor \\\\\\\\\\\\\\
+const x = 'constructor';
+console.log(x[x](01));
+
+x['constructor'] or x.constructor
+const x = new String('constructor');
+console.log(x); // String object 0: 'c', 1: 'o', ...
+								// within prototype, we have a constructor property.
+console.log(x.constructor) // function String() {[native code]}
+so, x[x] == String() just a string function.
+so String(01) evaluates to 1.
