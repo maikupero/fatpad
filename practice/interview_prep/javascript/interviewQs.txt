@@ -205,3 +205,22 @@ console.log(x); // String object 0: 'c', 1: 'o', ...
 console.log(x.constructor) // function String() {[native code]}
 so, x[x] == String() just a string function.
 so String(01) evaluates to 1.
+
+
+
+
+
+
+
+////////////// GET & POST \\\\\\\\\\\\\\
+get - retrieving data.
+post - send data from client to server to create or update something server side.
+put - indempotent. same request multiple times, same result. post would create multiples.
+put is best for modification of a resource as a whole. 
+patch for updating part of a resource. 
+post for adding resources. 
+
+////////////// JSON \\\\\\\\\\\\\\
+javascript object notation.
+text based data format that makes data sharing easy. 
+looks like js object literal but not the same. just easy to convert.
