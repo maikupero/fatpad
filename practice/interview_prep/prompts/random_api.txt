@@ -1,2 +1,1 @@
-- Create a button that increments (simple useState hook). ->
 |-> Retrieve/manipulate/display data from an API endpoint: https://randomuser.me/api )
