@@ -167,7 +167,8 @@ https://developer.mozilla.org/en-US/docs/Learn
 https://astro.build/
 > Finally a good example on using map to dynamically render html/react components from data.
 https://www.positronx.io/how-to-handle-http-request-with-async-await-in-react/
-
+> Self-hosted VS Google Fonts
+https://github.com/nirjan-dev/learning-to-code/issues/177
 
 ------ DATABASE ------
 > SQL Practice
