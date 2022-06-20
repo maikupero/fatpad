@@ -198,3 +198,7 @@ To restore: defaults delete com.apple.Dock autohide-delay
 ------ DIGITAL NOMAD ------
 > Visa info
 https://www.internationalcitizens.com/blog/digital-nomad-visas/
+
+------ MONEY ------
+> 401K
+https://www.fool.com/retirement/2017/06/19/does-the-average-american-have-a-401k.aspx
