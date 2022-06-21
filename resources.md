@@ -159,6 +159,8 @@ https://css-tricks.com/
 https://learncssgrid.com/
 > CSS Interview Questions
 https://www.interviewbit.com/css-interview-questions/
+> Tailwind Cheat Sheet
+https://nerdcave.com/tailwind-cheat-sheet
 > Fancy buttons
 https://www.sliderrevolution.com/resources/css-button-hover-effects/
 > MDN Intro to Web Dev
