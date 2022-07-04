@@ -195,7 +195,9 @@ https://jsonplaceholder.typicode.com/
 ------ MAC OS ------
 > Hide the Dock
 defaults write com.apple.Dock autohide-delay -float 5 && killall Dock 
-To restore: defaults delete com.apple.Dock autohide-delay 
+To restore: defaults delete com.apple.Dock autohide-delay
+> Get Bash Shell working on MACOS
+https://altoplace.com/posts/2021/how-to-configure-the-bash-shell-on-macos/ 
 
 ------ DIGITAL NOMAD ------
 > Visa info
