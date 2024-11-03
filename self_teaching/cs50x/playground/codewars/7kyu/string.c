@@ -4,7 +4,7 @@
 int main(void)
 {
     bool solution();
-    return 0;h
+    return 0;
 }
 
 bool solution(const char *string, const char *ending)
