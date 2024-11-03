@@ -4,7 +4,7 @@ read -p 'Artist: ' artist
 read -p 'Album: ' album
 read -p 'Genre: ' genre
 echo $URL $title $artist $genre
-youtube-dl -x --audio-format m4a --add-metadata --postprocessor-args "-metadata title='$title' -metadata artist='$artist' -metadata album='$album' -metadata genre='$genre'" --audio-quality 4 --abort-on-error --geo-bypass --mark-watched -o "fromyt.%(ext)s" $URL
+youtube-dl -x --no-check-certificate --audio-format m4a --add-metadata --postprocessor-args "-metadata title='$title' -metadata artist='$artist' -metadata album='$album' -metadata genre='$genre'" --audio-quality 4 --abort-on-error --geo-bypass --mark-watched -o "fromyt.%(ext)s" $URL
 if [ -f fromyt.m4a ] 
 then 
     echo "Opening in Music"
