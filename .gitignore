@@ -1,5 +1,7 @@
 .DS_Store
 .vscode
-project_ideas/.DS_Store
-practice/interview_prep/companies
-practice/interview_prep/sandbox
+
+practice/interview_prep/*
+
+node_modules
+package-lock.json
