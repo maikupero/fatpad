@@ -2,8 +2,9 @@ import java.io.File
 import kotlin.math.abs
 
 val filePath = "./data.txt"
-    
-val reportsList = File(filePath)
+
+val reportsList =
+  File(filePath)
   .readLines()
   .map { line ->
     line
@@ -16,9 +17,7 @@ fun isReportSafe(
   report: List<Int>,
   useDampener: Boolean = false,
 ): Boolean {
-  var canDampen: Boolean = useDampener
   var lastJump: Int? = null
-
   for (i in 0..report.lastIndex - 1) {
     val currJump: Int = report[i + 1] - report[i]
 
@@ -28,9 +27,11 @@ fun isReportSafe(
         lastJump <= 0 && currJump >= 0 || // change +/- direction jump
         lastJump >= 0 && currJump <= 0 
       ) {
-        if (canDampen == true) {
-          canDampen = false 
-          continue // get a free pass on currJump checks, dont reset lastJump (effectively remove a number)
+        if (useDampener == true) {
+          // rerun the whole check slicing out this index of problem candidates
+          return isReportSafe(report.filterIndexed { index, value -> index != i+1 }) ||
+            isReportSafe(report.filterIndexed { index, value -> index != i}) ||
+            isReportSafe(report.filterIndexed { index, value -> index != i-1})
         } else {
           return false
         }           
@@ -42,8 +43,10 @@ fun isReportSafe(
       abs(currJump) < 1 ||  // no jump
       abs(currJump) > 3     // big jump
     ) {
-      if (canDampen == true) {
-        canDampen = false
+      if (useDampener == true) {
+          // rerun the whole check slicing out this index of problem candidates
+          return isReportSafe(report.filterIndexed { index, value -> index != i+1 }) ||
+            isReportSafe(report.filterIndexed { index, value -> index != i}) 
       } else {
         return false
       }
