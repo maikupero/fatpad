@@ -1,5 +1,12 @@
 kotlin time baby
 
+to deal with utils, build them into the util folder
+`package util` package them
+`kotlinc util/Grid.kt -d util` compile them 
+`kotlinc -script day4/solution.kts -cp ./util/` then run solutions with class path
+
+
+
 Install - sdkman
 had to give myself permissions to read/write from /opt/ since I have two users on this computer
 

@@ -1,10 +1,11 @@
 import java.io.File
 import kotlin.math.abs
+import util.*
 
-val filePath = "./data.txt"
+typealias Coordinates = util.Coordinates
+typealias Directions = util.Directions
 
-data class Coordinates(val y: Int, val x: Int)
-enum class Directions { U, UR, R, DR, D, DL, L, UL }
+val filePath = "./day4/data.txt"
 
 data class Heading (
   val coord: Coordinates,
@@ -18,7 +19,6 @@ val wordSearch = File(filePath)
 
 var xmasCount: Int = 0
 var crossMasCount: Int = 0
-
 var crossMasCorners: Set<Char> = setOf('M','S')
 
 fun getNextXmasLetter(currLetter: Char): Char? {
@@ -30,53 +30,6 @@ fun getNextXmasLetter(currLetter: Char): Char? {
   }
 }
 
-fun getNextCoord(coord: Coordinates, direction: Directions): Coordinates {
-  return when (direction) {
-    Directions.U -> Coordinates(coord.y - 1, coord.x)
-    Directions.UR -> Coordinates(coord.y - 1, coord.x + 1)
-    Directions.R -> Coordinates(coord.y, coord.x + 1)
-    Directions.DR -> Coordinates(coord.y + 1, coord.x + 1)
-    Directions.D -> Coordinates(coord.y + 1, coord.x)
-    Directions.DL -> Coordinates(coord.y + 1, coord.x - 1)
-    Directions.L -> Coordinates(coord.y, coord.x - 1)
-    Directions.UL -> Coordinates(coord.y - 1, coord.x - 1)
-  }
-}
-
-fun getSurroundingCoords(coord: Coordinates, includeDiagonals: Boolean = false): Collection<Coordinates> {
-  return listOf(
-    Coordinates(coord.y - 1, coord.x),
-    Coordinates(coord.y - 1, coord.x + 1),
-    Coordinates(coord.y, coord.x + 1),
-    Coordinates(coord.y + 1, coord.x + 1),
-    Coordinates(coord.y + 1, coord.x),
-    Coordinates(coord.y + 1, coord.x - 1),
-    Coordinates(coord.y, coord.x - 1),
-    Coordinates(coord.y - 1, coord.x - 1)
-  )
-}
-
-fun getDirectionFromCoords(prev: Coordinates, next: Coordinates): Directions {
-    return when {
-        next.y < prev.y && next.x == prev.x -> Directions.U
-        next.y < prev.y && next.x > prev.x -> Directions.UR
-        next.y == prev.y && next.x > prev.x -> Directions.R
-        next.y > prev.y && next.x > prev.x -> Directions.DR
-        next.y > prev.y && next.x == prev.x -> Directions.D
-        next.y > prev.y && next.x < prev.x -> Directions.DL
-        next.y == prev.y && next.x < prev.x -> Directions.L
-        next.y < prev.y && next.x < prev.x -> Directions.UL
-        else -> throw IllegalArgumentException("Invalid coordinates: $prev -> $next")
-    }
-}
-
-fun coordIsValid(coord: Coordinates): Boolean {
-  return (
-    coord.x >= 0 && coord.x < wordSearch[0].size &&
-    coord.y >= 0 && coord.y < wordSearch.size
-  )
-}
-
 fun findNextHeading(heading: Heading): Heading? {
   val nextLetter: Char? = getNextXmasLetter(heading.currLetter)
   if (nextLetter !== null) {
@@ -85,7 +38,7 @@ fun findNextHeading(heading: Heading): Heading? {
       else getSurroundingCoords(heading.coord, true)
     for (coord in nextCoords) {
       if (
-        coordIsValid(coord) == true &&
+        coordIsValid(coord, wordSearch.size, wordSearch[0].size) == true &&
         wordSearch[coord.y][coord.x] == nextLetter
       ) {
         val direction: Directions = heading.direction 
@@ -111,7 +64,7 @@ fun searchForXmas(heading: Heading) {
 
 fun searchForCrossMas(coord: Coordinates) {
 
-  val middleCoord: Coordinates = getNextCoord(coord, Directions.DR)
+  val middleCoord: util.Coordinates = getNextCoord(coord, Directions.DR)
 
   if (wordSearch[middleCoord.y][middleCoord.x] == 'A') {
 
