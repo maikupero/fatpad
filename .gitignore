@@ -1,7 +1,9 @@
 .DS_Store
-.vscode
+.vscode/
+.idea/
 
 practice/interview_prep/*
 
 node_modules
 package-lock.json
+
