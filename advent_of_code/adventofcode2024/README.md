@@ -5,7 +5,7 @@ to deal with utils, build them into the util folder
 `kotlinc util/Grid.kt -d util` compile them 
 `kotlinc -script day4/solution.kts -cp ./util/` then run solutions with class path
 
-
+https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md#implementation-status
 
 Install - sdkman
 had to give myself permissions to read/write from /opt/ since I have two users on this computer
