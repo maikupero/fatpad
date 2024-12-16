@@ -71,12 +71,12 @@ fun findOperationStrings(
     }
     for (operator in operators) {
       current.append(operator) // build with + ... build with * ... build with ||
-      backtrack(current, depth + 1)
+      buildCombinations(current, depth + 1)
       current.deleteCharAt(current.length - 1) // remove + ... remove * ... remove ||
     }
   }
 
-  backtrack(StringBuilder(), 0)
+  buildCombinations(StringBuilder(), 0)
   return combinations
 }
 
