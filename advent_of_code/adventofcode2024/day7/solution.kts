@@ -64,15 +64,15 @@ fun findOperationStrings(
   val count = equationSize - 1
 
   // Generate all possible combinations of operators for the list
-  fun backtrack(current: StringBuilder, depth: Int) {
+  fun buildCombinations(current: StringBuilder, depth: Int) {
     if (depth == count) {
       combinations.add(current.toString())
       return
     }
     for (operator in operators) {
-      current.append(operator)
+      current.append(operator) // build with + ... build with * ... build with ||
       backtrack(current, depth + 1)
-      current.deleteCharAt(current.length - 1) // Backtrack
+      current.deleteCharAt(current.length - 1) // remove + ... remove * ... remove ||
     }
   }
 
