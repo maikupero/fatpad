@@ -60,7 +60,7 @@ fun findOperationStrings(
 ): Collection<String> {
   if (equationSize < 2) return emptyList() // Doubt there are any <2 number lists
   val combinations = mutableListOf<String>()
-  val operators = listOf('+', '*', "|")
+  val operators = listOf('+', '*', '|')
   val count = equationSize - 1
 
   // Generate all possible combinations of operators for the list
@@ -98,5 +98,5 @@ calibrationSets.forEach { set ->
     }
 }
 
-println("PART 1: $sumOfValidCalibrationSets")
-println("PART 2: TODO")
+println("PART 2: $sumOfValidCalibrationSets")
+// for part 1 just disable | in line 63 and line 37
