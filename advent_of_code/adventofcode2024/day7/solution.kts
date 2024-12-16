@@ -21,20 +21,11 @@ File(filePath)
     calibrationSets.add(CalibrationSet(formattedTestValue, formattedEquation))
   }
 
-fun addOp(a: Long, b: Long): Long {
-  return a + b
-}
-fun multOp(a: Long, b: Long): Long {
-  return a * b
-}
-fun concatOp(a: Long, b: Long): Long {
-  return "$a$b".toLong()
-}
 fun runOperation(a: Long, b: Long, operationKey: Char): Long {
   return when (operationKey) {
-    '+' -> addOp(a, b)
-    '*' -> multOp(a, b)
-    '|' -> concatOp(a, b)
+    '+' -> a + b
+    '*' -> a * b
+    '|' -> "$a$b".toLong()
     else -> throw IllegalArgumentException("Huh??? Bro?")
   }
 }
