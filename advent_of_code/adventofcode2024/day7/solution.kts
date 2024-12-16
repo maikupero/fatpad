@@ -1,10 +1,10 @@
 import java.io.File
 
-val filePath = "./day7/example.txt"
+val filePath = "./day7/data.txt"
 
 data class CalibrationSet(
-  val testValue: Int,
-  val equation: MutableList<Int>
+  val testValue: Long,
+  val equation: MutableList<Long>
 )
 var calibrationSets: MutableList<CalibrationSet> = mutableListOf()
 
@@ -12,25 +12,30 @@ File(filePath)
   .readLines()
   .forEach { line ->
     val (testValueString, equationString) = line.split(':')
-    val formattedTestValue = testValueString.trim().toInt()
+    val formattedTestValue = testValueString.trim().toLong()
     val formattedEquation = equationString
       .split(" ")
       .drop(1)
-      .map { num -> num.toInt() }
+      .map { num -> num.toLong() }
       .toMutableList()
     calibrationSets.add(CalibrationSet(formattedTestValue, formattedEquation))
   }
 
-fun addOp(a: Int, b: Int): Int {
+fun addOp(a: Long, b: Long): Long {
   return a + b
 }
-fun multOp(a: Int, b: Int): Int {
+fun multOp(a: Long, b: Long): Long {
   return a * b
 }
-fun runOperation(a, b, operationKey: Char) {
+fun concatOp(a: Long, b: Long): Long {
+  return "$a$b".toLong()
+}
+fun runOperation(a: Long, b: Long, operationKey: Char): Long {
   return when (operationKey) {
     '+' -> addOp(a, b)
     '*' -> multOp(a, b)
+    '|' -> concatOp(a, b)
+    else -> throw IllegalArgumentException("Huh??? Bro?")
   }
 }
 
@@ -38,31 +43,46 @@ fun reachesTestValue(
   set: CalibrationSet,
   operationString: String
 ): Boolean {
-  var equationResult: Int = 0
-  for (i in 0 until set.equation.size - 1) {
-    println("Running ${set.equation[i]} ${operations[i]} ${set.equation[i+1]}")
-    equationResult += runOperation(
-      set.equation[i],
+  val operations = operationString.toMutableList()
+  var equationResult: Long = 0
+  for (i in 0 until operations.size) {
+    equationResult = runOperation(
+      if (i == 0) set.equation[i] else equationResult,
       set.equation[i + 1],
       operationString[i]
     )
   }
-  println("${set.testValue} == ${equationResult}")
-  return set.testValue == equationResult
+  return equationResult == set.testValue
 }
 
 fun findOperationStrings(
-  numberOfOperators: Int
+  equationSize: Int
 ): Collection<String> {
-  var allPossibleOperationStrings: Collection<String>: collectionOf()
-  // should return 2 ** numberOfOperators unique combinations
-  // This is the main thing to figure out
-  // how to generate all possible combinations of operators
+  if (equationSize < 2) return emptyList() // Doubt there are any <2 number lists
+  val combinations = mutableListOf<String>()
+  val operators = listOf('+', '*', "|")
+  val count = equationSize - 1
+
+  // Generate all possible combinations of operators for the list
+  fun backtrack(current: StringBuilder, depth: Int) {
+    if (depth == count) {
+      combinations.add(current.toString())
+      return
+    }
+    for (operator in operators) {
+      current.append(operator)
+      backtrack(current, depth + 1)
+      current.deleteCharAt(current.length - 1) // Backtrack
+    }
+  }
+
+  backtrack(StringBuilder(), 0)
+  return combinations
 }
 
-fun countValidCombinations(set: CalibrationSet): Int {
-  val operationStrings: Collection<String> = findOperationStrings(set.equation.size - 1)
-  var validCombinations: Int = 0
+fun countValidCombinations(set: CalibrationSet): Long {
+  val operationStrings: Collection<String> = findOperationStrings(set.equation.size)
+  var validCombinations: Long = 0
   for (operationString in operationStrings) {
     val reachesTestValue: Boolean = reachesTestValue(set, operationString)
     validCombinations += if (reachesTestValue) 1 else 0
@@ -70,11 +90,12 @@ fun countValidCombinations(set: CalibrationSet): Int {
   return validCombinations
 }
 
-var sumOfValidCalibrationSets: Int = 0
+var sumOfValidCalibrationSets: Long = 0
 calibrationSets.forEach { set ->
-  println(set)
-  val validCombinationCount: Int = countValidCombinations(set)
-  sumOfValidCalibrationSets += set.testValue
+  val validCombinationCount: Long = countValidCombinations(set)
+  if (validCombinationCount > 0) {
+    sumOfValidCalibrationSets += set.testValue
+    }
 }
 
 println("PART 1: $sumOfValidCalibrationSets")
