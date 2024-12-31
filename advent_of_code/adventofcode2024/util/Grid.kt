@@ -1,6 +1,10 @@
 package util
 
 data class Coordinates(val y: Int, val x: Int)
+data class GridCoordinates(
+  val coord: Coordinates,
+  val here: Any
+)
 data class TraversalCoordinates(
   val coord: Coordinates,
   var visited: Boolean,
@@ -76,6 +80,21 @@ fun getSurroundingCoords(
     Coordinates(coord.y, coord.x - 1),
     Coordinates(coord.y - 1, coord.x - 1)
   )
+}
+
+fun getSurroundingLegalCoords(
+  coord: Coordinates,
+  gridYSize: Int,
+  gridXSize: Int,
+  includeDiagonals: Boolean = false
+): Collection<Coordinates> {
+  val allSurroundingCoords: Collection<Coordinates> = getSurroundingCoords(
+    coord,
+    includeDiagonals
+  )
+  return allSurroundingCoords.filter { coord ->
+    coordIsValid(coord, gridYSize, gridXSize)
+  }
 }
 
 /** Determines if the coordinate is within grid bounds. */
