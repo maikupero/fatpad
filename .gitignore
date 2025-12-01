@@ -1,9 +1,21 @@
+# standard
 .DS_Store
 .vscode/
 .idea/
 
+# private
 practice/interview_prep/*
 
+# js boi
 node_modules
 package-lock.json
 
+# c# stuff
+obj
+bin
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
