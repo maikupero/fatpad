@@ -4,20 +4,37 @@ public static class Utils
 {
   public static void Print(object? item)
   {
+    Console.WriteLine(Format(item));
+  }
+
+  public static void Print(string label, object? item)
+  {
+    Console.WriteLine($"{label}: {Format(item)}");
+  }
+
+  private static string Format(object? item)
+  {
+    if (item == null) return "null";
+
     switch (item)
     {
-      case null:
-        Console.WriteLine("null");
-        break;
       case string str:
-        Console.WriteLine(str);
-        break;
+        return str;
+
       case IEnumerable<int> nums:
-        Console.WriteLine($"[{string.Join(", ", nums)}]");
-        break;
+        return $"[{string.Join(", ", nums)}]";
+
+      case IEnumerable<string> strings:
+        return $"[{string.Join(", ", strings)}]";
+
+      case IEnumerable<(object, object)> tuples:
+        return $"[{string.Join(", ", tuples.Select(t => $"({t.Item1}, {t.Item2})"))}]";
+
+      case System.Collections.IEnumerable enumerable:
+        return $"[{string.Join(", ", enumerable.Cast<object>())}]";
+
       default:
-        Console.WriteLine(item.ToString());
-        break;
+        return item.ToString()!;
     }
   }
 }
