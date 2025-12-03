@@ -27,6 +27,14 @@ public static class Utils
       case IEnumerable<string> strings:
         return $"[{string.Join(", ", strings)}]";
 
+      case IEnumerable<IEnumerable<int>> listOfLists:
+        // Pretty print banks
+        return "[\n  " +
+               string.Join(",\n  ",
+                   listOfLists.Select(inner =>
+                       "[" + string.Join(", ", inner) + "]"))
+               + "\n]";
+
       case IEnumerable<(object, object)> tuples:
         return $"[{string.Join(", ", tuples.Select(t => $"({t.Item1}, {t.Item2})"))}]";
 
