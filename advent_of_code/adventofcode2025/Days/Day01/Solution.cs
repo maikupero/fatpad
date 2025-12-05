@@ -2,19 +2,13 @@ namespace Aoc2025.Days.Day01;
 
 public class Solution : IDay
 {
-  private readonly string[] input;
-  private readonly string[] example;
+  private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day01");
 
-  public Solution()
+  static List<int> ParseData(bool exampleSolved)
   {
-    var basePath = Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day01");
-    input = File.ReadAllLines(Path.Combine(basePath, "Input.txt"));
-    example = File.ReadAllLines(Path.Combine(basePath, "Example.txt"));
-  }
+    var filename = exampleSolved ? "Input.txt" : "Example.txt";
+    var originalText = File.ReadAllLines(Path.Combine(BasePath, filename));
 
-  public List<int> ParseData(bool exampleIsSolved)
-  {
-    var originalText = exampleIsSolved ? input : example;
     var attachedoDocumento = new List<int>();
     for (int i = 0; i < originalText.Length; i++)
     {
@@ -23,6 +17,7 @@ public class Solution : IDay
       int value = int.Parse(line[1..]);
       attachedoDocumento.Add(direction == 'L' ? -value : value);
     }
+
     return attachedoDocumento;
   }
 

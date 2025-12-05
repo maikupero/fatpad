@@ -1,4 +1,4 @@
-namespace Aoc2025;
+namespace Aoc2025.Util;
 
 public static class Utils
 {

@@ -1,8 +1,8 @@
-namespace Aoc2025.Days.DayNN;
+namespace Aoc2025.Days.Day05;
 
 public class Solution : IDay
 {
-  private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "DayNN");
+  private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day05");
 
   private static string[] ParseData(bool exampleSolved)
   {

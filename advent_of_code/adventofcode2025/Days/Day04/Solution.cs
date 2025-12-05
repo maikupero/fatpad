@@ -1,30 +1,19 @@
-using System.Runtime.CompilerServices;
-
 namespace Aoc2025.Days.Day04;
 
 public class Solution : IDay
 {
-  private readonly string[] input;
-  private readonly string[] example;
+  private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day04");
 
-  public Solution()
+  static XYGrid ParseData(bool exampleSolved)
   {
-    var basePath = Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day04");
-
-    input = File.ReadAllLines(Path.Combine(basePath, "Input.txt"));
-    example = File.ReadAllLines(Path.Combine(basePath, "Example.txt"));
-  }
-
-  public XYGrid ParseData(bool exampleIsSolved)
-  {
-    var originalText = exampleIsSolved ? input : example;
-    return ParseCharGrid(originalText);
+    var filename = exampleSolved ? "Input.txt" : "Example.txt";
+    var lines = File.ReadAllLines(Path.Combine(BasePath, filename));
+    return ParseCharGrid(lines);
   }
 
   public string Part1()
   {
-    const bool exampleIsSolved = true;
-    var grid = ParseData(exampleIsSolved);
+    var grid = ParseData(true);
     var accessibleRolls = 0;
 
     void IsAccessible(Coord cell)
@@ -40,8 +29,7 @@ public class Solution : IDay
   }
   public string Part2()
   {
-    const bool exampleIsSolved = true;
-    var grid = ParseData(exampleIsSolved);
+    var grid = ParseData(true);
     var totalRemoved = 0;
     var rollsToRemove = new HashSet<Coord>();
 

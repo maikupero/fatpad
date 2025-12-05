@@ -2,20 +2,12 @@ namespace Aoc2025.Days.Day03;
 
 public class Solution : IDay
 {
-  private readonly string[] input;
-  private readonly string[] example;
+  private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day03");
 
-  public Solution()
+  static List<List<int>> ParseData(bool exampleSolved)
   {
-    var basePath = Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day03");
-
-    input = File.ReadAllLines(Path.Combine(basePath, "Input.txt"));
-    example = File.ReadAllLines(Path.Combine(basePath, "Example.txt"));
-  }
-
-  public List<List<int>> ParseData(bool exampleIsSolved)
-  {
-    var originalText = exampleIsSolved ? input : example;
+    var filename = exampleSolved ? "Input.txt" : "Example.txt";
+    var originalText = File.ReadAllLines(Path.Combine(BasePath, filename));
     var banks = new List<List<int>>();
     foreach (var bank in originalText)
     {
@@ -24,12 +16,6 @@ public class Solution : IDay
     }
     return banks;
   }
-
-  // each line is 1 bank of batteries (digits). 
-  // each line, turn on 2.
-  // bank's joltage = the number formed by the digits on the batteries you've turned on
-  // i.e. 12345 bank, turn on 2 and 4, joltage of 24. (left->right)
-  // find the largest possible joltage each bank can produce
 
   static int FindBestBatteryIndex(List<int> bank, int startIndex, int endIndex)
   {
@@ -55,7 +41,7 @@ public class Solution : IDay
 
     for (var digit = 0; digit < batteryCount; digit++)
     {
-      var startIndex = digit == 0 ? 0 : voltageIdxs[digit - 1] + 1; // 1 after previous best voltage index
+      var startIndex = digit == 0 ? 0 : voltageIdxs[digit - 1] + 1;
       var endIndex = bank.Count - batteryCount + digit + 1;
       voltageIdxs[digit] = FindBestBatteryIndex(bank, startIndex, endIndex);
     }
@@ -67,6 +53,7 @@ public class Solution : IDay
 
     return maxVoltage;
   }
+
   public string Part1()
   {
     const bool exampleIsSolved = true;
@@ -76,6 +63,7 @@ public class Solution : IDay
       totalJoltage += FindMaxVoltage(bank, 2);
     return totalJoltage.ToString();
   }
+
   public string Part2()
   {
     const bool exampleIsSolved = true;
