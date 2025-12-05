@@ -27,6 +27,7 @@ public class Solution : IDay
 
     return accessibleRolls.ToString();
   }
+
   public string Part2()
   {
     var grid = ParseData(true);

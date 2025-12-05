@@ -56,21 +56,13 @@ public class Solution : IDay
 
   public string Part1()
   {
-    const bool exampleIsSolved = true;
-    var batteryBanks = ParseData(exampleIsSolved);
-    long totalJoltage = 0;
-    foreach (var bank in batteryBanks)
-      totalJoltage += FindMaxVoltage(bank, 2);
-    return totalJoltage.ToString();
+    var banks = ParseData(true);
+    return banks.Sum(bank => FindMaxVoltage(bank, 2)).ToString();
   }
 
   public string Part2()
   {
-    const bool exampleIsSolved = true;
-    var batteryBanks = ParseData(exampleIsSolved);
-    long totalJoltage = 0;
-    foreach (var bank in batteryBanks)
-      totalJoltage += FindMaxVoltage(bank, 12);
-    return totalJoltage.ToString();
+    var banks = ParseData(true);
+    return banks.Sum(bank => FindMaxVoltage(bank, 12)).ToString();
   }
 }

@@ -70,8 +70,7 @@ public class Solution : IDay
 
   public string Part1()
   {
-    const bool exampleIsSolved = true;
-    List<(string, string)> parsedData = ParseData(exampleIsSolved);
+    List<(string, string)> parsedData = ParseData(true);
     long invalidIdSum = 0;
     foreach (var idRange in parsedData)
     {
@@ -81,6 +80,13 @@ public class Solution : IDay
     }
     return invalidIdSum.ToString();
   }
+  // clean refactor would be
+  //   var ranges = ParseData(true);
+  //     return ranges
+  //       .Select(ClampRangeToEvenDigits)
+  //       .Where(CanHaveSillyPatterns)
+  //       .Sum(CalculateSillyPatterns)
+  //       .ToString();
 
   static List<int> GetPossiblePatternLengths(int totalDigits)
   {
@@ -136,16 +142,5 @@ public class Solution : IDay
   }
 
   public string Part2()
-  {
-    const bool exampleIsSolved = true;
-    var parsedData = ParseData(exampleIsSolved);
-    long invalidIdCount = 0;
-
-    foreach (var range in parsedData)
-    {
-      invalidIdCount += FindSillyNumbers(range);
-    }
-
-    return invalidIdCount.ToString();
-  }
+    => ParseData(true).Sum(FindSillyNumbers).ToString();
 }
