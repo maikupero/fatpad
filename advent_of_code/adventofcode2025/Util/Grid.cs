@@ -41,7 +41,6 @@ public class XYGrid
   public Coord this[int y, int x] => Cells[y][x];
 }
 
-// helper static class to hold offsets and grid utilities
 public class GridUtils
 {
   public static readonly Dictionary<Direction, (int dx, int dy)> Offsets = new()
@@ -56,14 +55,12 @@ public class GridUtils
     { Direction.UL, (-1, -1) },
   };
 
-  // Return neighbour location (no Z here — Location has X,Y only)
   public static Location GetNextXY(Location curr, Direction dir)
   {
     var (dx, dy) = Offsets[dir];
     return new Location(curr.X + dx, curr.Y + dy);
   }
 
-  // Search adjacent neighbours around (y,x) for target; optional targetCount and diagonals flag
   public static int CountAdjacent(
     XYGrid grid,
     Coord coord,
