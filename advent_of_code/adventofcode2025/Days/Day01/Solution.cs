@@ -23,8 +23,7 @@ public class Solution : IDay
 
   public string Part1()
   {
-    const bool exampleIsSolved = true;
-    var instructions = ParseData(exampleIsSolved);
+    var instructions = ParseData(true);
     int timesPassedZero = 0;
     int currentNumber = 50;
     foreach (var instruction in instructions)
@@ -48,8 +47,7 @@ public class Solution : IDay
 
   public string Part2()
   {
-    const bool exampleIsSolved = true;
-    var instructions = ParseData(exampleIsSolved);
+    var instructions = ParseData(true);
     int timesPassedZero = 0;
     int currentNumber = 50;
 
