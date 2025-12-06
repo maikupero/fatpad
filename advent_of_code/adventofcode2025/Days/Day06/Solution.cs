@@ -8,14 +8,15 @@ public class Solution : IDay
   {
     var filename = exampleSolved ? "Input.txt" : "Example.txt";
     var lines = File.ReadAllLines(Path.Combine(BasePath, filename));
+
     var problemCols = new List<List<long>>();
     var operands = new List<string>();
+
     for (int i = 0; i < lines.Length; i++)
     {
       if (i != lines.Length - 1)
       {
         var cleanedLine = Regex.Replace(lines[i], @"\s+", " ").Trim().Split(" ").Select(long.Parse).ToList();
-
         for (int j = 0; j < cleanedLine.Count; j++)
         {
           if (i == 0)
@@ -25,8 +26,8 @@ public class Solution : IDay
       }
       else
         operands = Regex.Replace(lines[i], @"\s+", " ").Trim().Split(" ").ToList();
-
     }
+
     return (problemCols, operands);
   }
 
@@ -57,13 +58,15 @@ public class Solution : IDay
           Equals(operandsRow[searchForProblemXBound], ' ')
         )
           searchForProblemXBound++;
-        var problemXBound = searchForProblemXBound - 1; // account for 1 space gap between columns
+
+        // account for 1 space gap between columns
+        var problemXBound = searchForProblemXBound - 1;
 
         if (searchForProblemXBound == operandsRow.Length)
-          problemXBound += 1; // stupid one off case for the very last space in input
+          problemXBound += 1; // stupid one off case for the right edge of input
 
-        for (var x = problemXBound - 1; x >= i; x--) // account for 1 space gap between columns
-        {
+        for (var x = problemXBound - 1; x >= i; x--)
+        { // working from right column to left, top to bottom
           var cephapodNum = "";
           for (var y = 0; y < lines.Length - 1; y++)
             cephapodNum += lines[y][x];
