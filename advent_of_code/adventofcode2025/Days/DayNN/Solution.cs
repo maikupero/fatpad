@@ -7,7 +7,8 @@ public class Solution : IDay
   private static string[] ParseData(bool exampleSolved)
   {
     var filename = exampleSolved ? "Input.txt" : "Example.txt";
-    return File.ReadAllLines(Path.Combine(BasePath, filename));
+    var lines = File.ReadAllLines(Path.Combine(BasePath, filename));
+    return lines;
   }
 
   public string Part1()

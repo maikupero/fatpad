@@ -4,21 +4,33 @@ public class Solution : IDay
 {
   private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day05");
 
-  private static string[] ParseData(bool exampleSolved)
+  private static (List<Range>, List<long>) ParseData(bool exampleSolved)
   {
     var filename = exampleSolved ? "Input.txt" : "Example.txt";
-    return File.ReadAllLines(Path.Combine(BasePath, filename));
+    var lines = File.ReadAllLines(Path.Combine(BasePath, filename));
+    var ranges = lines[..lines.IndexOf("")]
+      .Select(r => r.Split('-'))
+      .Select(a => new Range(long.Parse(a[0]), long.Parse(a[1])))
+      .ToList();
+    var squishedRanges = SquishRanges(ranges);
+    var ingredientIds = lines[(lines.IndexOf("") + 1)..]
+      .Select(long.Parse)
+      .ToList();
+
+    return (squishedRanges, ingredientIds);
   }
 
   public string Part1()
   {
-    var parsedData = ParseData(false);
-    return "TODO";
+    var (squishedRanges, ingredientIds) = ParseData(true);
+    return ingredientIds
+      .Count(id => NumIsInAnyRange(id, squishedRanges))
+      .ToString();
   }
 
   public string Part2()
   {
-    // var parsedData = ParseData(false);
-    return "TODO";
+    var (squishedRanges, irrelevantIds) = ParseData(true);
+    return squishedRanges.Sum(r => r.Max - r.Min + 1).ToString();
   }
 }
