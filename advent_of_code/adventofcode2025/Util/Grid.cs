@@ -5,7 +5,7 @@ public enum Direction
   U, UR, R, DR, D, DL, L, UL
 }
 
-public record Location(int X, int Y);
+public record Location(int Y, int X);
 public record Coord
 {
   public Location Location { get; init; }
@@ -31,14 +31,17 @@ public class XYGrid
     {
       var row = new List<Coord>(width);
       for (int x = 0; x < width; x++)
-        row.Add(new Coord(new Location(x, y), null));
+        row.Add(new Coord(new Location(y, x), null));
       Cells.Add(row);
     }
   }
-  // 1D indexer → lets you do grid[y][x]
+  // lets you do grid[y][x]
   public List<Coord> this[int y] => Cells[y];
-  // 2D indexer → lets you do grid[y, x]
+  // lets you do grid[y, x]
   public Coord this[int y, int x] => Cells[y][x];
+
+  // lets you do grid[location]
+  public Coord this[Location location] => this[location.Y, location.X];
 }
 
 public class GridUtils
@@ -58,7 +61,16 @@ public class GridUtils
   public static Location GetNextXY(Location curr, Direction dir)
   {
     var (dx, dy) = Offsets[dir];
-    return new Location(curr.X + dx, curr.Y + dy);
+    return new Location(curr.Y + dy, curr.X + dx);
+  }
+
+  public static bool IsOutOfBounds(int y, int x, XYGrid grid)
+  {
+    return y < 0 || y >= grid.Height || x < 0 || x >= grid.Width;
+  }
+  public static bool CoordIsOutOfBounds(Coord coord, XYGrid grid)
+  {
+    return coord.Location.Y < 0 || coord.Location.Y >= grid.Height || coord.Location.X < 0 || coord.Location.X >= grid.Width;
   }
 
   public static int CountAdjacent(
@@ -81,7 +93,7 @@ public class GridUtils
       int ny = coord.Location.Y + dy;
       int nx = coord.Location.X + dx;
 
-      if (ny < 0 || ny >= grid.Height || nx < 0 || nx >= grid.Width)
+      if (IsOutOfBounds(ny, nx, grid))
       {
         if (countOutOfBounds) count++;
         continue;
@@ -111,7 +123,7 @@ public class GridUtils
       for (int x = 0; x < width; x++)
       {
         grid.Cells[y][x] = new Coord(
-            new Location(x, y),
+            new Location(y, x),
             lines[y][x],
             false
         );
