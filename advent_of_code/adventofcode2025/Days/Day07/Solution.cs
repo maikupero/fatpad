@@ -1,5 +1,9 @@
 namespace Aoc2025.Days.Day07;
 
+using Aoc2025.Util.Geometry.XY;
+using static Aoc2025.Util.Geometry.XY.GridUtils;
+
+
 public class Solution : IDay
 {
   private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day07");
@@ -8,7 +12,7 @@ public class Solution : IDay
   {
     var filename = exampleSolved ? "Input.txt" : "Example.txt";
     var lines = File.ReadAllLines(Path.Combine(BasePath, filename));
-    return ParseCharGrid(lines);
+    return ParseLines(lines);
   }
 
   public static void TraceTachyonBeam(Coord curr, XYGrid grid, ref int count)
@@ -20,8 +24,8 @@ public class Solution : IDay
     if (Equals(curr.Holds, '.') || Equals(curr.Holds, 'S'))
     {
       if (Equals(curr.Holds, '.'))
-        grid[curr.Location.Y, curr.Location.X].Holds = '|'; // tree :3
-      var (nextY, nextX) = GetNextXY(curr.Location, Direction.D);
+        grid[curr.Point.Y, curr.Point.X].Holds = '|'; // tree :3
+      var (nextY, nextX) = GetNextXY(curr.Point, Direction.D);
       if (!IsOutOfBounds(nextY, nextX, grid))
         TraceTachyonBeam(grid[nextY, nextX], grid, ref count);
       return;
@@ -30,11 +34,11 @@ public class Solution : IDay
     if (Equals(curr.Holds, '^'))
     {
       count += 1;
-      var (ly, lx) = GetNextXY(curr.Location, Direction.L);
+      var (ly, lx) = GetNextXY(curr.Point, Direction.L);
       if (!IsOutOfBounds(ly, lx, grid) && !grid[ly, lx].Seen)
         TraceTachyonBeam(grid[ly, lx], grid, ref count);
 
-      var (ry, rx) = GetNextXY(curr.Location, Direction.R);
+      var (ry, rx) = GetNextXY(curr.Point, Direction.R);
       if (!IsOutOfBounds(ry, rx, grid) && !grid[ry, rx].Seen)
         TraceTachyonBeam(grid[ry, rx], grid, ref count);
     }
@@ -63,7 +67,7 @@ public class Solution : IDay
 
       foreach (var beam in beams)
       {
-        var below = GetNextXY(beam.Location, Direction.D);
+        var below = GetNextXY(beam.Point, Direction.D);
 
         if (Equals(grid[below].Holds, '.'))
         {
@@ -74,7 +78,7 @@ public class Solution : IDay
         if (Equals(grid[below].Holds, '^'))
         {
           var left = GetNextXY(below, Direction.L);
-          var existingBeam = nextBeams.FirstOrDefault(b => b.Location == left);
+          var existingBeam = nextBeams.FirstOrDefault(b => b.Point == left);
           if (existingBeam != null)
             existingBeam.Paths += beam.Paths;
           else
@@ -106,12 +110,12 @@ public class Solution : IDay
 
   public class Beam
   {
-    public Location Location { get; set; }
+    public Point Point { get; set; }
     public long Paths { get; set; }
 
-    public Beam(Location loc, long paths)
+    public Beam(Point point, long paths)
     {
-      Location = loc;
+      Point = point;
       Paths = paths;
     }
   }
@@ -121,7 +125,7 @@ public class Solution : IDay
     var start = quantumTachyonManifold[0].Find(i => Equals(i.Holds, 'S'))!;
     var beamsList = new List<Beam>
     {
-      new Beam(start.Location, 1)
+      new Beam(start.Point, 1)
     }; // 1 unique path at start
     return TraceQuantumTachyonBeamPaths(beamsList, quantumTachyonManifold).ToString();
   }

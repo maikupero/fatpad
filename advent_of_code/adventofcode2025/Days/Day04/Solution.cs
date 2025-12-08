@@ -1,5 +1,8 @@
 namespace Aoc2025.Days.Day04;
 
+using Aoc2025.Util.Geometry.XY;
+using static Aoc2025.Util.Geometry.XY.GridUtils;
+
 public class Solution : IDay
 {
   private static string BasePath => Path.Combine(Directory.GetCurrentDirectory(), "Days", "Day04");
@@ -8,7 +11,7 @@ public class Solution : IDay
   {
     var filename = exampleSolved ? "Input.txt" : "Example.txt";
     var lines = File.ReadAllLines(Path.Combine(BasePath, filename));
-    return ParseCharGrid(lines);
+    return ParseLines(lines);
   }
 
   public string Part1()
@@ -40,7 +43,7 @@ public class Solution : IDay
       if (Equals(cell.Holds, '@') && adjacentCount < 4)
       {
         rollsToRemove.Add(cell);
-        grid[cell.Location.Y, cell.Location.X].Holds = '.';
+        grid[cell.Point.Y, cell.Point.X].Holds = '.';
       }
     }
 
